@@ -10,7 +10,7 @@ export function Skillset() {
         meta="INFRA-DEVOPS & HPC-OPS"
         title={
           <>
-            Infra-DevOps &amp; <span className="text-mfqc-yellow">HPC-Ops</span> 🛠️
+            Infra-DevOps &amp; <span className="text-mfqc-yellow">HPC-Ops</span>
           </>
         }
         lead="Administración de sistemas bare-metal y operación de clústeres reales desde el firmware hasta el orquestador."
@@ -40,7 +40,7 @@ export function Skillset() {
         title={
           <>
             Programación en <span className="text-mfqc-cyan">GPUs</span> &amp;{" "}
-            <span className="text-mfqc-yellow">Aceleradores</span> 🚀
+            <span className="text-mfqc-yellow">Aceleradores</span>
           </>
         }
         lead="Domina la ejecución masivamente paralela desde registros vectoriales en CPU hasta miles de núcleos en GPU."
@@ -69,7 +69,7 @@ export function Skillset() {
         title={
           <>
             Cómputo <span className="text-mfqc-yellow">Científico</span> &amp;{" "}
-            <span className="text-mfqc-cyan">Simulaciones</span> 🔬
+            <span className="text-mfqc-cyan">Simulaciones</span>
           </>
         }
         lead="Traduce modelos matemáticos, físicos y de IA en código capaz de escalar a cientos de núcleos y GPUs."
@@ -96,7 +96,7 @@ export function Skillset() {
         meta="HERRAMIENTAS EN HPC"
         title={
           <>
-            Ecosistema y <span className="text-mfqc-cyan">Herramientas en HPC</span> 🧰
+            Ecosistema y <span className="text-mfqc-cyan">Herramientas en HPC</span>
           </>
         }
         lead="El stack profesional que utilizan los centros de supercomputación y laboratorios nacionales en el mundo."
@@ -124,7 +124,7 @@ export function Skillset() {
         title={
           <>
             Herramientas Curiosas: <span className="text-mfqc-yellow">Profilers</span> &amp;{" "}
-            <span className="text-mfqc-cyan">eBPF</span> 🔍
+            <span className="text-mfqc-cyan">eBPF</span>
           </>
         }
         lead="Radiografía en vivo del hardware y del kernel para encontrar exactamente dónde se pierde cada nanosegundo."
@@ -147,7 +147,7 @@ export function Skillset() {
         meta="MENTALIDAD DE PERFORMANCE"
         title={
           <>
-            Mentalidad de <span className="text-mfqc-yellow">Performance</span> ⚡
+            Mentalidad de <span className="text-mfqc-yellow">Performance</span>
           </>
         }
         lead={

@@ -16,7 +16,7 @@ export function JoinAndFeedback({ onOpenPoster }: JoinAndFeedbackProps) {
         meta="MURO DE POST-ITS"
         title={
           <>
-            ¡Deja tu <span className="text-mfqc-yellow">Post-it</span> en la Mesa! 📝
+            ¡Deja tu <span className="text-mfqc-yellow">Post-it</span> en la Mesa!
           </>
         }
         lead="Toma un Post-it de color y un marcador, cuéntanos tu idea y pégalo en nuestro muro de feedback."
@@ -78,7 +78,7 @@ export function JoinAndFeedback({ onOpenPoster }: JoinAndFeedbackProps) {
                   onClick={onOpenPoster}
                   className="cursor-pointer border-none bg-mfqc-cyan px-3.5 py-2 font-mono text-[12px] font-extrabold tracking-[0.1em] text-mfqc-black uppercase shadow-[3px_3px_0px_#ffe600] md:px-5 md:py-2.5 md:text-[14.4px] md:shadow-[4px_4px_0px_#ffe600]"
                 >
-                  🖨️ Ver Cartel / Imprimir
+                  Ver Cartel / Imprimir
                 </button>
               </div>
             )}

@@ -12,7 +12,7 @@ export function HeterogeneousHardware() {
         title={
           <>
             <span className="text-mfqc-yellow">&ldquo;The Free Lunch Is Over&rdquo;</span> &amp;{" "}
-            <span className="text-mfqc-cyan">Heterogeneidad</span> 🍕
+            <span className="text-mfqc-cyan">Heterogeneidad</span>
           </>
         }
         lead="Durante décadas bastaba esperar un nuevo CPU con más frecuencia de reloj para que todo el software corriera más rápido gratis. Esa era murió."
@@ -50,7 +50,7 @@ export function HeterogeneousHardware() {
         meta="GOOGLE CLOUD TPU: MATRICES SISTÓLICAS"
         title={
           <>
-            Hardware No Cotidiano: <span className="text-mfqc-yellow">Google Cloud TPU</span> 🧠
+            Hardware No Cotidiano: <span className="text-mfqc-yellow">Google Cloud TPU</span>
           </>
         }
         lead="Diseñadas exclusivamente para el álgebra de tensores de redes neuronales, las Tensor Processing Units desechan gran parte del overhead de una GPU genérica."
@@ -81,7 +81,7 @@ export function HeterogeneousHardware() {
         title={
           <>
             Hardware No Cotidiano: <span className="text-mfqc-cyan">Tenstorrent</span> &amp;{" "}
-            <span className="text-mfqc-yellow">Tensix</span> ⚙️
+            <span className="text-mfqc-yellow">Tensix</span>
           </>
         }
         lead="Liderada por la leyenda del silicio Jim Keller, Tenstorrent propone una arquitectura modular basada en RISC-V orientada al flujo espacial de grafos en silicio."
@@ -112,7 +112,7 @@ export function HeterogeneousHardware() {
         title={
           <>
             Redes que Vuelan: <span className="text-mfqc-yellow">RDMA</span> &amp;{" "}
-            <span className="text-mfqc-cyan">Kernel Bypass a ~1 μs</span> ⚡
+            <span className="text-mfqc-cyan">Kernel Bypass a ~1 μs</span>
           </>
         }
         lead="En HPC la tarjeta de red no espera al sistema operativo: accede directamente a la memoria de otros servidores a velocidades vertiginosas."
@@ -143,7 +143,7 @@ export function HeterogeneousHardware() {
         title={
           <>
             Silicio Adaptativo: <span className="text-mfqc-yellow">Mellanox ConnectX</span> &amp;{" "}
-            <span className="text-mfqc-cyan">AMD Pensando</span> 🌐
+            <span className="text-mfqc-cyan">AMD Pensando</span>
           </>
         }
         lead="Las interfaces de red modernas son verdaderos aceleradores programables con hardware dedicado para telemetría y congestión."
@@ -175,7 +175,7 @@ export function HeterogeneousHardware() {
         title={
           <>
             El Tercer Pilar: <span className="text-mfqc-yellow">DPUs</span> &amp;{" "}
-            <span className="text-mfqc-cyan">In-Network Computing</span> 🛡️
+            <span className="text-mfqc-cyan">In-Network Computing</span>
           </>
         }
         lead="La Data Processing Unit (DPU) convierte a la tarjeta de red en un supercomputador autónomo que procesa datos mientras viajan por el cable."

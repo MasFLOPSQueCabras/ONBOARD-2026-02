@@ -2,9 +2,9 @@
 
 Onboarding presentation for the **Más FLOPS que Cabras** Student Supercomputing & HPC group at Universidad de los Andes.
 
-🔗 **Live Presentation:** [https://masflopsquecabras.github.io/ONBOARD-2026-02/](https://masflopsquecabras.github.io/ONBOARD-2026-02/)  
-📄 **Printable Poster:** [https://masflopsquecabras.github.io/ONBOARD-2026-02/posters/](https://masflopsquecabras.github.io/ONBOARD-2026-02/posters/)  
-✉️ **Email Invitations:** [docs/email-guide.md](docs/email-guide.md)
+**Live Presentation:** [https://masflopsquecabras.github.io/ONBOARD-2026-02/](https://masflopsquecabras.github.io/ONBOARD-2026-02/)  
+**Printable Poster:** [https://masflopsquecabras.github.io/ONBOARD-2026-02/posters/](https://masflopsquecabras.github.io/ONBOARD-2026-02/posters/)  
+**Email Invitations:** [docs/email-guide.md](docs/email-guide.md)
 
 ## Commands (Vite+ & React Email)
 

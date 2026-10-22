@@ -42,7 +42,7 @@ export function HpcMagnitude() {
         meta="ANATOMÍA DE UN NODO DE SUPERCOMPUTACIÓN"
         title={
           <>
-            Salto Cuántico: <span className="text-mfqc-yellow">Anatomía de un Nodo HPC</span> 🖥️
+            Salto Cuántico: <span className="text-mfqc-yellow">Anatomía de un Nodo HPC</span>
           </>
         }
         lead="Un nodo de supercómputo no se parece a un PC: es una bestia de múltiples CPUs de servidor y aceleradores densos con memoria HBM3e."
@@ -72,7 +72,7 @@ export function HpcMagnitude() {
         meta="LA MALLA DE INTERCONEXIÓN RDMA"
         title={
           <>
-            Salto Cuántico: <span className="text-mfqc-cyan">La Malla de Red RDMA</span> 🌐
+            Salto Cuántico: <span className="text-mfqc-cyan">La Malla de Red RDMA</span>
           </>
         }
         lead="Miles de nodos individuales solo se convierten en un supercomputador gracias a un tejido de red de bajísima latencia y altísimo ancho de banda."
@@ -103,7 +103,7 @@ export function HpcMagnitude() {
         title={
           <>
             La Magnitud del <span className="text-mfqc-yellow">TOP500</span>: Era{" "}
-            <span className="text-mfqc-cyan">Exascale</span> ⚡
+            <span className="text-mfqc-cyan">Exascale</span>
           </>
         }
         lead={
@@ -142,7 +142,7 @@ export function HpcMagnitude() {
         title={
           <>
             Demandas de IA: <span className="text-mfqc-yellow">Pre-Entrenamiento</span> &amp;{" "}
-            <span className="text-mfqc-cyan">Tensores FP8/FP4</span> 🤖
+            <span className="text-mfqc-cyan">Tensores FP8/FP4</span>
           </>
         }
         lead="Entrenar modelos de frontera de billones de parámetros exige exprimir al máximo la densidad de cómputo y la sincronización colectiva masiva."
@@ -172,7 +172,7 @@ export function HpcMagnitude() {
         title={
           <>
             Demandas de IA: <span className="text-mfqc-cyan">Inferencia</span> &amp;{" "}
-            <span className="text-mfqc-yellow">El Muro del KV-Cache</span> 🧠
+            <span className="text-mfqc-yellow">El Muro del KV-Cache</span>
           </>
         }
         lead="Generar respuestas token por token invierte completamente las restricciones: de cálculo intensivo pasamos a la dictadura del ancho de banda."
@@ -204,7 +204,7 @@ export function HpcMagnitude() {
         title={
           <>
             Demandas Científicas: <span className="text-mfqc-cyan">Rigor FP64</span> &amp;{" "}
-            <span className="text-mfqc-yellow">Álgebra Dispersa</span> 🔬
+            <span className="text-mfqc-yellow">Álgebra Dispersa</span>
           </>
         }
         lead="Los grandes problemas de la ciencia y la física exigen precisión matemática estricta y algoritmos radicalmente distintos a las redes neuronales."

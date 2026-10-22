@@ -10,7 +10,7 @@ export function CarlaSCC2026() {
         <FeatureGrid className="items-center!">
           <div className="flex flex-col gap-3 md:gap-6">
             <h2 className="font-display text-[33px]! leading-[1.08]! font-extrabold text-white md:text-[64px]! md:leading-[1.06]!">
-              Hito: <span className="text-mfqc-yellow">SCC CARLA 2026</span> 🏆
+              Hito: <span className="text-mfqc-yellow">SCC CARLA 2026</span>
             </h2>
 
             <p className="m-0! font-sans text-[16px]! leading-[1.42]! text-mfqc-gray md:text-[24px]! md:leading-[1.5]!">

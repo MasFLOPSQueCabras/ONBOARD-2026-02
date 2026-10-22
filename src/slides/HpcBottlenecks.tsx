@@ -10,7 +10,7 @@ export function HpcBottlenecks() {
         meta="THE MEMORY WALL"
         title={
           <>
-            El Muro de Memoria: <span className="text-mfqc-yellow">The Memory Wall</span> 🧱
+            El Muro de Memoria: <span className="text-mfqc-yellow">The Memory Wall</span>
           </>
         }
         lead="Hoy calcular operaciones en coma flotante es rápido y barato; el verdadero cuello de botella es alimentar a los núcleos a tiempo sin ahogar el ancho de banda."
@@ -41,7 +41,7 @@ export function HpcBottlenecks() {
         title={
           <>
             Redes a Escala: <span className="text-mfqc-yellow">Switches de Alta Radix</span> &amp;{" "}
-            <span className="text-mfqc-cyan">Congestión</span> 🔀
+            <span className="text-mfqc-cyan">Congestión</span>
           </>
         }
         lead="Conectar decenas de miles de aceleradores a 800 Gb/s exige conmutadores de cientos de puertos y topologías avanzadas para evitar el colapso del tráfico."
@@ -106,7 +106,7 @@ export function HpcBottlenecks() {
         title={
           <>
             Límite Atómico: <span className="text-mfqc-yellow">Nodos Angstrom</span> &amp;{" "}
-            <span className="text-mfqc-cyan">Transistores GAA</span> 🔬
+            <span className="text-mfqc-cyan">Transistores GAA</span>
           </>
         }
         lead="Al aproximarse a las dimensiones de un átomo de silicio, la litografía tradicional colisiona frontalmente contra la mecánica cuántica."
@@ -139,7 +139,7 @@ export function HpcBottlenecks() {
         title={
           <>
             El Fin del Silicio Monolítico: <span className="text-mfqc-yellow">Chiplets</span> &amp;{" "}
-            <span className="text-mfqc-cyan">CoWoS 3D</span> 🧩
+            <span className="text-mfqc-cyan">CoWoS 3D</span>
           </>
         }
         lead="Construir megachips de una sola pieza ya no es viable física ni económicamente: el futuro del cómputo radica en la modularidad 3D."
@@ -171,7 +171,7 @@ export function HpcBottlenecks() {
         title={
           <>
             El Cobre se Queda Corto: De Electrones a la{" "}
-            <span className="text-mfqc-cyan">Fotónica (CPO)</span> 💡
+            <span className="text-mfqc-cyan">Fotónica (CPO)</span>
           </>
         }
         lead="A velocidades de 800G y 1.6T, enviar electrones por cables de cobre genera pérdidas resistivas inasumibles: la luz debe viajar directo al chip."
@@ -202,7 +202,7 @@ export function HpcBottlenecks() {
         title={
           <>
             Termodinámica Extrema: <span className="text-mfqc-yellow">Direct Liquid Cooling</span>{" "}
-            &amp; <span className="text-mfqc-cyan">Inmersión</span> ❄️
+            &amp; <span className="text-mfqc-cyan">Inmersión</span>
           </>
         }
         lead="Los ventiladores ruidosos han tocado techo: remover 1,000+ vatios de un área milimétrica exige física de fluidos de alta capacidad térmica."
@@ -233,7 +233,7 @@ export function HpcBottlenecks() {
         title={
           <>
             Consumo Energético: La Era de los{" "}
-            <span className="text-mfqc-yellow">Datacenters de Gigawatt</span> ⚡
+            <span className="text-mfqc-yellow">Datacenters de Gigawatt</span>
           </>
         }
         lead="El techo de cristal para la próxima era de la IA y el supercómputo ya no son los transistores, sino la capacidad física de la red eléctrica."
@@ -263,7 +263,7 @@ export function HpcBottlenecks() {
         title={
           <>
             Domar a la Bestia: La Pirámide de{" "}
-            <span className="text-mfqc-yellow">Jerarquías de Memoria</span> 🏔️
+            <span className="text-mfqc-yellow">Jerarquías de Memoria</span>
           </>
         }
         lead="En un acelerador moderno no existe una sola memoria: dominar el rendimiento exige orquestar datos a través de una pirámide vertical de latencias."
@@ -295,7 +295,7 @@ export function HpcBottlenecks() {
         title={
           <>
             Domar a la Bestia: <span className="text-mfqc-yellow">Asincronía</span> &amp;{" "}
-            <span className="text-mfqc-cyan">Silicio Ocioso</span> ⚙️
+            <span className="text-mfqc-cyan">Silicio Ocioso</span>
           </>
         }
         lead="Tener silicio de última generación no garantiza velocidad: sin asincronía agresiva, los motores matriciales pasan la mayor parte del tiempo durmiendo."
@@ -327,7 +327,7 @@ export function HpcBottlenecks() {
         title={
           <>
             Domar a la Bestia: El Gran Reto de la{" "}
-            <span className="text-mfqc-yellow">Programabilidad</span> 💻
+            <span className="text-mfqc-yellow">Programabilidad</span>
           </>
         }
         lead="De nada sirve construir un supercomputador de gigavatios si el software no es capaz de exprimir el silicio sin reescribir millones de líneas cada dos años."

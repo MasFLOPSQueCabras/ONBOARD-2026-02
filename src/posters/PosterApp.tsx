@@ -51,7 +51,7 @@ export function PosterApp() {
                   : "text-white/70 hover:text-white"
               }`}
             >
-              📄 Vertical (Portrait)
+              Vertical (Portrait)
             </button>
             <button
               type="button"
@@ -62,7 +62,7 @@ export function PosterApp() {
                   : "text-white/70 hover:text-white"
               }`}
             >
-              🖥️ Horizontal (Landscape)
+              Horizontal (Landscape)
             </button>
           </div>
 
@@ -72,7 +72,7 @@ export function PosterApp() {
             onClick={() => window.print()}
             className="cursor-pointer border-none bg-mfqc-yellow px-4 py-1.5 font-mono text-xs font-extrabold text-mfqc-black shadow-[3px_3px_0px_#00f5d4] hover:brightness-105 active:translate-x-0.5 active:translate-y-0.5"
           >
-            🖨️ Imprimir Cartel
+            Imprimir Cartel
           </button>
 
           {/* Back link */}
@@ -129,7 +129,7 @@ export function PosterApp() {
               </div>
 
               <div className="mt-3 font-mono text-xs font-extrabold tracking-widest text-mfqc-yellow uppercase sm:text-base">
-                📱 ESCANEA PARA UNIRTE AL GRUPO
+                ESCANEA PARA UNIRTE AL GRUPO
               </div>
               <div className="mt-0.5 font-mono text-[10px] text-mfqc-cyan sm:text-xs">
                 https://masflopsquecabras.github.io/ONBOARD-2026-02/
@@ -186,7 +186,7 @@ export function PosterApp() {
                 </p>
 
                 <div className="rounded-none border-l-4 border-mfqc-yellow bg-white/5 p-2.5 font-mono text-xs text-white/90 sm:text-sm">
-                  🏆 <strong>Temporada 2027:</strong> Rumbo a las cumbres mundiales de supercómputo:
+                  <strong>Temporada 2027:</strong> Rumbo a las cumbres mundiales de supercómputo:
                   SuperComputing (SC27), CARLA SCC y ASC.
                 </div>
               </div>
@@ -206,7 +206,7 @@ export function PosterApp() {
                 </div>
 
                 <div className="mt-2.5 font-mono text-xs font-extrabold tracking-widest text-mfqc-cyan uppercase sm:text-sm">
-                  📱 ESCANEA PARA ENTRAR
+                  ESCANEA PARA ENTRAR
                 </div>
                 <div className="mt-0.5 font-mono text-[10px] text-white/70">
                   masflopsquecabras.github.io

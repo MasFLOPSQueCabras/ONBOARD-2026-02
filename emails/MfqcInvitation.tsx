@@ -174,8 +174,7 @@ export default function MfqcInvitation({
                   color: "#cbd5e1",
                 }}
               >
-                Hola, <strong style={{ color: "#ffffff", fontWeight: 800 }}>{recipientName}</strong>{" "}
-                👋
+                Hola, <strong style={{ color: "#ffffff", fontWeight: 800 }}>{recipientName}</strong>
               </Text>
 
               <Heading
@@ -293,7 +292,7 @@ export default function MfqcInvitation({
                   textTransform: "uppercase",
                 }}
               >
-                📍 DATOS DEL ENCUENTRO
+                DATOS DEL ENCUENTRO
               </Text>
 
               <Row style={{ marginBottom: "8px" }}>
@@ -307,7 +306,7 @@ export default function MfqcInvitation({
                       color: "#94a3b8",
                     }}
                   >
-                    📅 Fecha:
+                    Fecha:
                   </Text>
                 </Column>
                 <Column>
@@ -336,7 +335,7 @@ export default function MfqcInvitation({
                       color: "#94a3b8",
                     }}
                   >
-                    ⏰ Hora:
+                    Hora:
                   </Text>
                 </Column>
                 <Column>
@@ -365,7 +364,7 @@ export default function MfqcInvitation({
                       color: "#94a3b8",
                     }}
                   >
-                    📍 Lugar:
+                    Lugar:
                   </Text>
                 </Column>
                 <Column>
@@ -420,7 +419,7 @@ export default function MfqcInvitation({
                               lineHeight: "1.2",
                             }}
                           >
-                            🚀 Abrir Slides Interactivas
+                            Abrir Slides Interactivas
                           </a>
                         </td>
                       </tr>
@@ -461,7 +460,7 @@ export default function MfqcInvitation({
                               lineHeight: "1.2",
                             }}
                           >
-                            📄 Ver Cartel Imprimible
+                            Ver Cartel Imprimible
                           </a>
                         </td>
                       </tr>

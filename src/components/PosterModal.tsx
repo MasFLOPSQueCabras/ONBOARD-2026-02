@@ -15,7 +15,7 @@ export function PosterModal({ onClose }: PosterModalProps) {
           onClick={() => window.print()}
           className="cursor-pointer border-none bg-mfqc-yellow px-3.5 py-2 font-mono text-xs font-extrabold text-mfqc-black shadow-[3px_3px_0px_#00f5d4] hover:brightness-105 sm:px-4.5 sm:py-2.5 sm:text-sm"
         >
-          🖨️ Imprimir Cartel
+          Imprimir Cartel
         </button>
         <button
           type="button"
@@ -58,7 +58,7 @@ export function PosterModal({ onClose }: PosterModalProps) {
         </div>
 
         <div className="mt-5 font-mono text-sm font-extrabold tracking-[0.1em] text-mfqc-yellow sm:mt-7 sm:text-xl print:mt-7 print:text-xl">
-          📱 ESCANEA PARA UNIRTE AL GRUPO
+          ESCANEA PARA UNIRTE AL GRUPO
         </div>
         <div className="mt-2 font-mono text-xs text-mfqc-gray sm:text-base print:text-base">
           {MFQC_CONFIG.contactEmail}

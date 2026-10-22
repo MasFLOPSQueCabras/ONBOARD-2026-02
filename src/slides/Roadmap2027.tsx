@@ -10,7 +10,7 @@ export function Roadmap2027() {
         meta="PRÓXIMAS COMPETENCIAS"
         title={
           <>
-            Temporada <span className="text-mfqc-yellow">2027</span>: El Triple Reto 🌍
+            Temporada <span className="text-mfqc-yellow">2027</span>: El Triple Reto
           </>
         }
         lead={
@@ -39,7 +39,7 @@ export function Roadmap2027() {
         meta="LA CUMBRE MUNDIAL"
         title={
           <>
-            Rumbo a <span className="text-mfqc-cyan">SuperComputing</span> ⚡
+            Rumbo a <span className="text-mfqc-cyan">SuperComputing</span>
           </>
         }
         lead="Preparación continua para competir frente a las mejores universidades del mundo."
