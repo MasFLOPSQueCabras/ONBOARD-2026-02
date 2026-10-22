@@ -8,7 +8,7 @@ export function HeterogeneousHardware() {
       {/* 1. THE FREE LUNCH IS OVER — 2 Cajas para los dos Lemas */}
       <SlideSection
         brand="MFQC // PARADIGMA"
-        meta="SYS.05A — THE FREE LUNCH IS OVER"
+        meta="THE FREE LUNCH IS OVER"
         title={
           <>
             <span className="text-mfqc-yellow">&ldquo;The Free Lunch Is Over&rdquo;</span> &amp;{" "}
@@ -47,7 +47,7 @@ export function HeterogeneousHardware() {
       {/* 2. GOOGLE CLOUD TPU */}
       <SlideSection
         brand="MFQC // ARQUITECTURA ASIC"
-        meta="SYS.05B — GOOGLE CLOUD TPU: MATRICES SISTÓLICAS"
+        meta="GOOGLE CLOUD TPU: MATRICES SISTÓLICAS"
         title={
           <>
             Hardware No Cotidiano: <span className="text-mfqc-yellow">Google Cloud TPU</span> 🧠
@@ -77,7 +77,7 @@ export function HeterogeneousHardware() {
       {/* 3. TENSTORRENT & JIM KELLER */}
       <SlideSection
         brand="MFQC // RISC-V & MALLA 2D"
-        meta="SYS.05C — TENSTORRENT & JIM KELLER: RISC-V TENSIX"
+        meta="TENSTORRENT & JIM KELLER: RISC-V TENSIX"
         title={
           <>
             Hardware No Cotidiano: <span className="text-mfqc-cyan">Tenstorrent</span> &amp;{" "}
@@ -108,7 +108,7 @@ export function HeterogeneousHardware() {
       {/* 4. RDMA & KERNEL BYPASS */}
       <SlideSection
         brand="MFQC // REDES DE ULTRA BAJA LATENCIA"
-        meta="SYS.05D — RDMA & KERNEL BYPASS: CERO COPIAS"
+        meta="RDMA & KERNEL BYPASS: CERO COPIAS"
         title={
           <>
             Redes que Vuelan: <span className="text-mfqc-yellow">RDMA</span> &amp;{" "}
@@ -139,7 +139,7 @@ export function HeterogeneousHardware() {
       {/* 5. SILICIO DE RED: MELLANOX & AMD PENSANDO */}
       <SlideSection
         brand="MFQC // SILICIO DE RED"
-        meta="SYS.05E — MELLANOX CONNECTX & AMD PENSANDO"
+        meta="MELLANOX CONNECTX & AMD PENSANDO"
         title={
           <>
             Silicio Adaptativo: <span className="text-mfqc-yellow">Mellanox ConnectX</span> &amp;{" "}
@@ -171,7 +171,7 @@ export function HeterogeneousHardware() {
       {/* 6. DATA PROCESSING UNITS (DPUS) */}
       <SlideSection
         brand="MFQC // CÓMPUTO EN LA RED"
-        meta="SYS.05F — DPUS & IN-NETWORK COMPUTING"
+        meta="DPUS & IN-NETWORK COMPUTING"
         title={
           <>
             El Tercer Pilar: <span className="text-mfqc-yellow">DPUs</span> &amp;{" "}

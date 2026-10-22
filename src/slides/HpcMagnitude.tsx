@@ -8,7 +8,7 @@ export function HpcMagnitude() {
       {/* 1. PORTÁTIL VS RTX 5090 — 2 Cajas para comparativa directa */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
-        meta="SYS.02A — CÓMPUTO PERSONAL: PORTÁTIL VS. DESKTOP"
+        meta="CÓMPUTO PERSONAL: PORTÁTIL VS. DESKTOP"
         title={
           <>
             Cómputo Personal: <span className="text-mfqc-yellow">Portátil</span> vs.{" "}
@@ -39,7 +39,7 @@ export function HpcMagnitude() {
       {/* 2. ANATOMÍA DE UN NODO HPC MULTI-ACELERADOR */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
-        meta="SYS.02B — ANATOMÍA DE UN NODO DE SUPERCOMPUTACIÓN"
+        meta="ANATOMÍA DE UN NODO DE SUPERCOMPUTACIÓN"
         title={
           <>
             Salto Cuántico: <span className="text-mfqc-yellow">Anatomía de un Nodo HPC</span> 🖥️
@@ -69,7 +69,7 @@ export function HpcMagnitude() {
       {/* 3. LA MALLA DE RED RDMA DEL CLÚSTER */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
-        meta="SYS.02C — LA MALLA DE INTERCONEXIÓN RDMA"
+        meta="LA MALLA DE INTERCONEXIÓN RDMA"
         title={
           <>
             Salto Cuántico: <span className="text-mfqc-cyan">La Malla de Red RDMA</span> 🌐
@@ -99,7 +99,7 @@ export function HpcMagnitude() {
       {/* 4. TOP500 & ERA EXASCALE */}
       <SlideSection
         brand="MFQC // TOP500"
-        meta="SYS.02D — LA CIMA MUNDIAL: TOP500"
+        meta="LA CIMA MUNDIAL: TOP500"
         title={
           <>
             La Magnitud del <span className="text-mfqc-yellow">TOP500</span>: Era{" "}
@@ -138,7 +138,7 @@ export function HpcMagnitude() {
       {/* 5. IA DE FRONTERA: PRE-ENTRENAMIENTO MASIVO */}
       <SlideSection
         brand="MFQC // WORKLOADS: IA"
-        meta="SYS.02E — IA: PRE-ENTRENAMIENTO MASIVO"
+        meta="IA: PRE-ENTRENAMIENTO MASIVO"
         title={
           <>
             Demandas de IA: <span className="text-mfqc-yellow">Pre-Entrenamiento</span> &amp;{" "}
@@ -168,7 +168,7 @@ export function HpcMagnitude() {
       {/* 6. IA DE FRONTERA: INFERENCIA & KV-CACHE */}
       <SlideSection
         brand="MFQC // WORKLOADS: IA"
-        meta="SYS.02F — IA: INFERENCIA & EL MURO DEL KV-CACHE"
+        meta="IA: INFERENCIA & EL MURO DEL KV-CACHE"
         title={
           <>
             Demandas de IA: <span className="text-mfqc-cyan">Inferencia</span> &amp;{" "}
@@ -200,7 +200,7 @@ export function HpcMagnitude() {
       {/* 7. CÓMPUTO CIENTÍFICO & SIMULACIÓN */}
       <SlideSection
         brand="MFQC // WORKLOADS: CIENCIA"
-        meta="SYS.02G — CÓMPUTO CIENTÍFICO & SIMULACIÓN"
+        meta="CÓMPUTO CIENTÍFICO & SIMULACIÓN"
         title={
           <>
             Demandas Científicas: <span className="text-mfqc-cyan">Rigor FP64</span> &amp;{" "}

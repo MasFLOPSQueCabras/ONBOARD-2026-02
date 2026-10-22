@@ -13,7 +13,7 @@ export function JoinAndFeedback({ onOpenPoster }: JoinAndFeedbackProps) {
     <Slide>
       <SlideSection
         brand="MFQC // FEEDBACK WALL"
-        meta="SYS.10A — MURO DE POST-ITS"
+        meta="MURO DE POST-ITS"
         title={
           <>
             ¡Deja tu <span className="text-mfqc-yellow">Post-it</span> en la Mesa! 📝
@@ -38,7 +38,7 @@ export function JoinAndFeedback({ onOpenPoster }: JoinAndFeedbackProps) {
         </FeatureGrid>
       </SlideSection>
 
-      <SlideSection brand="MFQC // ONBOARDING" meta="SYS.10B — ÚNETE AL EQUIPO">
+      <SlideSection brand="MFQC // ONBOARDING" meta="ÚNETE AL EQUIPO">
         <FeatureGrid className="items-center!">
           <div className="flex flex-col gap-3 md:gap-7">
             <h2 className="font-display text-[33px]! leading-[1.08]! font-extrabold text-white md:text-[64px]! md:leading-[1.06]!">

@@ -7,7 +7,7 @@ export function Roadmap2027() {
     <Slide>
       <SlideSection
         brand="MFQC // ROADMAP 2027"
-        meta="SYS.08A — PRÓXIMAS COMPETENCIAS"
+        meta="PRÓXIMAS COMPETENCIAS"
         title={
           <>
             Temporada <span className="text-mfqc-yellow">2027</span>: El Triple Reto 🌍
@@ -36,7 +36,7 @@ export function Roadmap2027() {
 
       <SlideSection
         brand="MFQC // ROADMAP 2027"
-        meta="SYS.08B — LA CUMBRE MUNDIAL"
+        meta="LA CUMBRE MUNDIAL"
         title={
           <>
             Rumbo a <span className="text-mfqc-cyan">SuperComputing</span> ⚡

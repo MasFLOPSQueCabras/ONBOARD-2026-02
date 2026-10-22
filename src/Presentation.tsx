@@ -66,6 +66,8 @@ export function Presentation() {
       hash: true,
       center: true,
       scrollActivationWidth: 0,
+      slideNumber: "c/t" as const,
+      showSlideNumber: "all" as const,
     }),
     [viewport.width, viewport.height, viewport.margin],
   );

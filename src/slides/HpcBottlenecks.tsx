@@ -7,7 +7,7 @@ export function HpcBottlenecks() {
       {/* 1. THE MEMORY WALL */}
       <SlideSection
         brand="MFQC // BOTTLENECKS"
-        meta="SYS.04A — THE MEMORY WALL"
+        meta="THE MEMORY WALL"
         title={
           <>
             El Muro de Memoria: <span className="text-mfqc-yellow">The Memory Wall</span> 🧱
@@ -37,7 +37,7 @@ export function HpcBottlenecks() {
       {/* 2. SWITCHES DE ALTA RADIX & CONGESTIÓN */}
       <SlideSection
         brand="MFQC // INTERCONEXIÓN"
-        meta="SYS.04B — SWITCHES DE ALTA RADIX & CONGESTIÓN"
+        meta="SWITCHES DE ALTA RADIX & CONGESTIÓN"
         title={
           <>
             Redes a Escala: <span className="text-mfqc-yellow">Switches de Alta Radix</span> &amp;{" "}
@@ -72,7 +72,7 @@ export function HpcBottlenecks() {
       {/* 3. TAIL LATENCY EN OPERACIONES COLECTIVAS */}
       <SlideSection
         brand="MFQC // LATENCIA DE COLA"
-        meta="SYS.04C — LA TIRANÍA DE LA LATENCIA DE COLA"
+        meta="LA TIRANÍA DE LA LATENCIA DE COLA"
         title={
           <>
             La Tiranía del Nodo Más Lento: <span className="text-mfqc-cyan">Tail Latency</span> ⏱️
@@ -102,7 +102,7 @@ export function HpcBottlenecks() {
       {/* 4. LITOGRAFÍA EXTREMA & NODOS ANGSTROM */}
       <SlideSection
         brand="MFQC // FÍSICA DEL SILICIO"
-        meta="SYS.04D — LITOGRAFÍA EXTREMA & NODOS ANGSTROM"
+        meta="LITOGRAFÍA EXTREMA & NODOS ANGSTROM"
         title={
           <>
             Límite Atómico: <span className="text-mfqc-yellow">Nodos Angstrom</span> &amp;{" "}
@@ -135,7 +135,7 @@ export function HpcBottlenecks() {
       {/* 5. ARQUITECTURA DE CHIPLETS & EMPAQUETADO 2.5D/3D */}
       <SlideSection
         brand="MFQC // EMPAQUETADO AVANZADO"
-        meta="SYS.04E — CHIPLETS & EMPAQUETADO 2.5D/3D"
+        meta="CHIPLETS & EMPAQUETADO 2.5D/3D"
         title={
           <>
             El Fin del Silicio Monolítico: <span className="text-mfqc-yellow">Chiplets</span> &amp;{" "}
@@ -167,7 +167,7 @@ export function HpcBottlenecks() {
       {/* 6. DEL COBRE A LA FOTÓNICA */}
       <SlideSection
         brand="MFQC // INTERCONEXIÓN ÓPTICA"
-        meta="SYS.04F — EL COBRE SE QUEDA CORTO: FOTÓNICA & CPO"
+        meta="EL COBRE SE QUEDA CORTO: FOTÓNICA & CPO"
         title={
           <>
             El Cobre se Queda Corto: De Electrones a la{" "}
@@ -198,7 +198,7 @@ export function HpcBottlenecks() {
       {/* 7. TERMODINÁMICA & ENFRIAMIENTO LÍQUIDO */}
       <SlideSection
         brand="MFQC // TERMODINÁMICA"
-        meta="SYS.04G — TERMODINÁMICA & ENFRIAMIENTO LÍQUIDO"
+        meta="TERMODINÁMICA & ENFRIAMIENTO LÍQUIDO"
         title={
           <>
             Termodinámica Extrema: <span className="text-mfqc-yellow">Direct Liquid Cooling</span>{" "}
@@ -229,7 +229,7 @@ export function HpcBottlenecks() {
       {/* 8. DATACENTERS DE GIGAWATT & ENERGÍA */}
       <SlideSection
         brand="MFQC // ENERGÍA & PLANETA"
-        meta="SYS.04H — DATACENTERS DE ESCALA GIGAWATT & ENERGÍA"
+        meta="DATACENTERS DE ESCALA GIGAWATT & ENERGÍA"
         title={
           <>
             Consumo Energético: La Era de los{" "}
@@ -259,7 +259,7 @@ export function HpcBottlenecks() {
       {/* 9. JERARQUÍAS PROFUNDAS DE MEMORIA */}
       <SlideSection
         brand="MFQC // ARQUITECTURA DEL SILICIO"
-        meta="SYS.04I — JERARQUÍAS PROFUNDAS DE MEMORIA"
+        meta="JERARQUÍAS PROFUNDAS DE MEMORIA"
         title={
           <>
             Domar a la Bestia: La Pirámide de{" "}
@@ -291,7 +291,7 @@ export function HpcBottlenecks() {
       {/* 10. ASINCRONÍA, TMA & SILICIO OCIOSO */}
       <SlideSection
         brand="MFQC // HARDWARE ASÍNCRONO"
-        meta="SYS.04J — ASINCRONÍA, TMA & SILICIO OCIOSO"
+        meta="ASINCRONÍA, TMA & SILICIO OCIOSO"
         title={
           <>
             Domar a la Bestia: <span className="text-mfqc-yellow">Asincronía</span> &amp;{" "}
@@ -323,7 +323,7 @@ export function HpcBottlenecks() {
       {/* 11. EL RETO DE LA PROGRAMABILIDAD */}
       <SlideSection
         brand="MFQC // EL RETO DEL SOFTWARE"
-        meta="SYS.04K — DOMAR A LA BESTIA: PROGRAMABILIDAD"
+        meta="DOMAR A LA BESTIA: PROGRAMABILIDAD"
         title={
           <>
             Domar a la Bestia: El Gran Reto de la{" "}

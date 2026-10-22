@@ -21,7 +21,7 @@ export function NextStepsMojo() {
     <Slide>
       <SlideSection
         brand="MFQC // NEXT: MOJO 🔥"
-        meta="SYS.06A — ¿POR QUÉ MOJO EN HPC?"
+        meta="¿POR QUÉ MOJO EN HPC?"
         title={
           <>
             ¿Por qué <span className="text-mfqc-yellow">Mojo 🔥</span>? El Futuro{" "}
@@ -61,7 +61,7 @@ export function NextStepsMojo() {
         </FeatureGrid>
       </SlideSection>
 
-      <SlideSection brand="MFQC // MOJO GPU" meta="SYS.06B — KERNEL VECADD">
+      <SlideSection brand="MFQC // MOJO GPU" meta="KERNEL VECADD">
         <div className="grid grid-cols-1 items-center gap-5 md:grid-cols-[0.82fr_1.18fr] md:gap-14">
           <div className="flex flex-col gap-3 md:gap-6">
             <h2 className="font-display text-[33px]! leading-[1.08]! font-extrabold text-white md:text-[58px]! md:leading-[1.06]!">
@@ -93,7 +93,7 @@ export function NextStepsMojo() {
 
       <SlideSection
         brand="MFQC // LECTURES"
-        meta="SYS.06C — LECTURES PIONERAS POR MFQC"
+        meta="LECTURES PIONERAS POR MFQC"
         title={
           <>
             Inédito: Lectures de <span className="text-mfqc-yellow">Mojo 🔥</span> por{" "}

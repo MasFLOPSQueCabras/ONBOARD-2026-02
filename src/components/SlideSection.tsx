@@ -17,6 +17,7 @@ export function SlideSection({
   children,
   bodyClassName = "",
 }: SlideSectionProps) {
+  const displayMeta = meta.replace(/^SYS\.\w+\s*[—–-]\s*/i, "");
   return (
     <section>
       <div className="box-border flex h-full w-full flex-col justify-between p-6 pb-22 md:px-20 md:pt-12 md:pb-14">
@@ -25,7 +26,7 @@ export function SlideSection({
             {brand}
           </span>
           <span className="min-w-0 flex-1 text-right text-[10.5px] leading-tight font-bold text-mfqc-cyan md:text-[15.2px]">
-            {meta}
+            {displayMeta}
           </span>
         </div>
 

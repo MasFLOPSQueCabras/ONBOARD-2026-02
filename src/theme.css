@@ -167,6 +167,45 @@ html.reveal-print .reveal .slides .pdf-page > section {
   color: var(--color-mfqc-cyan) !important;
 }
 
+.reveal .slide-number {
+  position: absolute !important;
+  left: 24px !important;
+  right: auto !important;
+  bottom: 24px !important;
+  top: auto !important;
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  color: var(--color-mfqc-yellow) !important;
+  background: rgba(8, 8, 12, 0.88) !important;
+  border: 1px solid rgba(255, 230, 0, 0.4) !important;
+  box-shadow: 2px 2px 0px var(--color-mfqc-cyan) !important;
+  padding: 4px 10px !important;
+  z-index: 31 !important;
+  line-height: 1 !important;
+  border-radius: 0 !important;
+}
+
+.reveal .slide-number a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.reveal .slide-number .slide-number-delimiter {
+  color: rgba(255, 255, 255, 0.45) !important;
+  margin: 0 4px !important;
+}
+
+@media (max-width: 768px) {
+  .reveal .slide-number {
+    left: 12px !important;
+    bottom: 12px !important;
+    font-size: 11px !important;
+    padding: 3px 7px !important;
+  }
+}
+
 .reveal .progress {
   background: rgba(255, 255, 255, 0.12) !important;
   color: var(--color-mfqc-yellow) !important;

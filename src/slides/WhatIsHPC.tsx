@@ -7,7 +7,7 @@ export function WhatIsHPC() {
     <Slide>
       <SlideSection
         brand="MFQC // HPC"
-        meta="SYS.01 — ARQUITECTURA DE CLÚSTER"
+        meta="ARQUITECTURA DE CLÚSTER"
         title={
           <>
             ¿Qué es un clúster <span className="text-mfqc-yellow">HPC</span>?
@@ -29,7 +29,7 @@ export function WhatIsHPC() {
 
       <SlideSection
         brand="MFQC // HPC"
-        meta="SYS.01B — DATOS Y ORQUESTACIÓN"
+        meta="DATOS Y ORQUESTACIÓN"
         title={
           <>
             Datos &amp; <span className="text-mfqc-cyan">Orquestación</span>
@@ -52,7 +52,7 @@ export function WhatIsHPC() {
 
       <SlideSection
         brand="MFQC // SCC"
-        meta="SYS.01C — STUDENT CLUSTER COMPETITION"
+        meta="STUDENT CLUSTER COMPETITION"
         title={
           <>
             ¿Qué es <span className="text-mfqc-yellow">SCC</span>?
