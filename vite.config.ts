@@ -1,10 +1,25 @@
-import { defineConfig } from "vite";
+import { defineConfig, lazyPlugins } from "vite-plus";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: lazyPlugins(() => [react(), tailwindcss()]),
   base: process.env.NODE_ENV === "production" ? "/ONBOARD-2026-02/" : "/",
+  fmt: {
+    ignorePatterns: ["dist/**"],
+  },
+  lint: {
+    ignorePatterns: ["dist/**"],
+    plugins: ["react", "typescript", "oxc"],
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+    rules: {
+      "react/rules-of-hooks": "error",
+      "react/only-export-components": ["warn", { allowConstantExport: true }],
+    },
+  },
   build: {
     target: "esnext",
     cssMinify: "lightningcss",

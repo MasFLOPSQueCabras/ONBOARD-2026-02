@@ -44,7 +44,7 @@ export function Deck({ config, children }: DeckProps) {
     }
 
     return () => {
-      Promise.resolve().then(() => {
+      void Promise.resolve().then(() => {
         if (mountIdRef.current === currentMountId && deckRef.current) {
           try {
             deckRef.current.destroy();

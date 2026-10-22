@@ -23,22 +23,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7.0.1
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2.2.0
+      - name: Setup Vite+
+        uses: voidzero-dev/setup-vp@v1.21.2
         with:
-          bun-version: 1.4.4
+          node-version: "24"
+          cache: true
 
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Lint with Oxlint
-        run: bun run lint
-
-      - name: Check formatting with Oxfmt
-        run: bun run fmt:check
+      - name: Run static checks (Oxfmt, Oxlint & Type-check)
+        run: vp check
 
       - name: Build
-        run: bun run build
+        run: vp build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5.0.0

@@ -4,12 +4,13 @@ Onboarding presentation for the **Más FLOPS que Cabras** Student Supercomputing
 
 🔗 **Live Presentation:** [https://masflopsquecabras.github.io/ONBOARD-2026-02/](https://masflopsquecabras.github.io/ONBOARD-2026-02/)
 
-## Commands
+## Commands (Vite+)
 
 ```bash
 bun install      # Install dependencies
-bun run dev      # Start development server
-bun run build    # Build for production
-bun run lint     # Run linter (oxlint)
-bun run fmt      # Format code (oxfmt)
+bun run dev      # Start development server (vp dev)
+bun run check    # Format, lint & type-check (vp check)
+bun run build    # Build for production (vp build)
+bun run fmt      # Format code (vp fmt)
+bun run lint     # Lint code (vp lint)
 ```
