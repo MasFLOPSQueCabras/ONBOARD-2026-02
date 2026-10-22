@@ -9,12 +9,15 @@
     "check": "vp check",
     "lint": "vp lint",
     "fmt": "vp fmt",
-    "preview": "vp preview"
+    "preview": "vp preview",
+    "email:dev": "email dev --dir emails --port 3000",
+    "email:build": "bun run scripts/render-email.ts"
   },
   "dependencies": {
     "qrcode.react": "^4.2.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "react-email": "^6.11.3",
     "reveal.js": "^6.0.2"
   },
   "devDependencies": {
