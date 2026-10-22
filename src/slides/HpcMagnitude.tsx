@@ -1,42 +1,59 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
-import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
 
 export function HpcMagnitude() {
   return (
     <Slide>
-      {/* 1. PORTÁTIL VS RTX 5090 — 2 Cajas para comparativa directa */}
+      {/* 1. PORTÁTIL ULTRACOMPACTO */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
-        meta="CÓMPUTO PERSONAL: PORTÁTIL VS. DESKTOP"
+        meta="CÓMPUTO PERSONAL: PORTÁTIL ULTRACOMPACTO"
         title={
           <>
-            Cómputo Personal: <span className="text-mfqc-yellow">Portátil</span> vs.{" "}
-            <span className="text-mfqc-cyan">RTX 5090</span>
+            Cómputo Personal: <span className="text-mfqc-yellow">Portátil Ultracompacto</span>
           </>
         }
-        lead="Antes de escalar a un supercomputador, miremos el techo físico del hardware personal más potente de hoy."
+        lead="Antes de escalar a un clúster, miremos las capacidades y límites del hardware portátil más avanzado."
       >
-        <FeatureGrid>
-          <FeatureItem tag="01 / PORTÁTIL ULTRACOMPACTO" title="Apple Silicon (Serie M / M6)">
-            Un SoC unificado de ~40–100 W que integra CPU, GPU y NPU compartiendo memoria (~400–546
-            GB/s): extraordinaria eficiencia por vatio, pero limitado térmicamente para cargas
-            masivas sostenidas.
-          </FeatureItem>
-
-          <FeatureItem
-            tag="02 / DESKTOP ENTUSIASTA"
-            title="Intel / AMD + NVIDIA RTX 5090"
-            accent="cyan"
-          >
-            Una torre tope de gama con GPU <strong className="text-mfqc-cyan">RTX 5090</strong> (575
-            W, 1.79 TB/s GDDR7) entrega ~105 TFLOPS FP32 en local, pero sigue atrapada en una sola
-            placa madre, enlaces PCIe y red doméstica.
-          </FeatureItem>
-        </FeatureGrid>
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[17px] leading-[1.65] text-white/90 md:text-[25px] md:leading-[1.6]">
+            Los procesadores de arquitectura unificada (
+            <strong className="text-mfqc-yellow">Apple Silicon Serie M</strong>) integran CPU, GPU y
+            NPU en un único SoC con consumos de apenas ~40 a 100 W, compartiendo un bus de memoria
+            de hasta <strong className="text-white">400–546 GB/s</strong> sin cuellos de botella de
+            bus PCIe. Aunque entregan una extraordinaria eficiencia por vatio para desarrollo y
+            prototipado local de modelos de IA, su rendimiento sostenido queda estrictamente acotado
+            por las restricciones térmicas del chasis delgado y la imposibilidad física de escalar
+            más allá de una sola máquina.
+          </p>
+        </div>
       </SlideSection>
 
-      {/* 2. ANATOMÍA DE UN NODO HPC MULTI-ACELERADOR */}
+      {/* 2. DESKTOP ENTUSIASTA (RTX 5090) */}
+      <SlideSection
+        brand="MFQC // ESCALA HPC"
+        meta="CÓMPUTO PERSONAL: DESKTOP ENTUSIASTA"
+        title={
+          <>
+            Cómputo Personal: <span className="text-mfqc-cyan">Desktop &amp; RTX 5090</span>
+          </>
+        }
+        lead="El techo del hardware de escritorio para entusiastas: potencia bruta masiva concentrada en un único chasis."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[17px] leading-[1.65] text-white/90 md:text-[25px] md:leading-[1.6]">
+            Una estación de trabajo tope de gama equipada con una GPU{" "}
+            <strong className="text-mfqc-cyan">NVIDIA RTX 5090</strong> (con un consumo de 575 W y
+            1.79 TB/s de ancho de banda sobre memoria GDDR7) entrega cerca de ~105 TFLOPS FP32 en
+            local para acelerar cómputo y render. No obstante, por más potente que sea la tarjeta,
+            sigue confinada a los límites de una sola placa madre, enlaces de bus PCIe punto a punto
+            y redes domésticas, incapaz de abordar cargas de simulación o IA que requieran
+            paralelismo masivo distribuido.
+          </p>
+        </div>
+      </SlideSection>
+
+      {/* 3. ANATOMÍA DE UN NODO HPC MULTI-ACELERADOR */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
         meta="ANATOMÍA DE UN NODO DE SUPERCOMPUTACIÓN"
@@ -66,7 +83,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 3. LA MALLA DE RED RDMA DEL CLÚSTER */}
+      {/* 4. LA MALLA DE RED RDMA DEL CLÚSTER */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
         meta="LA MALLA DE INTERCONEXIÓN RDMA"
@@ -96,7 +113,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 4. TOP500 & ERA EXASCALE */}
+      {/* 5. TOP500 & ERA EXASCALE */}
       <SlideSection
         brand="MFQC // TOP500"
         meta="LA CIMA MUNDIAL: TOP500"
@@ -135,7 +152,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 5. IA DE FRONTERA: PRE-ENTRENAMIENTO MASIVO */}
+      {/* 6. IA DE FRONTERA: PRE-ENTRENAMIENTO MASIVO */}
       <SlideSection
         brand="MFQC // WORKLOADS: IA"
         meta="IA: PRE-ENTRENAMIENTO MASIVO"
@@ -165,7 +182,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 6. IA DE FRONTERA: INFERENCIA & KV-CACHE */}
+      {/* 7. IA DE FRONTERA: INFERENCIA & KV-CACHE */}
       <SlideSection
         brand="MFQC // WORKLOADS: IA"
         meta="IA: INFERENCIA & EL MURO DEL KV-CACHE"
@@ -197,7 +214,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 7. CÓMPUTO CIENTÍFICO & SIMULACIÓN */}
+      {/* 8. CÓMPUTO CIENTÍFICO & SIMULACIÓN */}
       <SlideSection
         brand="MFQC // WORKLOADS: CIENCIA"
         meta="CÓMPUTO CIENTÍFICO & SIMULACIÓN"
