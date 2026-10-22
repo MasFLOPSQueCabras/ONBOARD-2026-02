@@ -3,7 +3,7 @@
 Onboarding presentation for the **Más FLOPS que Cabras** Student Supercomputing & HPC group at Universidad de los Andes.
 
 🔗 **Live Presentation:** [https://masflopsquecabras.github.io/ONBOARD-2026-02/](https://masflopsquecabras.github.io/ONBOARD-2026-02/)  
-📄 **Cartel Imprimible (Poster):** [https://masflopsquecabras.github.io/ONBOARD-2026-02/posters/](https://masflopsquecabras.github.io/ONBOARD-2026-02/posters/)
+📄 **Printable Poster:** [https://masflopsquecabras.github.io/ONBOARD-2026-02/posters/](https://masflopsquecabras.github.io/ONBOARD-2026-02/posters/)
 
 ## Commands (Vite+)
 
