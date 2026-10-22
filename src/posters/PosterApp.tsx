@@ -119,6 +119,7 @@ export function PosterApp() {
               <div className="bg-white p-2.5 sm:p-3">
                 <QRCodeSVG
                   value={MFQC_CONFIG.onboardingQrUrl}
+                  title="Código QR para unirse a Más FLOPS que Cabras"
                   size={220}
                   bgColor="#ffffff"
                   fgColor="#08080c"
@@ -195,6 +196,7 @@ export function PosterApp() {
                 <div className="bg-white p-2.5">
                   <QRCodeSVG
                     value={MFQC_CONFIG.onboardingQrUrl}
+                    title="Código QR para unirse a Más FLOPS que Cabras"
                     size={220}
                     bgColor="#ffffff"
                     fgColor="#08080c"

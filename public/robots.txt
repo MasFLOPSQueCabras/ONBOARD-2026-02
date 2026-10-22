@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://masflopsquecabras.github.io/ONBOARD-2026-02/sitemap.xml

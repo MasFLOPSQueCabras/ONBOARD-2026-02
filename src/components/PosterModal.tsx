@@ -48,6 +48,7 @@ export function PosterModal({ onClose }: PosterModalProps) {
         <div className="inline-flex border-4 border-mfqc-cyan bg-white p-4 sm:p-7 print:p-7">
           <QRCodeSVG
             value={MFQC_CONFIG.onboardingQrUrl}
+            title="Código QR para unirse a Más FLOPS que Cabras"
             size={340}
             bgColor="#ffffff"
             fgColor="#08080c"
