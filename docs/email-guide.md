@@ -23,7 +23,7 @@ Exported files will be generated at:
 
 ## 2. Customizing Event Information
 
-Edit [emails/MfqcInvitation.tsx](file:///home/orpheezt/personal/MFQC_ONBOARD/emails/MfqcInvitation.tsx) or pass props when calling `MfqcInvitation`:
+Edit [emails/MfqcInvitation.tsx](../emails/MfqcInvitation.tsx) or pass props when calling `MfqcInvitation`:
 
 | Prop              | Default                                                          | Description                    |
 | :---------------- | :--------------------------------------------------------------- | :----------------------------- |
