@@ -28,15 +28,12 @@ async function main() {
 
   const outHtmlPath = resolve(process.cwd(), "emails/dist/invitation.html");
   const outTxtPath = resolve(process.cwd(), "emails/dist/invitation.txt");
-  const rootHtmlPath = resolve(process.cwd(), "emails/invitation.html");
 
   mkdirSync(dirname(outHtmlPath), { recursive: true });
   writeFileSync(outHtmlPath, html, "utf-8");
   writeFileSync(outTxtPath, plainText, "utf-8");
-  writeFileSync(rootHtmlPath, html, "utf-8");
 
   console.log(`✅ HTML email generated at: ${outHtmlPath}`);
-  console.log(`✅ Ready-to-copy HTML generated at: ${rootHtmlPath}`);
   console.log(`✅ Plain text email generated at: ${outTxtPath}`);
 }
 
