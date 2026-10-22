@@ -9,15 +9,7 @@ export function PosterModal({ onClose }: PosterModalProps) {
   return (
     <div className="box-border flex min-h-screen w-screen flex-col items-center justify-center bg-mfqc-black p-4 text-center font-sans text-white sm:p-8 print:min-h-screen print:w-full print:bg-mfqc-black print:p-8">
       <style>{"@page { size: letter portrait; margin: 0; }"}</style>
-      <div className="fixed top-4 right-4 z-10 flex flex-wrap gap-2.5 sm:top-5 sm:right-5 sm:gap-3 print:hidden">
-        <a
-          href="./posters/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex cursor-pointer items-center border-none bg-mfqc-cyan px-3.5 py-2 font-mono text-xs font-extrabold text-mfqc-black shadow-[3px_3px_0px_#ffe600] no-underline hover:brightness-105 sm:px-4.5 sm:py-2.5 sm:text-sm"
-        >
-          ↗️ Abrir Standalone (Vertical / Horizontal)
-        </a>
+      <div className="fixed top-4 right-4 z-10 flex gap-2.5 sm:top-5 sm:right-5 sm:gap-3 print:hidden">
         <button
           type="button"
           onClick={() => window.print()}
