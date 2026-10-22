@@ -2,7 +2,10 @@ import { Suspense, lazy, useEffect, useMemo, useState } from "react";
 import { Deck } from "./components/RevealDeck";
 import { Title } from "./slides/Title";
 import { WhatIsHPC } from "./slides/WhatIsHPC";
+import { HpcMagnitude } from "./slides/HpcMagnitude";
 import { UarchAndBenchmarks } from "./slides/UarchAndBenchmarks";
+import { HpcBottlenecks } from "./slides/HpcBottlenecks";
+import { HeterogeneousHardware } from "./slides/HeterogeneousHardware";
 import { NextStepsMojo } from "./slides/NextStepsMojo";
 import { CarlaSCC2026 } from "./slides/CarlaSCC2026";
 import { Roadmap2027 } from "./slides/Roadmap2027";
@@ -79,7 +82,10 @@ export function Presentation() {
     <Deck config={deckConfig}>
       <Title />
       <WhatIsHPC />
+      <HpcMagnitude />
       <UarchAndBenchmarks />
+      <HpcBottlenecks />
+      <HeterogeneousHardware />
       <NextStepsMojo />
       <CarlaSCC2026 />
       <Roadmap2027 />

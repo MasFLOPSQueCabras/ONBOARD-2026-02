@@ -15,7 +15,7 @@ export function PosterModal({ onClose }: PosterModalProps) {
           onClick={() => window.print()}
           className="cursor-pointer border-none bg-mfqc-yellow px-3.5 py-2 font-mono text-xs font-extrabold text-mfqc-black shadow-[3px_3px_0px_#00f5d4] sm:px-4.5 sm:py-2.5 sm:text-sm"
         >
-          🖨️ Imprimir Tamaño Carta
+          🖨️ Imprimir Cartel
         </button>
         <button
           type="button"

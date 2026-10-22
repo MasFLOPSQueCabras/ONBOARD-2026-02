@@ -7,7 +7,7 @@ export function UarchAndBenchmarks() {
     <Slide>
       <SlideSection
         brand="MFQC // UARCH"
-        meta="SYS.02 — LO QUE HEMOS ABORDADO"
+        meta="SYS.03A — LO QUE HEMOS ABORDADO"
         title={
           <>
             La <span className="text-mfqc-yellow">uArch</span> de un PC &amp;{" "}
@@ -32,7 +32,7 @@ export function UarchAndBenchmarks() {
 
       <SlideSection
         brand="MFQC // BENCHMARKS"
-        meta="SYS.02B — CÓMPUTO Y MEMORIA"
+        meta="SYS.03B — CÓMPUTO Y MEMORIA"
         title={
           <>
             Cómputo y <span className="text-mfqc-yellow">Ancho de Banda</span>
@@ -55,7 +55,7 @@ export function UarchAndBenchmarks() {
 
       <SlideSection
         brand="MFQC // BENCHMARKS"
-        meta="SYS.02C — LATENCIA Y TOPOLOGÍA"
+        meta="SYS.03C — LATENCIA Y TOPOLOGÍA"
         title={
           <>
             Latencia y <span className="text-mfqc-cyan">Topología</span>

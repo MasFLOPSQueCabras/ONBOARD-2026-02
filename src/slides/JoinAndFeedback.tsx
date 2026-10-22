@@ -13,7 +13,7 @@ export function JoinAndFeedback({ onOpenPoster }: JoinAndFeedbackProps) {
     <Slide>
       <SlideSection
         brand="MFQC // FEEDBACK WALL"
-        meta="SYS.07 — MURO DE POST-ITS"
+        meta="SYS.10A — MURO DE POST-ITS"
         title={
           <>
             ¡Deja tu <span className="text-mfqc-yellow">Post-it</span> en la Mesa! 📝
@@ -38,7 +38,7 @@ export function JoinAndFeedback({ onOpenPoster }: JoinAndFeedbackProps) {
         </FeatureGrid>
       </SlideSection>
 
-      <SlideSection brand="MFQC // ONBOARDING" meta="SYS.07B — ÚNETE AL EQUIPO">
+      <SlideSection brand="MFQC // ONBOARDING" meta="SYS.10B — ÚNETE AL EQUIPO">
         <FeatureGrid className="items-center!">
           <div className="flex flex-col gap-3 md:gap-7">
             <h2 className="font-display text-[33px]! leading-[1.08]! font-extrabold text-white md:text-[64px]! md:leading-[1.06]!">
@@ -78,7 +78,7 @@ export function JoinAndFeedback({ onOpenPoster }: JoinAndFeedbackProps) {
                   onClick={onOpenPoster}
                   className="cursor-pointer border-none bg-mfqc-cyan px-3.5 py-2 font-mono text-[12px] font-extrabold tracking-[0.1em] text-mfqc-black uppercase shadow-[3px_3px_0px_#ffe600] md:px-5 md:py-2.5 md:text-[14.4px] md:shadow-[4px_4px_0px_#ffe600]"
                 >
-                  🖨️ Vista Cartel QR (Tamaño Carta)
+                  🖨️ Ver Cartel / Imprimir
                 </button>
               </div>
             )}

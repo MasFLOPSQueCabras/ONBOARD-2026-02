@@ -6,7 +6,7 @@ import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
 export function CarlaSCC2026() {
   return (
     <Slide>
-      <SlideSection brand="MFQC // CARLA 2026" meta="SYS.04 — EXPERIENCIA EN COMPETENCIA">
+      <SlideSection brand="MFQC // CARLA 2026" meta="SYS.07A — EXPERIENCIA EN COMPETENCIA">
         <FeatureGrid className="items-center!">
           <div className="flex flex-col gap-3 md:gap-6">
             <h2 className="font-display text-[33px]! leading-[1.08]! font-extrabold text-white md:text-[64px]! md:leading-[1.06]!">
@@ -42,7 +42,7 @@ export function CarlaSCC2026() {
 
       <SlideSection
         brand="MFQC // CARLA 2026"
-        meta="SYS.04B — INFRAESTRUCTURA Y OPTIMIZACIÓN"
+        meta="SYS.07B — INFRAESTRUCTURA Y OPTIMIZACIÓN"
         title={
           <>
             ¿Qué dominamos en <span className="text-mfqc-cyan">CARLA 2026</span>?

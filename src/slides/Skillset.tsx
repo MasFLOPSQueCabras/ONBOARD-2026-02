@@ -7,7 +7,7 @@ export function Skillset() {
     <Slide>
       <SlideSection
         brand="MFQC // SKILLSET 01"
-        meta="SYS.06A — INFRA-DEVOPS & HPC-OPS"
+        meta="SYS.09A — INFRA-DEVOPS & HPC-OPS"
         title={
           <>
             Infra-DevOps &amp; <span className="text-mfqc-yellow">HPC-Ops</span> 🛠️
@@ -36,7 +36,7 @@ export function Skillset() {
 
       <SlideSection
         brand="MFQC // SKILLSET 02"
-        meta="SYS.06B — GPUs Y ACELERADORES"
+        meta="SYS.09B — GPUs Y ACELERADORES"
         title={
           <>
             Programación en <span className="text-mfqc-cyan">GPUs</span> &amp;{" "}
@@ -65,7 +65,7 @@ export function Skillset() {
 
       <SlideSection
         brand="MFQC // SKILLSET 03"
-        meta="SYS.06C — CÓMPUTO CIENTÍFICO"
+        meta="SYS.09C — CÓMPUTO CIENTÍFICO"
         title={
           <>
             Cómputo <span className="text-mfqc-yellow">Científico</span> &amp;{" "}
@@ -93,7 +93,7 @@ export function Skillset() {
 
       <SlideSection
         brand="MFQC // SKILLSET 04"
-        meta="SYS.06D — HERRAMIENTAS EN HPC"
+        meta="SYS.09D — HERRAMIENTAS EN HPC"
         title={
           <>
             Ecosistema y <span className="text-mfqc-cyan">Herramientas en HPC</span> 🧰
@@ -120,7 +120,7 @@ export function Skillset() {
 
       <SlideSection
         brand="MFQC // SKILLSET 05"
-        meta="SYS.06E — PROFILERS & eBPF"
+        meta="SYS.09E — PROFILERS & eBPF"
         title={
           <>
             Herramientas Curiosas: <span className="text-mfqc-yellow">Profilers</span> &amp;{" "}
@@ -144,7 +144,7 @@ export function Skillset() {
 
       <SlideSection
         brand="MFQC // SKILLSET 06"
-        meta="SYS.06F — MENTALIDAD DE PERFORMANCE"
+        meta="SYS.09F — MENTALIDAD DE PERFORMANCE"
         title={
           <>
             Mentalidad de <span className="text-mfqc-yellow">Performance</span> ⚡
