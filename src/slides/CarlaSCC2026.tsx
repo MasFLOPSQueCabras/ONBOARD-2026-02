@@ -1,88 +1,68 @@
-import { Slide } from "@revealjs/react";
+import { Slide } from "../components/RevealDeck";
 import carlaGroupPhoto from "../assets/CARLA_SCC_GROUP.jpeg";
+import { SlideSection } from "../components/SlideSection";
+import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
 
 export function CarlaSCC2026() {
   return (
     <Slide>
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // CARLA 2026</span>
-            <span className="mfqc-topbar-meta">SYS.04 — EXPERIENCIA EN COMPETENCIA</span>
+      <SlideSection brand="MFQC // CARLA 2026" meta="SYS.04 — EXPERIENCIA EN COMPETENCIA">
+        <FeatureGrid className="items-center!">
+          <div className="flex flex-col gap-3 md:gap-6">
+            <h2 className="font-display text-[33px]! leading-[1.08]! font-extrabold text-white md:text-[64px]! md:leading-[1.06]!">
+              Hito: <span className="text-mfqc-yellow">SCC CARLA 2026</span> 🏆
+            </h2>
+
+            <p className="m-0! font-sans text-[16px]! leading-[1.42]! text-mfqc-gray md:text-[24px]! md:leading-[1.5]!">
+              Representamos a la universidad en la competencia latinoamericana de supercomputación
+              enfrentando hardware e infraestructura real.
+            </p>
+
+            <FeatureItem tag="HARDWARE REAL BAJO PRESIÓN" title="BMC, Infraestructura & HPL">
+              Gestión remota por <strong className="text-white">BMC</strong>, resolución de
+              problemas críticos de infraestructura y tuning de{" "}
+              <strong className="text-white">InfiniBand + BLAS</strong>.
+            </FeatureItem>
           </div>
 
-          <div className="mfqc-body">
-            <div className="mfqc-split-2" style={{ alignItems: "center" }}>
-              <div className="mfqc-stack">
-                <h2 className="mfqc-headline">
-                  Hito: <span style={{ color: "#ffe600" }}>SCC CARLA 2026</span> 🏆
-                </h2>
-
-                <p className="mfqc-lead mfqc-lead-tight">
-                  Representamos a la universidad en la competencia latinoamericana de
-                  supercomputación enfrentando hardware e infraestructura real.
-                </p>
-
-                <div className="mfqc-col">
-                  <span className="mfqc-col-num">HARDWARE REAL BAJO PRESIÓN</span>
-                  <h3>BMC, Infraestructura &amp; HPL</h3>
-                  <p>
-                    Gestión remota por <strong>BMC</strong>, resolución de problemas críticos de
-                    infraestructura y tuning de <strong>InfiniBand + BLAS</strong>.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mfqc-media-center">
-                <img
-                  src={carlaGroupPhoto}
-                  alt="Equipo Más FLOPS que Cabras en SCC CARLA 2026"
-                  className="mfqc-carla-photo"
-                />
-              </div>
-            </div>
+          <div className="flex justify-center">
+            <img
+              src={carlaGroupPhoto}
+              alt="Equipo Más FLOPS que Cabras en SCC CARLA 2026"
+              width={640}
+              height={480}
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
+              className="max-h-[190px] w-full max-w-[640px] border-3 border-mfqc-yellow object-cover shadow-[8px_8px_0px_#00f5d4] md:max-h-[520px] md:shadow-[12px_12px_0px_#00f5d4]"
+            />
           </div>
-        </div>
-      </section>
+        </FeatureGrid>
+      </SlideSection>
 
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // CARLA 2026</span>
-            <span className="mfqc-topbar-meta">SYS.04B — INFRAESTRUCTURA Y OPTIMIZACIÓN</span>
-          </div>
+      <SlideSection
+        brand="MFQC // CARLA 2026"
+        meta="SYS.04B — INFRAESTRUCTURA Y OPTIMIZACIÓN"
+        title={
+          <>
+            ¿Qué dominamos en <span className="text-mfqc-cyan">CARLA 2026</span>?
+          </>
+        }
+        lead="Experiencia real diagnosticando servidores bare-metal y optimizando librerías numéricas bajo presión."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="01 / BAREMETAL & INFRA" title="Control por BMC y Diagnóstico">
+            Administración a bajo nivel mediante <strong className="text-white">BMC</strong> y
+            resolución de fallos de infraestructura y red entre nodos en tiempo real.
+          </FeatureItem>
 
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                ¿Qué dominamos en <span style={{ color: "#00f5d4" }}>CARLA 2026</span>?
-              </h2>
-            </div>
-
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">01 / BAREMETAL &amp; INFRA</span>
-                <h3>Control por BMC y Diagnóstico</h3>
-                <p>
-                  Administración a bajo nivel mediante <strong>BMC</strong> y resolución de fallos
-                  de infraestructura y red entre nodos en tiempo real.
-                </p>
-              </div>
-
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">02 / MÁXIMO RENDIMIENTO</span>
-                <h3>InfiniBand, BLAS &amp; HPL</h3>
-                <p>
-                  Ajuste fino de interconexión{" "}
-                  <strong style={{ color: "#00f5d4" }}>InfiniBand</strong> y librerías matemáticas{" "}
-                  <strong style={{ color: "#ffe600" }}>BLAS</strong> para exprimir cada FLOP en{" "}
-                  <strong>HPL</strong>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <FeatureItem tag="02 / MÁXIMO RENDIMIENTO" title="InfiniBand, BLAS & HPL" accent="cyan">
+            Ajuste fino de interconexión <strong className="text-mfqc-cyan">InfiniBand</strong> y
+            librerías matemáticas <strong className="text-mfqc-yellow">BLAS</strong> para exprimir
+            cada FLOP en <strong className="text-white">HPL</strong>.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
     </Slide>
   );
 }

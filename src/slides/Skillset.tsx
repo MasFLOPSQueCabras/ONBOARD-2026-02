@@ -1,129 +1,179 @@
-import { Slide } from "@revealjs/react";
+import { Slide } from "../components/RevealDeck";
+import { SlideSection } from "../components/SlideSection";
+import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
 
 export function Skillset() {
   return (
     <Slide>
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // SKILLSET</span>
-            <span className="mfqc-topbar-meta">SYS.06 — HABILIDADES QUE APRENDERÁS</span>
-          </div>
+      <SlideSection
+        brand="MFQC // SKILLSET 01"
+        meta="SYS.06A — INFRA-DEVOPS & HPC-OPS"
+        title={
+          <>
+            Infra-DevOps &amp; <span className="text-mfqc-yellow">HPC-Ops</span> 🛠️
+          </>
+        }
+        lead="Administración de sistemas bare-metal y operación de clústeres reales desde el firmware hasta el orquestador."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="01 / BAREMETAL & LINUX" title="Sysadmin & Control por BMC">
+            Aprovisionamiento desde cero, gestión fuera de banda (IPMI /{" "}
+            <strong className="text-white">BMC</strong>), almacenamiento distribuido (NFS, Lustre) y
+            ajuste del kernel Linux.
+          </FeatureItem>
 
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                ¿Qué aprenderás en el <span style={{ color: "#ffe600" }}>Grupo</span>?
-              </h2>
-              <p className="mfqc-lead">
-                Habilidades prácticas de ingeniería de sistemas, hardware y alto rendimiento que no
-                se ven en una clase tradicional.
-              </p>
-            </div>
+          <FeatureItem
+            tag="02 / REDES & ORQUESTACIÓN"
+            title="InfiniBand, Slurm & Spack"
+            accent="cyan"
+          >
+            Redes RDMA de baja latencia, colas de trabajo con{" "}
+            <strong className="text-mfqc-cyan">Slurm</strong>, compilación reproducible con{" "}
+            <strong className="text-white">Spack</strong> y contenedores Apptainer.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
 
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">01 / INFRA-DEVOPS &amp; HPC-OPS</span>
-                <h3>Sysadmin de Alto Nivel</h3>
-                <p>
-                  Administración de Linux bare-metal, BMC, redes InfiniBand, orquestación con{" "}
-                  <strong>Slurm</strong>, Spack y automatización.
-                </p>
-              </div>
+      <SlideSection
+        brand="MFQC // SKILLSET 02"
+        meta="SYS.06B — GPUs Y ACELERADORES"
+        title={
+          <>
+            Programación en <span className="text-mfqc-cyan">GPUs</span> &amp;{" "}
+            <span className="text-mfqc-yellow">Aceleradores</span> 🚀
+          </>
+        }
+        lead="Domina la ejecución masivamente paralela desde registros vectoriales en CPU hasta miles de núcleos en GPU."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="01 / MODELOS DE PARALELISMO" title="MPI, OpenMP & SIMD">
+            Cómputo distribuido entre múltiples nodos con{" "}
+            <strong className="text-white">MPI</strong>, multihilo en memoria compartida con{" "}
+            <strong className="text-white">OpenMP</strong> y vectorización AVX-512.
+          </FeatureItem>
 
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">02 / GPUs &amp; ACELERADORES</span>
-                <h3>Programación Paralela</h3>
-                <p>
-                  Exprimir CPUs, GPUs y aceleradores con{" "}
-                  <strong style={{ color: "#ffe600" }}>Mojo 🔥</strong>, CUDA, MPI, OpenMP y
-                  vectorización SIMD.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <FeatureItem
+            tag="02 / KERNELS & ACELERADORES"
+            title="Mojo 🔥, CUDA & Memoria GPU"
+            accent="cyan"
+          >
+            Escritura de kernels de alto rendimiento, jerarquía de memoria compartida (SRAM / HBM) y
+            fusión de operadores sin overhead.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
 
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // SKILLSET</span>
-            <span className="mfqc-topbar-meta">SYS.06B — CIENCIA Y OBSERVABILIDAD</span>
-          </div>
+      <SlideSection
+        brand="MFQC // SKILLSET 03"
+        meta="SYS.06C — CÓMPUTO CIENTÍFICO"
+        title={
+          <>
+            Cómputo <span className="text-mfqc-yellow">Científico</span> &amp;{" "}
+            <span className="text-mfqc-cyan">Simulaciones</span> 🔬
+          </>
+        }
+        lead="Traduce modelos matemáticos, físicos y de IA en código capaz de escalar a cientos de núcleos y GPUs."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="01 / MÉTODOS NUMÉRICOS" title="Álgebra Lineal Densa y Dispersa">
+            Optimización con librerías <strong className="text-mfqc-yellow">BLAS / LAPACK</strong>,
+            solucionadores iterativos, FFTs y precisión mixta (FP64 / FP32 / FP16).
+          </FeatureItem>
 
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                Ciencia, <span style={{ color: "#00f5d4" }}>Profilers</span> &amp;{" "}
-                <span style={{ color: "#ffe600" }}>eBPF</span>
-              </h2>
-            </div>
+          <FeatureItem
+            tag="02 / SIMULACIONES REALES"
+            title="Ciencia Computacional & IA"
+            accent="cyan"
+          >
+            Ejecución de códigos reales de dinámica molecular, clima, dinámica de fluidos (CFD) y
+            entrenamiento distribuido de modelos.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
 
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">03 / CÓMPUTO CIENTÍFICO</span>
-                <h3>Simulaciones &amp; Métodos Numéricos</h3>
-                <p>
-                  Álgebra lineal densa y dispersa (BLAS, HPL), métodos numéricos a gran escala y
-                  simulaciones físicas e IA.
-                </p>
-              </div>
+      <SlideSection
+        brand="MFQC // SKILLSET 04"
+        meta="SYS.06D — HERRAMIENTAS EN HPC"
+        title={
+          <>
+            Ecosistema y <span className="text-mfqc-cyan">Herramientas en HPC</span> 🧰
+          </>
+        }
+        lead="El stack profesional que utilizan los centros de supercomputación y laboratorios nacionales en el mundo."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="01 / COMPILADORES & TOOLCHAINS" title="GCC, LLVM/Clang, NVHPC & MLIR">
+            Flags de optimización agresiva, vectorización automática, lectura de ensamblador y
+            compilación específica por microarquitectura.
+          </FeatureItem>
 
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">04 / HERRAMIENTAS CURIOSAS</span>
-                <h3>Profilers &amp; eBPF</h3>
-                <p>
-                  Radiografía en vivo del sistema usando profilers de hardware (<code>perf</code>,
-                  Nsight), herramientas de HPC y trazado del kernel con{" "}
-                  <strong style={{ color: "#00f5d4" }}>eBPF</strong>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <FeatureItem
+            tag="02 / BENCHMARKING & ENTORNOS"
+            title="HPL, HPCG, OSU & Módulos"
+            accent="cyan"
+          >
+            Medición rigurosa con suites estándar del <strong className="text-white">TOP500</strong>
+            , micro-benchmarks de latencia MPI y gestión de entornos con Lmod y Spack.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
 
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // MINDSET</span>
-            <span className="mfqc-topbar-meta">SYS.06C — MÁS ALLÁ DEL HPC</span>
-          </div>
+      <SlideSection
+        brand="MFQC // SKILLSET 05"
+        meta="SYS.06E — PROFILERS & eBPF"
+        title={
+          <>
+            Herramientas Curiosas: <span className="text-mfqc-yellow">Profilers</span> &amp;{" "}
+            <span className="text-mfqc-cyan">eBPF</span> 🔍
+          </>
+        }
+        lead="Radiografía en vivo del hardware y del kernel para encontrar exactamente dónde se pierde cada nanosegundo."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="01 / HARDWARE PROFILING" title="perf, Nsight & Contadores PMU">
+            Flamegraphs, <em>cache misses</em>, <em>branch mispredictions</em>, modelo Roofline y
+            trazado de kernels GPU con <strong className="text-white">NVIDIA Nsight</strong>.
+          </FeatureItem>
 
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                Mentalidad de <span style={{ color: "#ffe600" }}>Performance</span> ⚡
-              </h2>
-              <p className="mfqc-lead">
-                Entender la máquina por debajo transforma cómo diseñas y optimizas{" "}
-                <strong>cualquier software</strong>.
-              </p>
-            </div>
+          <FeatureItem tag="02 / KERNEL SUPERPOWERS" title="Observabilidad con eBPF" accent="cyan">
+            Instrumentación dinámica del kernel Linux para analizar latencia de red,{" "}
+            <em>syscalls</em>, I/O de disco y planificador de CPU sin recompilar.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
 
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">BACKEND &amp; BASES DE DATOS</span>
-                <h3>Sistemas de Baja Latencia</h3>
-                <p>
-                  Optimizar consultas, localidad en caché, concurrencia, memoria e I/O de red y
-                  disco en servicios críticos.
-                </p>
-              </div>
+      <SlideSection
+        brand="MFQC // SKILLSET 06"
+        meta="SYS.06F — MENTALIDAD DE PERFORMANCE"
+        title={
+          <>
+            Mentalidad de <span className="text-mfqc-yellow">Performance</span> ⚡
+          </>
+        }
+        lead={
+          <>
+            Lo que aprendes en HPC transforma cómo diseñas{" "}
+            <strong className="text-white">cualquier software</strong>: backend, bases de datos o
+            frontend.
+          </>
+        }
+      >
+        <FeatureGrid>
+          <FeatureItem tag="01 / BACKEND & BASES DE DATOS" title="Sistemas de Baja Latencia">
+            Localidad en caché, estructuras de datos <em>cache-friendly</em>, concurrencia sin
+            contención y optimización de consultas e I/O en servicios críticos.
+          </FeatureItem>
 
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">FRONTEND &amp; CUALQUIER APP</span>
-                <h3>Ingeniería Basada en Datos</h3>
-                <p>
-                  No adivinar por qué algo es lento: medir, perfilar cuellos de botella reales y
-                  acelerar desde el navegador hasta el servidor.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <FeatureItem
+            tag="02 / FRONTEND, CLOUD & APPS"
+            title="Ingeniería Basada en Datos"
+            accent="cyan"
+          >
+            <em>Mechanical sympathy</em> en cualquier stack: medir antes de optimizar, eliminar
+            trabajo redundante y acelerar desde el navegador hasta el servidor.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
     </Slide>
   );
 }

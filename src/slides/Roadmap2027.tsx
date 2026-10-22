@@ -1,86 +1,61 @@
-import { Slide } from "@revealjs/react";
+import { Slide } from "../components/RevealDeck";
+import { SlideSection } from "../components/SlideSection";
+import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
 
 export function Roadmap2027() {
   return (
     <Slide>
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // ROADMAP 2027</span>
-            <span className="mfqc-topbar-meta">SYS.05 — PRÓXIMAS COMPETENCIAS</span>
-          </div>
+      <SlideSection
+        brand="MFQC // ROADMAP 2027"
+        meta="SYS.05 — PRÓXIMAS COMPETENCIAS"
+        title={
+          <>
+            Temporada <span className="text-mfqc-yellow">2027</span>: El Triple Reto 🌍
+          </>
+        }
+        lead={
+          <>
+            El próximo año planeamos llevar a{" "}
+            <strong className="text-white">Más FLOPS que Cabras</strong> a las tres grandes ligas
+            internacionales de HPC.
+          </>
+        }
+      >
+        <FeatureGrid>
+          <FeatureItem tag="01 / ASIA & MUNDIAL" title="ASC Challenge">
+            <strong className="text-white">Asia Student Supercomputer Challenge:</strong> El torneo
+            estudiantil de supercomputación más masivo del mundo.
+          </FeatureItem>
 
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                Temporada <span style={{ color: "#ffe600" }}>2027</span>: El Triple Reto 🌍
-              </h2>
-              <p className="mfqc-lead">
-                El próximo año planeamos llevar a{" "}
-                <strong style={{ color: "#ffffff" }}>Más FLOPS que Cabras</strong> a las tres
-                grandes ligas internacionales de HPC.
-              </p>
-            </div>
+          <FeatureItem tag="02 / LATINOAMÉRICA" title="CARLA SCC" accent="cyan">
+            Volver con toda la experiencia acumulada en 2026 para buscar el podio regional en
+            Latinoamérica.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
 
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">01 / ASIA &amp; MUNDIAL</span>
-                <h3>ASC Challenge</h3>
-                <p>
-                  <strong>Asia Student Supercomputer Challenge:</strong> El torneo estudiantil de
-                  supercomputación más masivo del mundo.
-                </p>
-              </div>
+      <SlideSection
+        brand="MFQC // ROADMAP 2027"
+        meta="SYS.05B — LA CUMBRE MUNDIAL"
+        title={
+          <>
+            Rumbo a <span className="text-mfqc-cyan">SuperComputing</span> ⚡
+          </>
+        }
+        lead="Preparación continua para competir frente a las mejores universidades del mundo."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="03 / ESTADOS UNIDOS" title="SuperComputing (SC) SCC">
+            La conferencia y competencia más prestigiosa del planeta en computación de alto
+            rendimiento, redes, almacenamiento y análisis.
+          </FeatureItem>
 
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">02 / LATINOAMÉRICA</span>
-                <h3>CARLA SCC</h3>
-                <p>
-                  Volver con toda la experiencia acumulada en 2026 para buscar el podio regional en
-                  Latinoamérica.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // ROADMAP 2027</span>
-            <span className="mfqc-topbar-meta">SYS.05B — LA CUMBRE MUNDIAL</span>
-          </div>
-
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                Rumbo a <span style={{ color: "#00f5d4" }}>SuperComputing</span> ⚡
-              </h2>
-            </div>
-
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">03 / ESTADOS UNIDOS</span>
-                <h3>SuperComputing (SC) SCC</h3>
-                <p>
-                  La conferencia y competencia más prestigiosa del planeta en computación de alto
-                  rendimiento, redes, almacenamiento y análisis.
-                </p>
-              </div>
-
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">OBJETIVO DEL EQUIPO</span>
-                <h3>Competir al Máximo Nivel</h3>
-                <p>
-                  Consolidar un equipo interdisciplinario capaz de enfrentar hardware de última
-                  generación y cargas reales de ciencia e IA.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <FeatureItem tag="OBJETIVO DEL EQUIPO" title="Competir al Máximo Nivel" accent="cyan">
+            Consolidar un equipo interdisciplinario capaz de enfrentar hardware de última generación
+            y cargas reales de ciencia e IA.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
     </Slide>
   );
 }

@@ -1,5 +1,7 @@
-import { Slide } from "@revealjs/react";
+import { Slide } from "../components/RevealDeck";
 import { MojoCodeBox } from "../components/MojoCodeBox";
+import { SlideSection } from "../components/SlideSection";
+import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
 
 const VECADD_MOJO = `from gpu import thread_idx, block_idx, block_dim
 
@@ -11,67 +13,68 @@ fn vecadd_gpu(
 ):
     var tid = block_idx.x * block_dim.x + thread_idx.x
     if tid < n:
-        c[tid] = a[tid] + b[tid]  // 1 hilo GPU por elemento`;
+        // 1 hilo GPU por elemento en paralelo
+        c[tid] = a[tid] + b[tid]`;
 
 export function NextStepsMojo() {
   return (
     <Slide>
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // NEXT: MOJO 🔥</span>
-            <span className="mfqc-topbar-meta">SYS.03 — PROGRAMACIÓN PARALELA &amp; GPU</span>
+      <SlideSection
+        brand="MFQC // NEXT: MOJO 🔥"
+        meta="SYS.03 — PROGRAMACIÓN PARALELA & GPU"
+        title={
+          <>
+            Próximo Reto: <span className="text-mfqc-yellow">Mojo 🔥</span>
+          </>
+        }
+        lead={
+          <>
+            Sintaxis limpia como <strong className="text-white">Python</strong>, compilado directo a
+            registros vectoriales y GPUs como <strong className="text-mfqc-cyan">C++ / CUDA</strong>
+            .
+          </>
+        }
+      >
+        <FeatureGrid>
+          <FeatureItem tag="CPU PARALLELISM" title="SIMD & Multinúcleo">
+            Vectores nativos y ejecución paralela en todos los núcleos sin <em>GIL</em>.
+          </FeatureItem>
+
+          <FeatureItem tag="ACCELERATORS" title="Kernels en GPU" accent="cyan">
+            Programación directa de GPUs con un solo lenguaje unificado.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
+
+      <SlideSection brand="MFQC // MOJO GPU" meta="SYS.03B — KERNEL VECADD">
+        <div className="grid grid-cols-1 items-center gap-5 md:grid-cols-[0.82fr_1.18fr] md:gap-14">
+          <div className="flex flex-col gap-3 md:gap-6">
+            <h2 className="font-display text-[33px]! leading-[1.08]! font-extrabold text-white md:text-[58px]! md:leading-[1.06]!">
+              Kernel <span className="text-mfqc-cyan">GPU</span> en{" "}
+              <span className="text-mfqc-yellow">Mojo 🔥</span>
+            </h2>
+
+            <p className="m-0! font-sans text-[16px]! leading-[1.42]! text-mfqc-gray md:text-[22px]! md:leading-[1.5]!">
+              Cada hilo de la GPU calcula su índice global (<code>tid</code>) y suma un elemento en
+              paralelo sin bucles secuenciales.
+            </p>
+
+            <FeatureItem tag="SIMT EXECUTION" title="Miles de Hilos en Paralelo" accent="cyan">
+              Compilado directo a PTX / AMDGPU mediante <strong className="text-white">MLIR</strong>{" "}
+              sin overhead de runtime.
+            </FeatureItem>
           </div>
 
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                Próximo Reto: <span style={{ color: "#ffe600" }}>Mojo 🔥</span>
-              </h2>
-              <p className="mfqc-lead">
-                Sintaxis limpia como <strong>Python</strong>, compilado directo a registros
-                vectoriales y GPUs como <strong style={{ color: "#00f5d4" }}>C++ / CUDA</strong>.
-              </p>
-            </div>
-
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">CPU PARALLELISM</span>
-                <h3>SIMD &amp; Multinúcleo</h3>
-                <p>
-                  Vectores nativos y ejecución paralela en todos los núcleos sin <em>GIL</em>.
-                </p>
-              </div>
-
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">ACCELERATORS</span>
-                <h3>Kernels en GPU</h3>
-                <p>Programación directa de GPUs con un solo lenguaje unificado.</p>
-              </div>
-            </div>
+          <div className="w-full">
+            <MojoCodeBox
+              header="vecadd_kernel.mojo — GPU Vector Addition"
+              code={VECADD_MOJO}
+              highlightLines={[3, 9, 12]}
+              footer="// Compilado directo a código máquina GPU vía MLIR"
+            />
           </div>
         </div>
-      </section>
-
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // MOJO GPU</span>
-            <span className="mfqc-topbar-meta">SYS.03B — KERNEL VECADD</span>
-          </div>
-
-          <div className="mfqc-body" style={{ alignItems: "center" }}>
-            <div style={{ width: "100%", maxWidth: "1060px" }}>
-              <MojoCodeBox
-                header="vecadd_kernel.mojo — GPU Vector Addition"
-                code={VECADD_MOJO}
-                highlightLines={[3, 9, 11]}
-                footer="// Compilado directo a código máquina GPU vía MLIR"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      </SlideSection>
     </Slide>
   );
 }

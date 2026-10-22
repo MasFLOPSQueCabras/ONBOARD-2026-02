@@ -1,6 +1,6 @@
 export const MFQC_CONFIG = {
-  // Update this URL with the final onboarding / WhatsApp / Discord link
-  onboardingQrUrl: "https://github.com/MasFLOPSQueCabras/schedule/discussions",
+  onboardingQrUrl: "https://masflopsquecabras.github.io/ONBOARD-2026-02/",
   githubDiscussionsUrl: "https://github.com/MasFLOPSQueCabras/schedule/discussions",
+  githubOrgUrl: "https://github.com/MasFLOPSQueCabras",
   contactEmail: "i.bermudezl@uniandes.edu.co",
-};
+} as const;

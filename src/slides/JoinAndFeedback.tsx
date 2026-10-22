@@ -1,6 +1,8 @@
-import { Slide } from "@revealjs/react";
+import { Slide } from "../components/RevealDeck";
 import { QRCodeSVG } from "qrcode.react";
 import { MFQC_CONFIG } from "../config";
+import { SlideSection } from "../components/SlideSection";
+import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
 
 export interface JoinAndFeedbackProps {
   onOpenPoster?: () => void;
@@ -9,97 +11,96 @@ export interface JoinAndFeedbackProps {
 export function JoinAndFeedback({ onOpenPoster }: JoinAndFeedbackProps) {
   return (
     <Slide>
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // FEEDBACK WALL</span>
-            <span className="mfqc-topbar-meta">SYS.07 — MURO DE POST-ITS</span>
+      <SlideSection
+        brand="MFQC // FEEDBACK WALL"
+        meta="SYS.07 — MURO DE POST-ITS"
+        title={
+          <>
+            ¡Deja tu <span className="text-mfqc-yellow">Post-it</span> en la Mesa! 📝
+          </>
+        }
+        lead="Toma un Post-it de color y un marcador, cuéntanos tu idea y pégalo en nuestro muro de feedback."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="PREGUNTA 01 / IMAGINA" title="¿Qué correrías en 1,000 GPUs?">
+            Si tuvieras acceso ilimitado a un supercomputador por un día, ¿qué simularías,
+            entrenarías o calcularías?
+          </FeatureItem>
+
+          <FeatureItem
+            tag="PREGUNTA 02 / CONSTRUYE"
+            title="¿Qué te gustaría aprender o aportar?"
+            accent="cyan"
+          >
+            Cuéntanos qué área te llama más la atención (Infra/Linux, GPUs/Mojo, Profilers/eBPF,
+            Ciencia) o déjanos tu feedback.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
+
+      <SlideSection brand="MFQC // ONBOARDING" meta="SYS.07B — ÚNETE AL EQUIPO">
+        <FeatureGrid className="items-center!">
+          <div className="flex flex-col gap-3 md:gap-7">
+            <h2 className="font-display text-[33px]! leading-[1.08]! font-extrabold text-white md:text-[64px]! md:leading-[1.06]!">
+              Únete a <span className="text-mfqc-yellow">Más FLOPS que Cabras</span> 🐐
+            </h2>
+
+            <p className="m-0! font-sans text-[16px]! leading-[1.42]! text-mfqc-gray md:text-[24px]! md:leading-[1.5]!">
+              Buscamos estudiantes curiosos y profesores colaboradores rumbo a{" "}
+              <strong className="text-mfqc-cyan">SC, CARLA y ASC 2027</strong>.
+            </p>
+
+            <FeatureItem
+              tag="CONTACTO & COMUNIDAD"
+              title={
+                <a
+                  href={`mailto:${MFQC_CONFIG.contactEmail}`}
+                  className="text-white no-underline hover:text-mfqc-yellow"
+                >
+                  {MFQC_CONFIG.contactEmail}
+                </a>
+              }
+            >
+              <a
+                href={MFQC_CONFIG.githubOrgUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-mfqc-cyan no-underline hover:underline"
+              >
+                github.com/MasFLOPSQueCabras
+              </a>
+            </FeatureItem>
+
+            {onOpenPoster && (
+              <div>
+                <button
+                  type="button"
+                  onClick={onOpenPoster}
+                  className="cursor-pointer border-none bg-mfqc-cyan px-3.5 py-2 font-mono text-[12px] font-extrabold tracking-[0.1em] text-mfqc-black uppercase shadow-[3px_3px_0px_#ffe600] md:px-5 md:py-2.5 md:text-[14.4px] md:shadow-[4px_4px_0px_#ffe600]"
+                >
+                  🖨️ Vista Cartel QR (Tamaño Carta)
+                </button>
+              </div>
+            )}
           </div>
 
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                ¡Deja tu <span style={{ color: "#ffe600" }}>Post-it</span> en la Mesa! 📝
-              </h2>
-              <p className="mfqc-lead">
-                Toma un Post-it de color y un marcador, cuéntanos tu idea y pégalo en nuestro muro
-                de feedback.
-              </p>
+          <div className="flex flex-col items-center gap-4.5">
+            <div className="inline-flex border-4 border-mfqc-yellow bg-white p-3 shadow-[8px_8px_0px_#00f5d4] md:p-7 md:shadow-[14px_14px_0px_#00f5d4]">
+              <QRCodeSVG
+                value={MFQC_CONFIG.onboardingQrUrl}
+                size={340}
+                bgColor="#ffffff"
+                fgColor="#08080c"
+                level="H"
+                className="h-[148px] w-[148px] md:h-[340px] md:w-[340px]"
+              />
             </div>
-
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">PREGUNTA 01 / IMAGINA</span>
-                <h3>¿Qué correrías en 1,000 GPUs?</h3>
-                <p>
-                  Si tuvieras acceso ilimitado a un supercomputador por un día, ¿qué simularías,
-                  entrenarías o calcularías?
-                </p>
-              </div>
-
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">PREGUNTA 02 / CONSTRUYE</span>
-                <h3>¿Qué te gustaría aprender o aportar?</h3>
-                <p>
-                  Cuéntanos qué área te llama más la atención (Infra/Linux, GPUs/Mojo,
-                  Profilers/eBPF, Ciencia) o déjanos tu feedback.
-                </p>
-              </div>
-            </div>
+            <span className="font-mono text-[12px] font-bold tracking-[0.14em] text-mfqc-yellow uppercase md:text-[16.8px]">
+              [ ESCANEA PARA VER EN TU CELULAR ]
+            </span>
           </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // ONBOARDING</span>
-            <span className="mfqc-topbar-meta">SYS.07B — ÚNETE AL EQUIPO</span>
-          </div>
-
-          <div className="mfqc-body">
-            <div className="mfqc-split-2" style={{ alignItems: "center" }}>
-              <div className="mfqc-stack">
-                <h2 className="mfqc-headline">
-                  Únete a <span style={{ color: "#ffe600" }}>Más FLOPS que Cabras</span> 🐐
-                </h2>
-
-                <p className="mfqc-lead mfqc-lead-tight">
-                  Buscamos estudiantes curiosos y profesores colaboradores rumbo a{" "}
-                  <strong style={{ color: "#00f5d4" }}>SC, CARLA y ASC 2027</strong>.
-                </p>
-
-                <div className="mfqc-col">
-                  <span className="mfqc-col-num">CONTACTO &amp; COMUNIDAD</span>
-                  <h3>{MFQC_CONFIG.contactEmail}</h3>
-                  <p style={{ fontFamily: "var(--font-mono)" }}>github.com/MasFLOPSQueCabras</p>
-                </div>
-
-                {onOpenPoster && (
-                  <div className="mfqc-poster-btn-wrap">
-                    <button type="button" onClick={onOpenPoster} className="mfqc-poster-btn">
-                      🖨️ Vista Cartel QR (Tamaño Carta)
-                    </button>
-                  </div>
-                )}
-              </div>
-
-              <div className="mfqc-qr-wrap">
-                <div className="mfqc-qr-box">
-                  <QRCodeSVG
-                    value={MFQC_CONFIG.onboardingQrUrl}
-                    size={340}
-                    bgColor="#ffffff"
-                    fgColor="#08080c"
-                    level="H"
-                  />
-                </div>
-                <span className="mfqc-qr-caption">[ ESCANEA PARA UNIRTE DIRECTO ]</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </FeatureGrid>
+      </SlideSection>
     </Slide>
   );
 }

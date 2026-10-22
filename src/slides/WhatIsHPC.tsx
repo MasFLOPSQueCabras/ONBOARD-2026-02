@@ -1,127 +1,82 @@
-import { Slide } from "@revealjs/react";
+import { Slide } from "../components/RevealDeck";
+import { SlideSection } from "../components/SlideSection";
+import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
 
 export function WhatIsHPC() {
   return (
     <Slide>
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // HPC</span>
-            <span className="mfqc-topbar-meta">SYS.01 — ARQUITECTURA DE CLÚSTER</span>
-          </div>
+      <SlideSection
+        brand="MFQC // HPC"
+        meta="SYS.01 — ARQUITECTURA DE CLÚSTER"
+        title={
+          <>
+            ¿Qué es un clúster <span className="text-mfqc-yellow">HPC</span>?
+          </>
+        }
+        lead="Múltiples servidores interconectados que operan como un solo supercomputador para resolver problemas masivos."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="01 / CÓMPUTO" title="Nodos Densos">
+            Servidores con múltiples CPUs multinúcleo y aceleradores GPU trabajando en paralelo.
+          </FeatureItem>
 
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                ¿Qué es un clúster <span style={{ color: "#ffe600" }}>HPC</span>?
-              </h2>
-              <p className="mfqc-lead">
-                Múltiples servidores interconectados que operan como un solo supercomputador para
-                resolver problemas masivos.
-              </p>
-            </div>
+          <FeatureItem tag="02 / RED" title="Interconexión" accent="cyan">
+            Redes como <strong className="text-mfqc-cyan">InfiniBand</strong> con latencia de
+            microsegundos y cientos de Gb/s.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
 
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">01 / CÓMPUTO</span>
-                <h3>Nodos Densos</h3>
-                <p>
-                  Servidores con múltiples CPUs multinúcleo y aceleradores GPU trabajando en
-                  paralelo.
-                </p>
-              </div>
+      <SlideSection
+        brand="MFQC // HPC"
+        meta="SYS.01B — DATOS Y ORQUESTACIÓN"
+        title={
+          <>
+            Datos &amp; <span className="text-mfqc-cyan">Orquestación</span>
+          </>
+        }
+        lead="Un clúster de alto rendimiento requiere acceso masivo a datos compartidos y un planificador central."
+      >
+        <FeatureGrid>
+          <FeatureItem tag="03 / STORAGE" title="Almacenamiento Paralelo">
+            Sistemas de archivos distribuidos (Lustre, BeeGFS, NFS) accesibles simultáneamente por
+            todos los nodos.
+          </FeatureItem>
 
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">02 / RED</span>
-                <h3>Interconexión</h3>
-                <p>
-                  Redes como <strong style={{ color: "#00f5d4" }}>InfiniBand</strong> con latencia
-                  de microsegundos y cientos de Gb/s.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <FeatureItem tag="04 / SCHEDULER" title="Slurm" accent="cyan">
+            El &ldquo;cerebro&rdquo; del clúster que asigna recursos y coordina quién corre qué y
+            cuándo.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
 
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // HPC</span>
-            <span className="mfqc-topbar-meta">SYS.01B — DATOS Y ORQUESTACIÓN</span>
-          </div>
+      <SlideSection
+        brand="MFQC // SCC"
+        meta="SYS.01C — STUDENT CLUSTER COMPETITION"
+        title={
+          <>
+            ¿Qué es <span className="text-mfqc-yellow">SCC</span>?
+          </>
+        }
+        lead={
+          <>
+            <strong className="text-white">Student Cluster Competition:</strong> Diseñar, levantar y
+            exprimir un supercomputador real contra reloj.
+          </>
+        }
+      >
+        <FeatureGrid>
+          <FeatureItem tag="3000 W / LÍMITE" title="Hardware & Energía">
+            Configurar desde cero Linux, redes, compiladores y MPI sin exceder el presupuesto
+            energético ni de nodos.
+          </FeatureItem>
 
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                Datos &amp; <span style={{ color: "#00f5d4" }}>Orquestación</span>
-              </h2>
-            </div>
-
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">03 / STORAGE</span>
-                <h3>Almacenamiento Paralelo</h3>
-                <p>
-                  Sistemas de archivos distribuidos (Lustre, BeeGFS, NFS) accesibles simultáneamente
-                  por todos los nodos.
-                </p>
-              </div>
-
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">04 / SCHEDULER</span>
-                <h3>Slurm</h3>
-                <p>
-                  El &ldquo;cerebro&rdquo; del clúster que asigna recursos y coordina quién corre
-                  qué y cuándo.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="mfqc-frame">
-          <div className="mfqc-topbar">
-            <span className="mfqc-topbar-brand">MFQC // SCC</span>
-            <span className="mfqc-topbar-meta">SYS.01C — STUDENT CLUSTER COMPETITION</span>
-          </div>
-
-          <div className="mfqc-body">
-            <div>
-              <h2 className="mfqc-headline">
-                ¿Qué es <span style={{ color: "#ffe600" }}>SCC</span>?
-              </h2>
-              <p className="mfqc-lead">
-                <strong>Student Cluster Competition:</strong> Diseñar, levantar y exprimir un
-                supercomputador real contra reloj.
-              </p>
-            </div>
-
-            <div className="mfqc-split-2">
-              <div className="mfqc-col">
-                <span className="mfqc-col-num">3000 W / LÍMITE</span>
-                <h3>Hardware &amp; Energía</h3>
-                <p>
-                  Configurar desde cero Linux, redes, compiladores y MPI sin exceder el presupuesto
-                  energético ni de nodos.
-                </p>
-              </div>
-
-              <div className="mfqc-col cyan">
-                <span className="mfqc-col-num">48 HRS / CARRERA</span>
-                <h3>Benchmarks &amp; Ciencia</h3>
-                <p>
-                  Romper récords de FLOPS en{" "}
-                  <strong style={{ color: "#ffe600" }}>HPL / HPCG</strong> y acelerar aplicaciones
-                  científicas reales e IA.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <FeatureItem tag="48 HRS / CARRERA" title="Benchmarks & Ciencia" accent="cyan">
+            Romper récords de FLOPS en <strong className="text-mfqc-yellow">HPL / HPCG</strong> y
+            acelerar aplicaciones científicas reales e IA.
+          </FeatureItem>
+        </FeatureGrid>
+      </SlideSection>
     </Slide>
   );
 }
