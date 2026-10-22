@@ -12,14 +12,9 @@
   --font-mono: "JetBrains Mono", monospace;
 }
 
-@page {
-  size: letter portrait;
-  margin: 0;
-}
-
-html,
-body,
-.reveal-viewport {
+html:not(.reveal-print),
+html:not(.reveal-print) body,
+html:not(.reveal-print) .reveal-viewport {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -28,11 +23,9 @@ body,
   background-color: var(--color-mfqc-black) !important;
   color: var(--color-mfqc-white);
   font-family: var(--font-sans);
-  -webkit-print-color-adjust: exact !important;
-  print-color-adjust: exact !important;
 }
 
-#root {
+html:not(.reveal-print) #root {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -49,6 +42,7 @@ body,
 }
 
 .reveal-viewport {
+  background-color: var(--color-mfqc-black) !important;
   background-image: radial-gradient(
     circle at 50% 0%,
     rgba(255, 230, 0, 0.09) 0%,
@@ -58,7 +52,7 @@ body,
   background-size: 100% 100% !important;
 }
 
-.reveal-viewport::before {
+html:not(.reveal-print) .reveal-viewport::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -81,10 +75,68 @@ body,
   text-align: left !important;
 }
 
-.reveal .slides > section,
-.reveal .slides > section > section {
+html:not(.reveal-print) .reveal .slides > section,
+html:not(.reveal-print) .reveal .slides > section > section {
   padding: 0 !important;
   height: 100% !important;
+}
+
+@layer base {
+  html.reveal-print .reveal .slides section[hidden] {
+    display: block !important;
+  }
+}
+
+html.reveal-print .reveal .slides > section.stack:empty {
+  display: none !important;
+}
+
+/* Reveal.js /?print-pdf multi-page slide export support */
+html.reveal-print,
+html.reveal-print body,
+html.reveal-print #root {
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  background-color: var(--color-mfqc-black) !important;
+}
+
+html.reveal-print .reveal .slides .pdf-page {
+  background-color: var(--color-mfqc-black) !important;
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    rgba(255, 230, 0, 0.09) 0%,
+    transparent 60%
+  ) !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+html.reveal-print .reveal .slides .pdf-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(rgba(255, 230, 0, 0.16) 1.5px, transparent 1.5px), rgba(8, 8, 12, 0.66);
+  background-size:
+    48px 48px,
+    100% 100%;
+  z-index: 0;
+}
+
+html.reveal-print .reveal .slides .pdf-page > section {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  z-index: 1 !important;
 }
 
 .reveal h1,

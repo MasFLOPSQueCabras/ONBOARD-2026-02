@@ -14,7 +14,7 @@ import "./theme.css";
 const PosterModal = lazy(() => import("./components/PosterModal"));
 
 function getViewportConfig() {
-  if (typeof window === "undefined") {
+  if (typeof window === "undefined" || /print-pdf/i.test(window.location.search)) {
     return { width: 1600, height: 900, margin: 0.04 };
   }
   const isMobileOrPortrait = window.innerHeight > window.innerWidth || window.innerWidth < 768;

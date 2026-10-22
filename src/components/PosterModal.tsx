@@ -8,6 +8,7 @@ export interface PosterModalProps {
 export function PosterModal({ onClose }: PosterModalProps) {
   return (
     <div className="box-border flex min-h-screen w-screen flex-col items-center justify-center bg-mfqc-black p-4 text-center font-sans text-white sm:p-8 print:min-h-screen print:w-full print:bg-mfqc-black print:p-8">
+      <style>{"@page { size: letter portrait; margin: 0; }"}</style>
       <div className="fixed top-4 right-4 z-10 flex gap-2.5 sm:top-5 sm:right-5 sm:gap-3 print:hidden">
         <button
           type="button"

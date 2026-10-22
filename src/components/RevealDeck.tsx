@@ -9,23 +9,45 @@ export interface DeckProps {
 export function Deck({ config, children }: DeckProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deckRef = useRef<RevealApi | null>(null);
+  const mountIdRef = useRef(0);
   const initialConfigRef = useRef(config);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    let active = true;
-    const deck = new Reveal(el, initialConfigRef.current);
-    deckRef.current = deck;
-    void deck.initialize();
+    mountIdRef.current += 1;
+    const currentMountId = mountIdRef.current;
+
+    if (!deckRef.current) {
+      // Ensure vertical stack sections have .stack before Reveal's printView.activate() runs
+      el.querySelectorAll(".slides > section").forEach((section) => {
+        if (section.querySelector("section")) {
+          section.classList.add("stack");
+        }
+      });
+
+      const deck = new Reveal(el, initialConfigRef.current);
+      deckRef.current = deck;
+      if (/print-pdf/i.test(window.location.search)) {
+        const unhideSections = () => {
+          el.querySelectorAll("section").forEach((section) => {
+            section.removeAttribute("hidden");
+            section.removeAttribute("aria-hidden");
+            section.removeAttribute("inert");
+          });
+        };
+        deck.on("ready", unhideSections);
+        deck.on("pdf-ready", unhideSections);
+      }
+      void deck.initialize();
+    }
 
     return () => {
-      active = false;
       Promise.resolve().then(() => {
-        if (!active && deckRef.current === deck) {
+        if (mountIdRef.current === currentMountId && deckRef.current) {
           try {
-            deck.destroy();
+            deckRef.current.destroy();
           } catch {
             // Ignore cleanup errors when unmounting
           }
@@ -37,7 +59,8 @@ export function Deck({ config, children }: DeckProps) {
 
   useLayoutEffect(() => {
     const deck = deckRef.current;
-    if (deck?.isReady() && config) {
+    const isPrintView = document.documentElement.classList.contains("reveal-print");
+    if (deck?.isReady() && !isPrintView && config) {
       deck.configure(config);
       deck.layout();
     }
