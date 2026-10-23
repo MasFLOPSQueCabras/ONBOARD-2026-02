@@ -3,13 +3,17 @@ import { Slide } from "../components/RevealDeck";
 export function Title() {
   return (
     <Slide>
-      <div className="box-border flex h-full w-full items-center justify-center px-6 text-center md:px-10">
-        <h1 className="font-display text-[38px]! leading-[1.18]! font-extrabold text-white md:text-[83.2px]! md:leading-[1.08]!">
-          Más{" "}
-          <span className="title-neon-flops my-1 inline-block bg-mfqc-yellow px-3.5 py-0.5 text-mfqc-black shadow-[6px_6px_0px_#00f5d4] md:my-0 md:px-5.5 md:py-0 md:shadow-[8px_8px_0px_#00f5d4]">
-            FLOPS
+      <div className="box-border flex h-full w-full items-center justify-center px-4 text-center sm:px-6 md:px-10">
+        <h1 className="font-display text-[32px]! leading-[1.25]! font-extrabold text-white sm:text-[36px]! md:text-[83.2px]! md:leading-[1.08]!">
+          <span className="inline-block whitespace-nowrap">
+            <span className="relative z-10">Más</span>{" "}
+            <span className="title-neon-flops relative z-0 my-1 inline-block bg-mfqc-yellow px-3.5 py-0.5 text-mfqc-black shadow-[6px_6px_0px_#00f5d4] md:my-0 md:px-5.5 md:py-0 md:shadow-[8px_8px_0px_#00f5d4]">
+              FLOPS
+            </span>
           </span>{" "}
-          que Cabras 🐐
+          <span className="relative z-10 inline-block whitespace-nowrap [text-shadow:0_2px_12px_rgba(8,8,12,0.95)]">
+            que Cabras 🐐
+          </span>
         </h1>
       </div>
     </Slide>
