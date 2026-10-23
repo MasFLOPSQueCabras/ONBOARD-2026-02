@@ -1,6 +1,7 @@
 import { Slide } from "../components/RevealDeck";
 import { MojoCodeBox } from "../components/MojoCodeBox";
 import { SlideSection } from "../components/SlideSection";
+import { StatementSlide } from "../components/StatementSlide";
 import { FeatureItem } from "../components/FeatureGrid";
 
 const VECADD_MOJO = `from gpu import thread_idx, block_idx, block_dim
@@ -19,27 +20,20 @@ fn vecadd_gpu(
 export function NextStepsMojo() {
   return (
     <Slide>
-      {/* 1a. TWO-LANGUAGE PROBLEM */}
-      <SlideSection
+      {/* 1a. STATEMENT: TWO-LANGUAGE PROBLEM */}
+      <StatementSlide
         brand="MFQC // NEXT: MOJO 🔥"
         meta="FIN DEL TWO-LANGUAGE PROBLEM"
-        title={
+        tag="EL PROBLEMA HISTÓRICO"
+        statement={
           <>
-            ¿Por qué <span className="text-mfqc-yellow">Mojo 🔥</span>? El Futuro{" "}
-            <span className="text-mfqc-cyan">Heterogéneo</span>
+            Erradicando el <span className="text-mfqc-yellow">«Two-Language Problem»</span>:
+            prototipar en Python fácil y reescribir todo en C++/CUDA para correr a velocidad real.
           </>
         }
-        lead="Resuelve el histórico «problema de los dos lenguajes»: prototipar en Python lento y tener que reescribir todo en C++ / CUDA propietario para producción."
-      >
-        <div className="max-w-[1100px]">
-          <FeatureItem tag="ERGONOMÍA + BARE-METAL" title="Sintaxis Python con Velocidad C/C++">
-            Sintaxis limpia y accesible como <strong className="text-white">Python</strong>, pero
-            con tipado estático riguroso, <em>ownership</em> de memoria sin recolector de basura ni{" "}
-            <em>GIL</em>, vectorización <strong className="text-mfqc-yellow">SIMD</strong> nativa y
-            metaprogramación en compilación (<em>comptime</em>).
-          </FeatureItem>
-        </div>
-      </SlideSection>
+        detail="Mojo unifica ambos mundos: sintaxis pura y legible como Python, pero con tipado estático, ownership de memoria sin garbage collector, vectorización SIMD nativa y rendimiento bare-metal al nivel de C++."
+        accent="yellow"
+      />
 
       {/* 1b. MLIR DE PRIMERA CLASE */}
       <SlideSection
@@ -111,29 +105,21 @@ export function NextStepsMojo() {
         </div>
       </SlideSection>
 
-      {/* 3a. LECTURES PIONERAS */}
-      <SlideSection
+      {/* 3a. STATEMENT: LECTURES PIONERAS */}
+      <StatementSlide
         brand="MFQC // LECTURES"
         meta="LECTURES PIONERAS POR MFQC"
-        title={
+        tag="PIONEROS EN LA UNIVERSIDAD"
+        statement={
           <>
-            Inédito: Lectures de <span className="text-mfqc-yellow">Mojo 🔥</span> por{" "}
-            <span className="text-mfqc-cyan">MFQC</span> 🐐
+            MFQC dictará por primera vez en la universidad{" "}
+            <span className="text-mfqc-yellow">lectures abiertas de Mojo 🔥</span> y cómputo
+            heterogéneo.
           </>
         }
-        lead="Más FLOPS que Cabras dictará sesiones y lectures abiertas de Mojo y programación heterogénea, trayendo este stack por primera vez a la universidad."
-      >
-        <div className="max-w-[1100px]">
-          <FeatureItem
-            tag="PIONEROS EN LA UNIVERSIDAD"
-            title="Tecnología que Aún No Está en el Pensum"
-          >
-            Mientras los cursos tradicionales enseñan herramientas de hace décadas, en{" "}
-            <strong className="text-mfqc-yellow">MFQC</strong> aprenderás de primera mano el
-            lenguaje que está redefiniendo los <em>kernels</em> de IA y HPC moderno en la industria.
-          </FeatureItem>
-        </div>
-      </SlideSection>
+        detail="Mientras los cursos estándar enseñan herramientas de hace décadas, en el semillero aprenderás directamente el lenguaje que está reescribiendo los kernels de IA y computación masiva en la industria."
+        accent="yellow"
+      />
 
       {/* 3b. HANDS-ON ABIERTO */}
       <SlideSection

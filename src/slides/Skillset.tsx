@@ -1,5 +1,6 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
+import { StatementSlide } from "../components/StatementSlide";
 import { FeatureItem } from "../components/FeatureGrid";
 
 export function Skillset() {
@@ -240,29 +241,23 @@ export function Skillset() {
         </div>
       </SlideSection>
 
-      {/* 6b. SKILLSET: MECHANICAL SYMPATHY */}
-      <SlideSection
-        brand="MFQC // SKILLSET 06"
-        meta="MENTALIDAD: MECHANICAL SYMPATHY"
-        title={
+      {/* 6b. STATEMENT: MECHANICAL SYMPATHY */}
+      <StatementSlide
+        brand="MFQC // MENTALIDAD"
+        meta="MECHANICAL SYMPATHY"
+        tag="LA MENTALIDAD DEL INGENIERO HPC"
+        statement={
           <>
-            Ingeniería Basada en Datos: <span className="text-mfqc-cyan">Mechanical Sympathy</span>
+            No se trata de programar a ciegas sobre capas de abstracción: se trata de{" "}
+            <span className="text-mfqc-cyan">
+              entender con precisión física qué ocurre en el silicio
+            </span>{" "}
+            cuando tu software se ejecuta.
           </>
         }
-        lead="Entender la máquina real para no programar a ciegas sobre capas de abstracción."
-      >
-        <div className="max-w-[1100px]">
-          <FeatureItem
-            tag="02 / FRONTEND, CLOUD & APPS"
-            title="Diseño Conectado al Silicio"
-            accent="cyan"
-          >
-            <em>Mechanical sympathy</em> en cualquier stack tecnológico: medir antes de optimizar,
-            eliminar trabajo redundante y saber exactamente qué sucede en el silicio desde el
-            navegador hasta el servidor.
-          </FeatureItem>
-        </div>
-      </SlideSection>
+        detail="«Mechanical sympathy» en cualquier stack: medir con rigor antes de especular, erradicar trabajo redundante y dominar cómo viajan los datos entre transistores, registros, buses y redes."
+        accent="cyan"
+      />
     </Slide>
   );
 }

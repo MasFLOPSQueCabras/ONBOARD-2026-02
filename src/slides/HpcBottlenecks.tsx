@@ -1,5 +1,6 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
+import { StatementSlide } from "../components/StatementSlide";
 
 export function HpcBottlenecks() {
   return (
@@ -27,27 +28,21 @@ export function HpcBottlenecks() {
         </div>
       </SlideSection>
 
-      {/* 1b. THE MEMORY WALL: TERMODINÁMICA */}
-      <SlideSection
+      {/* 1b. STATEMENT: LA FÍSICA DEL BYTE */}
+      <StatementSlide
         brand="MFQC // BOTTLENECKS"
         meta="TERMODINÁMICA: MOVER VS PROCESAR"
-        title={
+        tag="LA LEY FÍSICA DEL HPC"
+        statement={
           <>
-            La Física del Byte: <span className="text-mfqc-cyan">Mover vs. Procesar</span>
+            Traer un solo dato de 64 bits desde memoria externa consume de{" "}
+            <span className="text-mfqc-cyan">100 a 1,000 veces más energía física</span> que
+            ejecutar la operación matemática en registros locales.
           </>
         }
-        lead="En supercómputo moderno, mover los bytes es sustancialmente más costoso que procesarlos."
-      >
-        <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
-            A esto se suma la termodinámica: ejecutar una instrucción matemática{" "}
-            <strong className="text-mfqc-cyan">FMA</strong> en registros locales cuesta una fracción
-            de picojulio (pJ), mientras que traer un solo operando de 64 bits desde memoria externa
-            consume de <strong className="text-white">100 a 1,000 veces más energía física</strong>.
-            Diseñar algoritmos conscientes de la localidad es el requisito número uno del HPC.
-          </p>
-        </div>
-      </SlideSection>
+        detail="Ejecutar una instrucción matemática FMA cuesta una fracción de picojulio (pJ), pero mover el byte por los buses de silicio disipa órdenes de magnitud más calor. La regla dorada del supercómputo es optimizar la localidad de datos antes que la velocidad de cálculo."
+        accent="cyan"
+      />
 
       {/* 2a. SWITCHES DE ALTA RADIX */}
       <SlideSection
@@ -97,28 +92,20 @@ export function HpcBottlenecks() {
         </div>
       </SlideSection>
 
-      {/* 3a. SINCRONIZACIÓN COLECTIVA */}
-      <SlideSection
+      {/* 3a. STATEMENT: SINCRONIZACIÓN COLECTIVA */}
+      <StatementSlide
         brand="MFQC // LATENCIA DE COLA"
-        meta="OPERACIONES COLECTIVAS: SINCRONIZACIÓN GLOBAL"
-        title={
+        meta="SINCRONIZACIÓN GLOBAL"
+        tag="LA TIRANÍA DEL NODO MÁS LENTO"
+        statement={
           <>
-            Sincronización Global:{" "}
-            <span className="text-mfqc-yellow">Barreras &amp; AllReduce</span>
+            En una sincronización colectiva masiva (AllReduce), el clúster entero avanza a la
+            velocidad del <span className="text-mfqc-yellow">paquete de red más rezagado</span>.
           </>
         }
-        lead="En sincronizaciones globales masivas de supercómputo e IA, el paso de cálculo completo avanza a la velocidad del paquete más rezagado."
-      >
-        <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
-            En algoritmos de entrenamiento distribuido y simulaciones numéricas, miles de núcleos
-            deben intercambiar gradientes o fronteras espaciales mediante operaciones colectivas
-            como <strong className="text-mfqc-cyan">AllReduce</strong> o barreras MPI. En estas
-            fases, ningún procesador puede continuar con el siguiente ciclo hasta que el último nodo
-            del clúster haya completado su transmisión.
-          </p>
-        </div>
-      </SlideSection>
+        detail="Si 10,000 GPUs están sincronizando gradientes de IA, ningún procesador puede avanzar al siguiente ciclo hasta que el último byte del último nodo llegue a su destino. Un microsegundo de jitter en un switch frena a todo el supercomputador."
+        accent="yellow"
+      />
 
       {/* 3b. LA TIRANÍA DEL NODO MÁS LENTO */}
       <SlideSection

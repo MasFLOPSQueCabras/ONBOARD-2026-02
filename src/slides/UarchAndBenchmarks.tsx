@@ -1,5 +1,6 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
+import { StatementSlide } from "../components/StatementSlide";
 import { FeatureItem } from "../components/FeatureGrid";
 import { MemoryLatencyChart } from "../components/charts/MemoryLatencyChart";
 
@@ -129,7 +130,23 @@ export function UarchAndBenchmarks() {
         </div>
       </SlideSection>
 
-      {/* 7. GRÁFICA DE LATENCIA */}
+      {/* 7a. STATEMENT: ANALOGÍA DE LATENCIA */}
+      <StatementSlide
+        brand="MFQC // BENCHMARKS"
+        meta="ESCALA HUMANA DE TIEMPOS"
+        tag="ANALOGÍA: SI 1 CICLO FUERA 1 SEGUNDO"
+        statement={
+          <>
+            Si 1 ciclo de reloj equivaliera a <span className="text-mfqc-yellow">1 segundo</span>...
+            leer memoria RAM toma <span className="text-mfqc-cyan">varios minutos</span>, y salir a
+            la red tradicional equivale a <span className="text-mfqc-yellow">esperar 3 días</span>.
+          </>
+        }
+        detail="A nivel de silicio 1 ciclo son 0.25 nanosegundos. Si los datos no están preparados en las cachés ultrarrápidas L1/L2/L3, el procesador queda completamente paralizado esperando una eternidad en tiempo relativo."
+        accent="yellow"
+      />
+
+      {/* 7b. GRÁFICA DE LATENCIA */}
       <SlideSection
         brand="MFQC // BENCHMARKS"
         meta="JERARQUÍA DE MEMORIA (MULTICHASE)"
@@ -139,7 +156,7 @@ export function UarchAndBenchmarks() {
             <span className="text-mfqc-cyan">Red</span>
           </>
         }
-        lead="1 ciclo de CPU son 0.25 ns. Si leer caché L1 fuese equivalente a 1 segundo, acceder a RAM toma varios minutos, y salir a la red tradicional equivale a esperar 3 días."
+        lead="Medición precisa con multichase: el costo temporal de saltar a través de cada peldaño de la jerarquía de memoria física."
       >
         <div className="w-full max-w-[1340px]">
           <MemoryLatencyChart />

@@ -1,30 +1,25 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
+import { StatementSlide } from "../components/StatementSlide";
 import { FeatureItem } from "../components/FeatureGrid";
 
 export function HeterogeneousHardware() {
   return (
     <Slide>
-      {/* 1a. THE FREE LUNCH IS OVER: DENNARD SCALING */}
-      <SlideSection
+      {/* 1a. STATEMENT: THE FREE LUNCH IS OVER */}
+      <StatementSlide
         brand="MFQC // PARADIGMA"
         meta="THE FREE LUNCH IS OVER"
-        title={
+        tag="EL FIN DE LA ERA GRATIS"
+        statement={
           <>
-            <span className="text-mfqc-yellow">&ldquo;The Free Lunch Is Over&rdquo;</span>
+            <span className="text-mfqc-yellow">«The Free Lunch Is Over»</span>: Durante décadas
+            bastaba esperar un CPU más rápido. Esa era murió.
           </>
         }
-        lead="Durante décadas bastaba esperar un nuevo CPU con más frecuencia de reloj para que todo el software corriera más rápido gratis. Esa era murió."
-      >
-        <div className="max-w-[1100px]">
-          <FeatureItem tag="MOTTO 01 // LÍMITES TÉRMICOS" title="El Fin de la Escala Dennard">
-            A principios de los 2000, la física impuso un freno implacable: aumentar la frecuencia
-            de reloj disparaba el calor exponencialmente. El rendimiento ya no viene de gigahertz
-            gratis, sino de paralelismo masivo, arquitecturas especializadas y algoritmos diseñados
-            conscientemente para la máquina.
-          </FeatureItem>
-        </div>
-      </SlideSection>
+        detail="A principios de los 2000, la física impuso el fin de la escala Dennard: subir la frecuencia disipaba calor inmanejable. Hoy el rendimiento no proviene de gigahertz gratis, sino de paralelismo extremo, aceleradores dedicados y código tallado para el silicio."
+        accent="yellow"
+      />
 
       {/* 1b. PARADIGMA HETEROGÉNEO */}
       <SlideSection
@@ -168,27 +163,21 @@ export function HeterogeneousHardware() {
         </div>
       </SlideSection>
 
-      {/* 4b. GPUDIRECT RDMA */}
-      <SlideSection
+      {/* 4b. STATEMENT: GPUDIRECT RDMA */}
+      <StatementSlide
         brand="MFQC // REDES DE ULTRA BAJA LATENCIA"
         meta="GPUDIRECT RDMA: VRAM A VRAM"
-        title={
+        tag="LATENCIA EXTREMA: ~1 MICROSEGUNDO"
+        statement={
           <>
-            Interconexión GPU: <span className="text-mfqc-cyan">GPUDirect RDMA (~1 μs)</span>
+            Mover tensores entre GPUs remotas a{" "}
+            <span className="text-mfqc-cyan">~1 microsegundo de latencia</span> sin despertar a la
+            CPU ni tocar la RAM del sistema.
           </>
         }
-        lead="Moviendo tensores entre aceleradores remotos sin intervención de la CPU host."
-      >
-        <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
-            Con <strong className="text-mfqc-cyan">GPUDirect RDMA</strong>, los tensores se
-            transmiten directamente entre las memorias VRAM de GPUs ubicadas en servidores distintos
-            a través del bus PCIe y la red InfiniBand/RoCEv2, alcanzando latencias de transferencia
-            inferiores a <strong className="text-white">un microsegundo (~1 μs)</strong> sin
-            despertar a la CPU ni requerir buffers temporales en RAM del sistema.
-          </p>
-        </div>
-      </SlideSection>
+        detail="Con GPUDirect RDMA, los datos viajan directamente de VRAM a VRAM a través de PCIe y redes InfiniBand / RoCEv2. Cero copias en memoria host, cero cambios de contexto y ancho de banda masivo sin fricción."
+        accent="cyan"
+      />
 
       {/* 5a. SILICIO DE RED: CONNECTX & PENSANDO */}
       <SlideSection

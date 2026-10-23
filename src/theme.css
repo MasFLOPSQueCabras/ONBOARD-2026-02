@@ -185,6 +185,41 @@ html.reveal-print .reveal .slides .pdf-page > section {
   z-index: 1 !important;
 }
 
+/* Measured Neon Glow Accents */
+.text-mfqc-yellow {
+  text-shadow:
+    0 0 10px rgba(255, 230, 0, 0.45),
+    0 0 20px rgba(255, 230, 0, 0.2);
+}
+
+.text-mfqc-cyan {
+  text-shadow:
+    0 0 10px rgba(0, 245, 212, 0.45),
+    0 0 20px rgba(0, 245, 212, 0.2);
+}
+
+.text-mfqc-pink {
+  text-shadow:
+    0 0 10px rgba(255, 0, 127, 0.45),
+    0 0 20px rgba(255, 0, 127, 0.2);
+}
+
+.bg-mfqc-yellow {
+  filter: drop-shadow(0 0 8px rgba(255, 230, 0, 0.35));
+}
+
+.bg-mfqc-cyan {
+  filter: drop-shadow(0 0 8px rgba(0, 245, 212, 0.35));
+}
+
+.border-mfqc-yellow {
+  box-shadow: -2px 0 12px rgba(255, 230, 0, 0.25);
+}
+
+.border-mfqc-cyan {
+  box-shadow: -2px 0 12px rgba(0, 245, 212, 0.25);
+}
+
 .reveal h1,
 .reveal h2 {
   font-family: var(--font-display) !important;

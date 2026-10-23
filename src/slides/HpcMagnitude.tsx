@@ -1,5 +1,6 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
+import { StatementSlide } from "../components/StatementSlide";
 import { HpcScaleChart, HpcScaleCards } from "../components/charts/HpcScaleChart";
 
 export function HpcMagnitude() {
@@ -54,7 +55,24 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 3. GRÁFICA: POTENCIA DE CÓMPUTO */}
+      {/* 3a. STATEMENT: LA BRECHA DE CÓMPUTO */}
+      <StatementSlide
+        brand="MFQC // ESCALA HPC"
+        meta="LA BRECHA DE CÓMPUTO"
+        tag="BRECHA DE POTENCIA: DE MESES A MEDIO SEGUNDO"
+        statement={
+          <>
+            Lo que a un computador personal le toma{" "}
+            <span className="text-mfqc-yellow">4 meses de cálculo continuo</span>... un único nodo
+            HPC lo resuelve en <span className="text-mfqc-cyan">1 hora</span>, y el supercomputador
+            TOP500 #1 lo liquida en <span className="text-mfqc-yellow">medio segundo</span>.
+          </>
+        }
+        detail="Una aceleración superior a 20 millones de veces. En ciencia e ingeniería, pasar de esperar meses a obtener respuestas en segundos transforma por completo las preguntas que podemos formular."
+        accent="yellow"
+      />
+
+      {/* 3b. GRÁFICA: POTENCIA DE CÓMPUTO */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
         meta="POTENCIA DE CÓMPUTO (TFLOPS)"
@@ -64,14 +82,31 @@ export function HpcMagnitude() {
             <span className="text-mfqc-cyan">ExaFLOPS</span>
           </>
         }
-        lead="Lo que a un computador personal le toma 4 meses de cálculo ininterrumpido al 100%, un único nodo HPC lo resuelve en 1 hora, y El Capitan lo liquida en medio segundo."
+        lead="Comparativa de rendimiento en escala logarítmica: de 50 TFLOPS en silicio personal a más de 1,700,000 TFLOPS en supercómputo nacional."
       >
         <div className="w-full max-w-[1340px]">
           <HpcScaleChart metric="compute" />
         </div>
       </SlideSection>
 
-      {/* 4. GRÁFICA: ANCHO DE BANDA */}
+      {/* 4a. STATEMENT: ANCHO DE BANDA */}
+      <StatementSlide
+        brand="MFQC // ESCALA HPC"
+        meta="EL RÍO DE DATOS"
+        tag="ANCHO DE BANDA: ALIMENTANDO EL CÓMPUTO"
+        statement={
+          <>
+            Los núcleos mueren de hambre si los datos no llegan a tiempo: de{" "}
+            <span className="text-mfqc-cyan">450 GB/s</span> en un SoC personal a{" "}
+            <span className="text-mfqc-yellow">18 Petabytes por segundo</span> inundando el tejido
+            del clúster.
+          </>
+        }
+        detail="El mayor cuello de botella en supercómputo no es ejecutar operaciones matemáticas; es construir un sistema circulatorio masivo capaz de bombear terabytes por segundo a cada acelerador."
+        accent="cyan"
+      />
+
+      {/* 4b. GRÁFICA: ANCHO DE BANDA */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
         meta="ANCHO DE BANDA DE MEMORIA (GB/s)"
@@ -81,14 +116,30 @@ export function HpcMagnitude() {
             <span className="text-mfqc-yellow">Tejido</span>
           </>
         }
-        lead="Los procesadores mueren de hambre si los datos no llegan a tiempo: de 450 GB/s en un SoC a 18 Petabytes por segundo inundando el tejido del clúster."
+        lead="Comparativa de ancho de banda agregado entre la memoria del sistema y las redes de interconexión."
       >
         <div className="w-full max-w-[1340px]">
           <HpcScaleChart metric="bandwidth" />
         </div>
       </SlideSection>
 
-      {/* 5. GRÁFICA: CONSUMO ENERGÉTICO */}
+      {/* 5a. STATEMENT: FACTURA TÉRMICA */}
+      <StatementSlide
+        brand="MFQC // ESCALA HPC"
+        meta="LA FACTURA TÉRMICA"
+        tag="POTENCIA ELÉCTRICA: EL PEAJE FÍSICO"
+        statement={
+          <>
+            Alimentar 11 millones de núcleos exige{" "}
+            <span className="text-mfqc-yellow">29.5 Megavatios continuos</span>: suficiente energía
+            para abastecer una <span className="text-mfqc-cyan">ciudad pequeña</span>.
+          </>
+        }
+        detail="El supercómputo a escala Exaflop se topa de frente con la física: diseñar subestaciones eléctricas dedicadas y sistemas de refrigeración líquida directa para disipar gigavatios de calor."
+        accent="yellow"
+      />
+
+      {/* 5b. GRÁFICA: CONSUMO ENERGÉTICO */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
         meta="CONSUMO ENERGÉTICO CONTINUO (WATTS)"
@@ -98,7 +149,7 @@ export function HpcMagnitude() {
             <span className="text-mfqc-cyan">Planta Eléctrica</span>
           </>
         }
-        lead="El rendimiento masivo impone un peaje físico brutal: alimentar 11 millones de núcleos exige 29.5 Megavatios continuos — suficiente energía para una ciudad pequeña."
+        lead="Comparativa de potencia requerida para sostener cómputo ininterrumpido en cada escala de hardware."
       >
         <div className="w-full max-w-[1340px]">
           <HpcScaleChart metric="power" />
