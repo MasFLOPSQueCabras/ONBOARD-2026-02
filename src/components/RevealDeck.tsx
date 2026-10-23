@@ -29,12 +29,21 @@ export function Deck({ config, children }: DeckProps) {
 
       const deck = new Reveal(el, initialConfigRef.current);
       deckRef.current = deck;
-      deck.on("overviewshown", () => {
+      (window as any).RevealDeck = deck;
+
+      const unhideOverview = () => {
+        if (!deck.isOverview()) return;
         el.querySelectorAll("section").forEach((section) => {
           section.removeAttribute("hidden");
           section.removeAttribute("aria-hidden");
+          if ((section as HTMLElement).style.display === "none") {
+            (section as HTMLElement).style.display = "block";
+          }
         });
-      });
+      };
+
+      deck.on("overviewshown", unhideOverview);
+      deck.on("slidechanged", unhideOverview);
 
       if (/print-pdf/i.test(window.location.search)) {
         const unhideSections = () => {
@@ -57,6 +66,9 @@ export function Deck({ config, children }: DeckProps) {
             deckRef.current.destroy();
           } catch {
             // Ignore cleanup errors when unmounting
+          }
+          if ((window as any).RevealDeck === deckRef.current) {
+            delete (window as any).RevealDeck;
           }
           deckRef.current = null;
         }
