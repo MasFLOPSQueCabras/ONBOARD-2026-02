@@ -1,5 +1,6 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
+import { HpcScaleChart, HpcScaleCards } from "../components/charts/HpcScaleChart";
 
 export function HpcMagnitude() {
   return (
@@ -53,7 +54,75 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 3. ANATOMÍA DE UN NODO HPC MULTI-ACELERADOR */}
+      {/* 3. GRÁFICA: POTENCIA DE CÓMPUTO */}
+      <SlideSection
+        brand="MFQC // ESCALA HPC"
+        meta="POTENCIA DE CÓMPUTO (TFLOPS)"
+        title={
+          <>
+            La Brecha de Escala: <span className="text-mfqc-yellow">Del Portátil</span> a los{" "}
+            <span className="text-mfqc-cyan">ExaFLOPS</span>
+          </>
+        }
+        lead="Lo que a un computador personal le toma 4 meses de cálculo ininterrumpido al 100%, un único nodo HPC lo resuelve en 1 hora, y El Capitan lo liquida en medio segundo."
+      >
+        <div className="w-full max-w-[1340px]">
+          <HpcScaleChart metric="compute" />
+        </div>
+      </SlideSection>
+
+      {/* 4. GRÁFICA: ANCHO DE BANDA */}
+      <SlideSection
+        brand="MFQC // ESCALA HPC"
+        meta="ANCHO DE BANDA DE MEMORIA (GB/s)"
+        title={
+          <>
+            El Río de Datos: <span className="text-mfqc-cyan">Memoria</span>, Buses y{" "}
+            <span className="text-mfqc-yellow">Tejido</span>
+          </>
+        }
+        lead="Los procesadores mueren de hambre si los datos no llegan a tiempo: de 450 GB/s en un SoC a 18 Petabytes por segundo inundando el tejido del clúster."
+      >
+        <div className="w-full max-w-[1340px]">
+          <HpcScaleChart metric="bandwidth" />
+        </div>
+      </SlideSection>
+
+      {/* 5. GRÁFICA: CONSUMO ENERGÉTICO */}
+      <SlideSection
+        brand="MFQC // ESCALA HPC"
+        meta="CONSUMO ENERGÉTICO CONTINUO (WATTS)"
+        title={
+          <>
+            La Factura Térmica: De <span className="text-mfqc-yellow">70 Watts</span> a una{" "}
+            <span className="text-mfqc-cyan">Planta Eléctrica</span>
+          </>
+        }
+        lead="El rendimiento masivo impone un peaje físico brutal: alimentar 11 millones de núcleos exige 29.5 Megavatios continuos — suficiente energía para una ciudad pequeña."
+      >
+        <div className="w-full max-w-[1340px]">
+          <HpcScaleChart metric="power" />
+        </div>
+      </SlideSection>
+
+      {/* 6. COMPARATIVA Y RESUMEN ARQUITECTÓNICO */}
+      <SlideSection
+        brand="MFQC // ESCALA HPC"
+        meta="LOS CUATRO PELDAÑOS DE HARDWARE"
+        title={
+          <>
+            Los Cuatro Peldaños: <span className="text-mfqc-yellow">Del Portátil</span> al{" "}
+            <span className="text-mfqc-cyan">Exascale</span>
+          </>
+        }
+        lead="Cada orden de magnitud resuelve un reto arquitectónico distinto: desde el prototipado local hasta la simulación a escala planetaria."
+      >
+        <div className="w-full max-w-[1340px]">
+          <HpcScaleCards />
+        </div>
+      </SlideSection>
+
+      {/* 7. ANATOMÍA DE UN NODO HPC MULTI-ACELERADOR */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
         meta="ANATOMÍA DE UN NODO DE SUPERCOMPUTACIÓN"
@@ -83,7 +152,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 4. LA MALLA DE RED RDMA DEL CLÚSTER */}
+      {/* 8. LA MALLA DE RED RDMA DEL CLÚSTER */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
         meta="LA MALLA DE INTERCONEXIÓN RDMA"
@@ -113,7 +182,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 5. TOP500 & ERA EXASCALE */}
+      {/* 9. TOP500 & ERA EXASCALE */}
       <SlideSection
         brand="MFQC // TOP500"
         meta="LA CIMA MUNDIAL: TOP500"
@@ -152,7 +221,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 6. IA DE FRONTERA: PRE-ENTRENAMIENTO MASIVO */}
+      {/* 10. IA DE FRONTERA: PRE-ENTRENAMIENTO MASIVO */}
       <SlideSection
         brand="MFQC // WORKLOADS: IA"
         meta="IA: PRE-ENTRENAMIENTO MASIVO"
@@ -182,7 +251,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 7. IA DE FRONTERA: INFERENCIA & KV-CACHE */}
+      {/* 11. IA DE FRONTERA: INFERENCIA & KV-CACHE */}
       <SlideSection
         brand="MFQC // WORKLOADS: IA"
         meta="IA: INFERENCIA & EL MURO DEL KV-CACHE"
@@ -196,8 +265,8 @@ export function HpcMagnitude() {
       >
         <div className="max-w-[1240px]">
           <p className="font-sans text-[17px] leading-[1.65] text-white/90 md:text-[25px] md:leading-[1.6]">
-            En la fase de inferencia y modelos de razonamiento (o1, R1), la generación autoregresiva
-            de texto ocurre token a token. Este proceso es estrictamente{" "}
+            En la fase de inferencia y modelos de razonamiento, la generación autoregresiva de texto
+            ocurre token a token. Este proceso es estrictamente{" "}
             <strong className="text-white">memory-bound</strong>: por cada nuevo token generado,
             todos los pesos del modelo y el historial completo de claves y valores (
             <strong className="text-mfqc-yellow">KV-cache</strong>) deben leerse íntegramente desde
@@ -214,7 +283,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 8. CÓMPUTO CIENTÍFICO & SIMULACIÓN */}
+      {/* 12. CÓMPUTO CIENTÍFICO & SIMULACIÓN */}
       <SlideSection
         brand="MFQC // WORKLOADS: CIENCIA"
         meta="CÓMPUTO CIENTÍFICO & SIMULACIÓN"

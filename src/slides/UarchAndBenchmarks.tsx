@@ -1,6 +1,7 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
 import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
+import { MemoryLatencyChart } from "../components/charts/MemoryLatencyChart";
 
 export function UarchAndBenchmarks() {
   return (
@@ -73,6 +74,22 @@ export function UarchAndBenchmarks() {
             enlaces PCIe hacia GPUs.
           </FeatureItem>
         </FeatureGrid>
+      </SlideSection>
+
+      <SlideSection
+        brand="MFQC // BENCHMARKS"
+        meta="JERARQUÍA DE MEMORIA (MULTICHASE)"
+        title={
+          <>
+            La Escalera de Latencia: <span className="text-mfqc-yellow">Del Registro</span> a la{" "}
+            <span className="text-mfqc-cyan">Red</span>
+          </>
+        }
+        lead="1 ciclo de CPU son 0.25 ns. Si leer caché L1 fuese equivalente a 1 segundo, acceder a RAM toma varios minutos, y salir a la red tradicional equivale a esperar 3 días."
+      >
+        <div className="w-full max-w-[1340px]">
+          <MemoryLatencyChart />
+        </div>
       </SlideSection>
     </Slide>
   );
