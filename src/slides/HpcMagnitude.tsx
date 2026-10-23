@@ -122,13 +122,13 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 7. ANATOMÍA DE UN NODO HPC MULTI-ACELERADOR */}
+      {/* 7a. ANATOMÍA DE UN NODO HPC: DENSIDAD DE SILICIO */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
-        meta="ANATOMÍA DE UN NODO DE SUPERCOMPUTACIÓN"
+        meta="ANATOMÍA DE UN NODO: DENSIDAD DE SILICIO"
         title={
           <>
-            Salto Cuántico: <span className="text-mfqc-yellow">Anatomía de un Nodo HPC</span>
+            Salto Cuántico: <span className="text-mfqc-yellow">Densidad de Silicio</span>
           </>
         }
         lead="Un nodo de supercómputo no se parece a un PC: es una bestia de múltiples CPUs de servidor y aceleradores densos con memoria HBM3e."
@@ -142,7 +142,22 @@ export function HpcMagnitude() {
             H100/B200 o AMD MI300X/A) con hasta 192 GB de memoria{" "}
             <strong className="text-white">HBM3e</strong> cada uno.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 7b. ANATOMÍA DE UN NODO HPC: MALLA NVLINK */}
+      <SlideSection
+        brand="MFQC // ESCALA HPC"
+        meta="ANATOMÍA DE UN NODO: MALLA NVLINK"
+        title={
+          <>
+            Salto Cuántico: <span className="text-mfqc-cyan">La Malla NVLink</span>
+          </>
+        }
+        lead="Eliminar el cuello de botella del bus PCIe: terabytes por segundo fluyendo directamente entre GPUs."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Dentro del chasis, estos chips no se comunican por el bus PCIe tradicional: utilizan
             enlaces propietarios dedicados (
             <strong className="text-mfqc-cyan">NVLink a 900–1,800 GB/s</strong> o Infinity Fabric)
@@ -152,13 +167,13 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 8. LA MALLA DE RED RDMA DEL CLÚSTER */}
+      {/* 8a. MALLA DE RED RDMA: KERNEL BYPASS */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
-        meta="LA MALLA DE INTERCONEXIÓN RDMA"
+        meta="RED RDMA: INTERCONEXIÓN DEL CLÚSTER"
         title={
           <>
-            Salto Cuántico: <span className="text-mfqc-cyan">La Malla de Red RDMA</span>
+            El Tejido del Clúster: <span className="text-mfqc-cyan">Malla RDMA</span>
           </>
         }
         lead="Miles de nodos individuales solo se convierten en un supercomputador gracias a un tejido de red de bajísima latencia y altísimo ancho de banda."
@@ -173,7 +188,23 @@ export function HpcMagnitude() {
             escribiendo directamente en la RAM o VRAM de máquinas remotas sin despertar a la CPU ni
             pasar por el stack de red de Linux.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 8b. MALLA DE RED RDMA: DPUS Y ALMACENAMIENTO */}
+      <SlideSection
+        brand="MFQC // ESCALA HPC"
+        meta="RED RDMA: DPUS & STORAGE PARALELO"
+        title={
+          <>
+            El Tejido del Clúster:{" "}
+            <span className="text-mfqc-yellow">DPUs &amp; Almacenamiento</span>
+          </>
+        }
+        lead="Descarga total del sistema operativo para mantener la red operando al microsegundo."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Junto a ellas, las <strong className="text-white">DPUs (Data Processing Units)</strong>{" "}
             descargan la gestión del almacenamiento masivo paralelo (sistemas de archivos
             distribuidos como Lustre o GPFS) y la seguridad, logrando que el clúster opere como una
@@ -182,7 +213,7 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 9. TOP500 & ERA EXASCALE */}
+      {/* 9a. TOP500 & LA BARRERA EXASCALE */}
       <SlideSection
         brand="MFQC // TOP500"
         meta="LA CIMA MUNDIAL: TOP500"
@@ -192,36 +223,41 @@ export function HpcMagnitude() {
             <span className="text-mfqc-cyan">Exascale</span>
           </>
         }
-        lead={
-          <>
-            En el ranking mundial <strong className="text-white">TOP500</strong>, miles de estos
-            nodos se unen para superar el <strong className="text-mfqc-yellow">ExaFLOP</strong>{" "}
-            (10¹⁸ operaciones FP64 por segundo en HPL).
-          </>
-        }
+        lead="En el ranking mundial TOP500, miles de estos nodos se unen para superar el ExaFLOP (10¹⁸ operaciones FP64 por segundo en HPL)."
       >
         <div className="max-w-[1240px]">
           <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
-            El supercomputador número uno del planeta,{" "}
-            <strong className="text-white">El Capitan</strong> (Lawrence Livermore National
-            Laboratory), alcanza una marca histórica de{" "}
-            <strong className="text-mfqc-yellow">1,742,000 TFLOPS en FP64</strong> combinando más de{" "}
-            <strong className="text-white">11 millones de núcleos</strong> (APUs AMD Instinct
-            MI300A). Lo que al computador personal más rápido le tomaría{" "}
-            <em>siglos de cálculo ininterrumpido</em>, esta máquina lo resuelve en apenas{" "}
-            <em>minutos</em>.
-          </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
-            Para operar a esta escala planetaria, cientos de racks refrigerados por líquido se
-            interconectan mediante topologías <strong className="text-mfqc-cyan">Dragonfly</strong>{" "}
-            o <strong className="text-white">Fat-Tree</strong> de alta radix que coordinan millones
-            de hilos concurrentes al microsegundo, consumiendo alrededor de 30 megavatios de
-            potencia continua con la precisión de un reloj atómico.
+            Sistemas como <strong className="text-white">El Capitan</strong> (Lawrence Livermore) y{" "}
+            <strong className="text-mfqc-yellow">Frontier</strong> (Oak Ridge) concentran cerca de
+            10 millones de núcleos coordinados en topologías de red que consumen megavatios de
+            energía pura, capaces de ejecutar en un segundo lo que a la humanidad completa le
+            tomaría más de 4 años calculando sin descanso.
           </p>
         </div>
       </SlideSection>
 
-      {/* 10. IA DE FRONTERA: PRE-ENTRENAMIENTO MASIVO */}
+      {/* 9b. TOP500: CIENCIA DE FRONTERA */}
+      <SlideSection
+        brand="MFQC // TOP500"
+        meta="LA CIMA MUNDIAL: CIENCIA DE FRONTERA"
+        title={
+          <>
+            Supercomputación: <span className="text-mfqc-cyan">Ciencia de Frontera</span>
+          </>
+        }
+        lead="La potencia exascale no es un número abstracto: permite simular fenómenos imposibles de reproducir experimentalmente."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+            Estas máquinas abordan la simulación de reactores de fusión nuclear, plegamiento masivo
+            de proteínas para diseño de fármacos, evolución cosmológica del universo y el
+            entrenamiento de los modelos fundacionales de inteligencia artificial más ambiciosos del
+            mundo.
+          </p>
+        </div>
+      </SlideSection>
+
+      {/* 10a. PRE-ENTRENAMIENTO MASIVO */}
       <SlideSection
         brand="MFQC // WORKLOADS: IA"
         meta="IA: PRE-ENTRENAMIENTO MASIVO"
@@ -231,7 +267,7 @@ export function HpcMagnitude() {
             <span className="text-mfqc-cyan">Tensores FP8/FP4</span>
           </>
         }
-        lead="Entrenar modelos de frontera de billones de parámetros exige exprimir al máximo la densidad de cómputo y la sincronización colectiva masiva."
+        lead="Entrenar modelos de billones de parámetros exige exprimir al máximo la densidad de cómputo por ciclo."
       >
         <div className="max-w-[1240px]">
           <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
@@ -241,24 +277,39 @@ export function HpcMagnitude() {
             flotante microscópicos: <strong className="text-mfqc-yellow">BF16, FP8 y FP4</strong>,
             duplicando o cuadruplicando la capacidad de cálculo por ciclo de reloj.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
-            Sin embargo, el reto no termina en el chip: entrenar a escala requiere paralelismo de
-            datos, de tensores y de pipeline (3D Parallelism), forzando a miles de aceleradores a
-            ejecutar sincronizaciones colectivas{" "}
-            <strong className="text-mfqc-cyan">AllReduce</strong> continuas a través de toda la red
-            del clúster cada pocos milisegundos.
+        </div>
+      </SlideSection>
+
+      {/* 10b. 3D PARALLELISM & ALLREDUCE */}
+      <SlideSection
+        brand="MFQC // WORKLOADS: IA"
+        meta="IA: PARALELISMO 3D Y ALLREDUCE"
+        title={
+          <>
+            Demandas de IA: <span className="text-mfqc-cyan">3D Parallelism</span> &amp;{" "}
+            <span className="text-mfqc-yellow">AllReduce</span>
+          </>
+        }
+        lead="Coordinar miles de aceleradores para que aprendan al unísono como un solo cerebro."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+            El reto no termina en el chip: entrenar a escala requiere paralelismo de datos, de
+            tensores y de pipeline (3D Parallelism), forzando a miles de aceleradores a ejecutar
+            sincronizaciones colectivas <strong className="text-mfqc-cyan">AllReduce</strong>{" "}
+            continuas a través de toda la red del clúster cada pocos milisegundos para intercambiar
+            gradientes de billones de pesos.
           </p>
         </div>
       </SlideSection>
 
-      {/* 11. IA DE FRONTERA: INFERENCIA & KV-CACHE */}
+      {/* 11a. INFERENCIA & DICTADURA DEL ANCHO DE BANDA */}
       <SlideSection
         brand="MFQC // WORKLOADS: IA"
-        meta="IA: INFERENCIA & EL MURO DEL KV-CACHE"
+        meta="IA: INFERENCIA & ANCHO DE BANDA"
         title={
           <>
-            Demandas de IA: <span className="text-mfqc-cyan">Inferencia</span> &amp;{" "}
-            <span className="text-mfqc-yellow">El Muro del KV-Cache</span>
+            Demandas de IA: <span className="text-mfqc-cyan">Inferencia</span> Token a Token
           </>
         }
         lead="Generar respuestas token por token invierte completamente las restricciones: de cálculo intensivo pasamos a la dictadura del ancho de banda."
@@ -272,7 +323,22 @@ export function HpcMagnitude() {
             <strong className="text-mfqc-yellow">KV-cache</strong>) deben leerse íntegramente desde
             la memoria a los registros.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 11b. EL MURO DEL KV-CACHE */}
+      <SlideSection
+        brand="MFQC // WORKLOADS: IA"
+        meta="IA: EL MURO DEL KV-CACHE"
+        title={
+          <>
+            Inferencia a Escala: <span className="text-mfqc-yellow">El Muro del KV-Cache</span>
+          </>
+        }
+        lead="Millones de tokens de contexto activo exigen optimizaciones algorítmicas extremas en VRAM."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Con ventanas de contexto de millones de tokens y miles de usuarios concurrentes, el
             KV-cache desborda fácilmente los cientos de gigabytes de memoria HBM, obligando a
             emplear algoritmos como{" "}
@@ -283,17 +349,16 @@ export function HpcMagnitude() {
         </div>
       </SlideSection>
 
-      {/* 12. CÓMPUTO CIENTÍFICO & SIMULACIÓN */}
+      {/* 12a. CÓMPUTO CIENTÍFICO: RIGOR FP64 */}
       <SlideSection
         brand="MFQC // WORKLOADS: CIENCIA"
-        meta="CÓMPUTO CIENTÍFICO & SIMULACIÓN"
+        meta="CIENCIA: EL RIGOR DE FP64"
         title={
           <>
-            Demandas Científicas: <span className="text-mfqc-cyan">Rigor FP64</span> &amp;{" "}
-            <span className="text-mfqc-yellow">Álgebra Dispersa</span>
+            Demandas Científicas: <span className="text-mfqc-cyan">Rigor FP64</span>
           </>
         }
-        lead="Los grandes problemas de la ciencia y la física exigen precisión matemática estricta y algoritmos radicalmente distintos a las redes neuronales."
+        lead="Los grandes problemas de la física exigen precisión matemática estricta sin tolerar errores de redondeo."
       >
         <div className="max-w-[1240px]">
           <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
@@ -304,13 +369,29 @@ export function HpcMagnitude() {
             error de redondeo infinitesimal acumulado tras millones de pasos de integración temporal
             produce catastróficas divergencias en las ecuaciones diferenciales.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
-            Asimismo, estos modelos resuelven mallas no estructuradas con{" "}
-            <strong className="text-white">matrices dispersas (SpMV)</strong> casi vacías y
-            transformadas de Fourier tridimensionales (FFTs 3D), caracterizadas por accesos
-            irregulares a memoria. La frontera moderna es{" "}
-            <strong className="text-mfqc-cyan">AI for Science</strong>: redes neuronales integradas
-            como sub-solvers dentro de simuladores físicos tradicionales.
+        </div>
+      </SlideSection>
+
+      {/* 12b. CÓMPUTO CIENTÍFICO: ÁLGEBRA DISPERSA & AI FOR SCIENCE */}
+      <SlideSection
+        brand="MFQC // WORKLOADS: CIENCIA"
+        meta="CIENCIA: ÁLGEBRA DISPERSA & AI FOR SCIENCE"
+        title={
+          <>
+            Frontera Científica: <span className="text-mfqc-yellow">Álgebra Dispersa</span> &amp;{" "}
+            <span className="text-mfqc-cyan">AI for Science</span>
+          </>
+        }
+        lead="Mallas no estructuradas, transformadas FFT y redes neuronales colaborando como sub-solvers físicos."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+            Estos modelos resuelven mallas espaciales irregulares con{" "}
+            <strong className="text-white">matrices dispersas (SpMV)</strong> y transformadas de
+            Fourier tridimensionales (FFTs 3D) caracterizadas por accesos no contiguos a memoria. La
+            frontera moderna es <strong className="text-mfqc-cyan">AI for Science</strong>: redes
+            neuronales integradas como sub-solvers acelerados dentro de simuladores físicos
+            tradicionales para multiplicar la velocidad de descubrimiento.
           </p>
         </div>
       </SlideSection>

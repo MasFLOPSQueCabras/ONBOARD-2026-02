@@ -1,81 +1,135 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
-import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
+import { FeatureItem } from "../components/FeatureGrid";
 import { MemoryLatencyChart } from "../components/charts/MemoryLatencyChart";
 
 export function UarchAndBenchmarks() {
   return (
     <Slide>
+      {/* 1. UARCH: CPU & MEMORIA */}
       <SlideSection
         brand="MFQC // UARCH"
-        meta="LO QUE HEMOS ABORDADO"
+        meta="MICROARQUITECTURA DE CPU"
         title={
           <>
-            La <span className="text-mfqc-yellow">uArch</span> de un PC &amp;{" "}
-            <span className="text-mfqc-cyan">GPUs</span>
+            La uArch del Servidor: <span className="text-mfqc-yellow">CPUs &amp; Memoria</span>
           </>
         }
-        lead="Para dominar un supercomputador, primero entendemos cómo fluye cada byte dentro de un nodo."
+        lead="Para dominar un supercomputador, primero entendemos cómo viaja cada bit dentro de un procesador moderno."
       >
-        <FeatureGrid>
-          <FeatureItem tag="CPU + MEMORIA" title="SIMD, Cachés y NUMA">
-            Registros vectoriales AVX, jerarquía de cachés{" "}
-            <strong className="text-white">L1 / L2 / L3</strong> y localidad de memoria entre
-            sockets.
+        <div className="max-w-[1100px]">
+          <FeatureItem tag="CPU + MEMORIA" title="SIMD, Cachés y Localidad NUMA">
+            Registros vectoriales AVX-512 / AVX10, jerarquía de memorias caché ultrarrápidas{" "}
+            <strong className="text-white">L1 / L2 / L3</strong> y la afinidad de memoria entre
+            sockets en arquitecturas NUMA.
           </FeatureItem>
-
-          <FeatureItem tag="ACELERADORES" title="GPUs & Enlaces PCIe" accent="cyan">
-            Cómputo masivamente paralelo en miles de núcleos y memoria de altísimo ancho de banda
-            (VRAM / HBM).
-          </FeatureItem>
-        </FeatureGrid>
+        </div>
       </SlideSection>
 
+      {/* 2. UARCH: GPUS & ACELERADORES */}
+      <SlideSection
+        brand="MFQC // UARCH"
+        meta="ACELERADORES Y BUSES"
+        title={
+          <>
+            Silicio Especializado: <span className="text-mfqc-cyan">GPUs &amp; Enlaces PCIe</span>
+          </>
+        }
+        lead="Cuando un cálculo exige millones de hilos concurrentes, el procesador central delega la tarea a silicio especializado."
+      >
+        <div className="max-w-[1100px]">
+          <FeatureItem tag="ACELERADORES" title="Paralelismo Masivo & Memoria HBM" accent="cyan">
+            Cómputo en decenas de miles de hilos concurrentes sobre memorias de altísimo ancho de
+            banda (<strong className="text-mfqc-cyan">VRAM GDDR / HBM3e</strong>) interconectadas
+            por carriles PCIe Gen 5 y enlaces propietarios.
+          </FeatureItem>
+        </div>
+      </SlideSection>
+
+      {/* 3. BENCHMARK: HPL LINPACK */}
       <SlideSection
         brand="MFQC // BENCHMARKS"
-        meta="CÓMPUTO Y MEMORIA"
+        meta="POTENCIA BRUTA: TFLOPS"
         title={
           <>
-            Cómputo y <span className="text-mfqc-yellow">Ancho de Banda</span>
+            Midiendo el Techo de Cálculo: <span className="text-mfqc-yellow">HPL (Linpack)</span>
           </>
         }
-        lead="Medimos el techo real de cálculo en punto flotante y la velocidad de transferencia de la memoria RAM."
+        lead="El estándar de oro internacional utilizado para clasificar los supercomputadores más rápidos del planeta en el TOP500."
       >
-        <FeatureGrid>
-          <FeatureItem tag="MÉTRICA: TFLOPS" title="HPL (Linpack)">
-            El estándar del TOP500 para medir el techo real de operaciones en punto flotante
-            resolviendo sistemas lineales densos.
+        <div className="max-w-[1100px]">
+          <FeatureItem tag="MÉTRICA: TFLOPS (FP64)" title="Sistemas Lineales Densos">
+            Resuelve un gigantesco sistema lineal de ecuaciones densas utilizando álgebra de
+            matrices y precisión doble de 64 bits para medir los FLOPS reales sostenibles del
+            hardware.
           </FeatureItem>
-
-          <FeatureItem tag="MÉTRICA: GB/s" title="STREAM" accent="cyan">
-            Mide el ancho de banda real sostenible de la memoria RAM mediante operaciones
-            vectoriales (Copy, Scale, Add, Triad).
-          </FeatureItem>
-        </FeatureGrid>
+        </div>
       </SlideSection>
 
+      {/* 4. BENCHMARK: STREAM */}
       <SlideSection
         brand="MFQC // BENCHMARKS"
-        meta="LATENCIA Y TOPOLOGÍA"
+        meta="ANCHO DE BANDA: GB/s"
         title={
           <>
-            Latencia y <span className="text-mfqc-cyan">Topología</span>
+            Alimentando los Núcleos: Benchmark <span className="text-mfqc-cyan">STREAM</span>
           </>
         }
-        lead="Diagnosticamos tiempos de acceso a nivel de nanosegundos y el mapa físico de interconexiones del servidor."
+        lead="Calcular rápido no sirve de nada si la memoria no entrega los datos a tiempo: STREAM mide la velocidad real de la RAM."
       >
-        <FeatureGrid>
-          <FeatureItem tag="MÉTRICA: NANOSEGUNDOS (ns)" title="multichase">
-            Mide la latencia exacta de cada nivel de caché y RAM mediante <em>pointer chasing</em>.
+        <div className="max-w-[1100px]">
+          <FeatureItem tag="MÉTRICA: GB/s" title="Ancho de Banda Sostenido" accent="cyan">
+            Ejecuta operaciones vectoriales sencillas (Copy, Scale, Add, Triad) para evaluar el
+            ancho de banda real que la memoria principal DDR5 puede sostener continuamente.
           </FeatureItem>
-
-          <FeatureItem tag="MÉTRICA: MAPA FÍSICO" title="hwloc" accent="cyan">
-            Descubre la topología física del servidor: dominios NUMA, sockets, núcleos, cachés y
-            enlaces PCIe hacia GPUs.
-          </FeatureItem>
-        </FeatureGrid>
+        </div>
       </SlideSection>
 
+      {/* 5. BENCHMARK: MULTICHASE */}
+      <SlideSection
+        brand="MFQC // BENCHMARKS"
+        meta="LATENCIA: NANOSEGUNDOS"
+        title={
+          <>
+            La Física del Tiempo: <span className="text-mfqc-yellow">multichase</span>
+          </>
+        }
+        lead="Diagnóstico de tiempos de acceso y saltos de latencia en cada nivel de caché y socket."
+      >
+        <div className="max-w-[1100px]">
+          <FeatureItem tag="MÉTRICA: NANOSEGUNDOS (ns)" title="Pointer Chasing de Memoria">
+            Mide el retraso exacto de ida y vuelta para leer un byte mediante persecución de
+            punteros, revelando con precisión quirúrgica el tiempo de respuesta de L1, L2, L3 y la
+            RAM local o remota.
+          </FeatureItem>
+        </div>
+      </SlideSection>
+
+      {/* 6. BENCHMARK: HWLOC */}
+      <SlideSection
+        brand="MFQC // BENCHMARKS"
+        meta="TOPOLOGÍA DEL SERVIDOR"
+        title={
+          <>
+            El Mapa del Servidor: <span className="text-mfqc-cyan">hwloc</span>
+          </>
+        }
+        lead="Conocer la geometría física interna del equipo es indispensable para asignar procesos con mínima latencia."
+      >
+        <div className="max-w-[1100px]">
+          <FeatureItem
+            tag="MÉTRICA: TOPOLOGÍA FÍSICA"
+            title="Descubrimiento de Hardware"
+            accent="cyan"
+          >
+            Mapea la estructura jerárquica del servidor: qué núcleos comparten qué nivel de caché,
+            qué sockets acceden a qué memoria NUMA y qué tarjetas GPU están ancladas a cada bus
+            PCIe.
+          </FeatureItem>
+        </div>
+      </SlideSection>
+
+      {/* 7. GRÁFICA DE LATENCIA */}
       <SlideSection
         brand="MFQC // BENCHMARKS"
         meta="JERARQUÍA DE MEMORIA (MULTICHASE)"

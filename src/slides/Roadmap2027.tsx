@@ -1,60 +1,88 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
-import { FeatureGrid, FeatureItem } from "../components/FeatureGrid";
+import { FeatureItem } from "../components/FeatureGrid";
 
 export function Roadmap2027() {
   return (
     <Slide>
+      {/* 1a. ASC CHALLENGE */}
       <SlideSection
         brand="MFQC // ROADMAP 2027"
-        meta="PRÓXIMAS COMPETENCIAS"
+        meta="COMPETENCIA 01: ASIA & MUNDIAL"
         title={
           <>
-            Temporada <span className="text-mfqc-yellow">2027</span>: El Triple Reto
+            Temporada 2027: <span className="text-mfqc-yellow">ASC Challenge</span>
           </>
         }
-        lead={
-          <>
-            El próximo año planeamos llevar a{" "}
-            <strong className="text-white">Más FLOPS que Cabras</strong> a las tres grandes ligas
-            internacionales de HPC.
-          </>
-        }
+        lead="Llevar a Más FLOPS que Cabras a las ligas de supercómputo más masivas del mundo."
       >
-        <FeatureGrid>
-          <FeatureItem tag="01 / ASIA & MUNDIAL" title="ASC Challenge">
-            <strong className="text-white">Asia Student Supercomputer Challenge:</strong> El torneo
-            estudiantil de supercomputación más masivo del mundo.
+        <div className="max-w-[1100px]">
+          <FeatureItem tag="01 / ASIA & MUNDIAL" title="Asia Student Supercomputer Challenge">
+            El torneo estudiantil de supercomputación más masivo del planeta, enfrentando a más de
+            300 universidades internacionales en optimización de aplicaciones de frontera e IA.
           </FeatureItem>
-
-          <FeatureItem tag="02 / LATINOAMÉRICA" title="CARLA SCC" accent="cyan">
-            Volver con toda la experiencia acumulada en 2026 para buscar el podio regional en
-            Latinoamérica.
-          </FeatureItem>
-        </FeatureGrid>
+        </div>
       </SlideSection>
 
+      {/* 1b. CARLA SCC */}
       <SlideSection
         brand="MFQC // ROADMAP 2027"
-        meta="LA CUMBRE MUNDIAL"
+        meta="COMPETENCIA 02: LATINOAMÉRICA"
         title={
           <>
-            Rumbo a <span className="text-mfqc-cyan">SuperComputing</span>
+            Temporada 2027: <span className="text-mfqc-cyan">CARLA SCC</span>
           </>
         }
-        lead="Preparación continua para competir frente a las mejores universidades del mundo."
+        lead="Consolidar el liderazgo regional en la conferencia latinoamericana de supercómputo."
       >
-        <FeatureGrid>
-          <FeatureItem tag="03 / ESTADOS UNIDOS" title="SuperComputing (SC) SCC">
-            La conferencia y competencia más prestigiosa del planeta en computación de alto
-            rendimiento, redes, almacenamiento y análisis.
+        <div className="max-w-[1100px]">
+          <FeatureItem tag="02 / LATINOAMÉRICA" title="Retorno a CARLA por el Podio" accent="cyan">
+            Volver con toda la experiencia técnica acumulada en 2026 para disputar el podio regional
+            en Latinoamérica y liderar la comunidad estudiantil de HPC en la región.
           </FeatureItem>
+        </div>
+      </SlideSection>
 
-          <FeatureItem tag="OBJETIVO DEL EQUIPO" title="Competir al Máximo Nivel" accent="cyan">
-            Consolidar un equipo interdisciplinario capaz de enfrentar hardware de última generación
-            y cargas reales de ciencia e IA.
+      {/* 2a. SUPERCOMPUTING (SC) */}
+      <SlideSection
+        brand="MFQC // ROADMAP 2027"
+        meta="COMPETENCIA 03: LA CUMBRE MUNDIAL"
+        title={
+          <>
+            Rumbo a <span className="text-mfqc-yellow">SuperComputing (SC)</span>
+          </>
+        }
+        lead="La conferencia y competencia de HPC más prestigiosa e influyente del planeta."
+      >
+        <div className="max-w-[1100px]">
+          <FeatureItem tag="03 / ESTADOS UNIDOS" title="SuperComputing (SC) SCC">
+            La meca internacional de computación de alto rendimiento, redes, almacenamiento y
+            análisis, reuniendo a las mejores universidades del mundo en Estados Unidos.
           </FeatureItem>
-        </FeatureGrid>
+        </div>
+      </SlideSection>
+
+      {/* 2b. OBJETIVO DEL EQUIPO */}
+      <SlideSection
+        brand="MFQC // ROADMAP 2027"
+        meta="MISIÓN DEL SEMILLERO"
+        title={
+          <>
+            Misión: <span className="text-mfqc-cyan">Competir al Máximo Nivel</span>
+          </>
+        }
+        lead="Formar a la próxima generación de científicos e ingenieros de supercómputo del país."
+      >
+        <div className="max-w-[1100px]">
+          <FeatureItem
+            tag="OBJETIVO DEL EQUIPO"
+            title="Consolidación Interdisciplinaria"
+            accent="cyan"
+          >
+            Consolidar un equipo interdisciplinario de alto rendimiento capaz de configurar clusters
+            desde el silicio y acelerar cargas reales de ciencia, clima e inteligencia artificial.
+          </FeatureItem>
+        </div>
       </SlideSection>
     </Slide>
   );

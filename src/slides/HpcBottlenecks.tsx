@@ -4,10 +4,10 @@ import { SlideSection } from "../components/SlideSection";
 export function HpcBottlenecks() {
   return (
     <Slide>
-      {/* 1. THE MEMORY WALL */}
+      {/* 1a. THE MEMORY WALL: FLOPS VS BANDWIDTH */}
       <SlideSection
         brand="MFQC // BOTTLENECKS"
-        meta="THE MEMORY WALL"
+        meta="THE MEMORY WALL: ACELERADORES HAMBRIENTOS"
         title={
           <>
             El Muro de Memoria: <span className="text-mfqc-yellow">The Memory Wall</span>
@@ -24,27 +24,41 @@ export function HpcBottlenecks() {
             pasan cientos de ciclos de reloj{" "}
             <strong className="text-white">completamente ociosos esperando datos</strong>.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 1b. THE MEMORY WALL: TERMODINÁMICA */}
+      <SlideSection
+        brand="MFQC // BOTTLENECKS"
+        meta="TERMODINÁMICA: MOVER VS PROCESAR"
+        title={
+          <>
+            La Física del Byte: <span className="text-mfqc-cyan">Mover vs. Procesar</span>
+          </>
+        }
+        lead="En supercómputo moderno, mover los bytes es sustancialmente más costoso que procesarlos."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             A esto se suma la termodinámica: ejecutar una instrucción matemática{" "}
             <strong className="text-mfqc-cyan">FMA</strong> en registros locales cuesta una fracción
             de picojulio (pJ), mientras que traer un solo operando de 64 bits desde memoria externa
             consume de <strong className="text-white">100 a 1,000 veces más energía física</strong>.
-            En supercómputo moderno, mover los bytes es sustancialmente más costoso que procesarlos.
+            Diseñar algoritmos conscientes de la localidad es el requisito número uno del HPC.
           </p>
         </div>
       </SlideSection>
 
-      {/* 2. SWITCHES DE ALTA RADIX & CONGESTIÓN */}
+      {/* 2a. SWITCHES DE ALTA RADIX */}
       <SlideSection
         brand="MFQC // INTERCONEXIÓN"
-        meta="SWITCHES DE ALTA RADIX & CONGESTIÓN"
+        meta="TOPOLOGÍAS: FAT-TREE & DRAGONFLY+"
         title={
           <>
-            Redes a Escala: <span className="text-mfqc-yellow">Switches de Alta Radix</span> &amp;{" "}
-            <span className="text-mfqc-cyan">Congestión</span>
+            Redes a Escala: <span className="text-mfqc-yellow">Switches de Alta Radix</span>
           </>
         }
-        lead="Conectar decenas de miles de aceleradores a 800 Gb/s exige conmutadores de cientos de puertos y topologías avanzadas para evitar el colapso del tráfico."
+        lead="Conectar decenas de miles de aceleradores a 800 Gb/s exige conmutadores de cientos de puertos y topologías no bloqueantes."
       >
         <div className="max-w-[1240px]">
           <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
@@ -57,25 +71,40 @@ export function HpcBottlenecks() {
             caminos de comunicación sin cuellos de botella estructurales entre cualquier par de
             nodos.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
-            Sin embargo, la física de colas impone desafíos implacables: cuando cientos de
-            aceleradores transmiten simultáneamente hacia el mismo nodo de destino, se produce el
-            temido fenómeno de <strong className="text-white">in-cast congestion</strong> y el
-            bloqueo de cabeza de línea (
-            <strong className="text-mfqc-yellow">head-of-line blocking</strong>), desbordando los
-            buffers de los switches y provocando caídas masivas en el rendimiento efectivo de la
-            red.
+        </div>
+      </SlideSection>
+
+      {/* 2b. CONGESTIÓN Y HEAD-OF-LINE BLOCKING */}
+      <SlideSection
+        brand="MFQC // INTERCONEXIÓN"
+        meta="FÍSICA DE COLAS: CONGESTIÓN"
+        title={
+          <>
+            El Colapso de la Red: <span className="text-mfqc-cyan">In-Cast &amp; Congestión</span>
+          </>
+        }
+        lead="La física de colas impone desafíos implacables cuando miles de nodos transmiten concurrentemente."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+            Cuando cientos de aceleradores transmiten simultáneamente hacia el mismo nodo de
+            destino, se produce el temido fenómeno de{" "}
+            <strong className="text-white">in-cast congestion</strong> y el bloqueo de cabeza de
+            línea (<strong className="text-mfqc-yellow">head-of-line blocking</strong>), desbordando
+            los buffers de los switches y provocando caídas masivas en el rendimiento efectivo de la
+            red del clúster.
           </p>
         </div>
       </SlideSection>
 
-      {/* 3. TAIL LATENCY EN OPERACIONES COLECTIVAS */}
+      {/* 3a. SINCRONIZACIÓN COLECTIVA */}
       <SlideSection
         brand="MFQC // LATENCIA DE COLA"
-        meta="LA TIRANÍA DE LA LATENCIA DE COLA"
+        meta="OPERACIONES COLECTIVAS: SINCRONIZACIÓN GLOBAL"
         title={
           <>
-            La Tiranía del Nodo Más Lento: <span className="text-mfqc-cyan">Tail Latency</span> ⏱️
+            Sincronización Global:{" "}
+            <span className="text-mfqc-yellow">Barreras &amp; AllReduce</span>
           </>
         }
         lead="En sincronizaciones globales masivas de supercómputo e IA, el paso de cálculo completo avanza a la velocidad del paquete más rezagado."
@@ -88,21 +117,36 @@ export function HpcBottlenecks() {
             fases, ningún procesador puede continuar con el siguiente ciclo hasta que el último nodo
             del clúster haya completado su transmisión.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 3b. LA TIRANÍA DEL NODO MÁS LENTO */}
+      <SlideSection
+        brand="MFQC // LATENCIA DE COLA"
+        meta="LA TIRANÍA DE LA LATENCIA DE COLA"
+        title={
+          <>
+            La Tiranía del Rezagado: <span className="text-mfqc-cyan">Tail Latency</span> ⏱️
+          </>
+        }
+        lead="Un único enlace rezagado transforma cientos de millones de dólares en silicio ocioso."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Esto genera la tiranía de la{" "}
             <strong className="text-white">latencia de cola (tail latency)</strong>: si un solo
             enlace sufre fluctuación térmica (<em>jitter</em>), una retransmisión por pérdida de
             paquetes o contención transitoria, ese único rezagado (<em>straggler</em>) detiene en
-            seco a decenas de miles de GPUs de última generación, transformando una inversión de
-            cientos de millones de dólares en silicio ocioso.
+            seco a decenas de miles de GPUs de última generación, multiplicando los tiempos de
+            entrenamiento.
           </p>
         </div>
       </SlideSection>
 
-      {/* 4. LITOGRAFÍA EXTREMA & NODOS ANGSTROM */}
+      {/* 4a. LITOGRAFÍA EUV & TRANSISTORES GAA */}
       <SlideSection
         brand="MFQC // FÍSICA DEL SILICIO"
-        meta="LITOGRAFÍA EXTREMA & NODOS ANGSTROM"
+        meta="LITOGRAFÍA: EUV HIGH-NA & TRANSISTORES GAA"
         title={
           <>
             Límite Atómico: <span className="text-mfqc-yellow">Nodos Angstrom</span> &amp;{" "}
@@ -121,7 +165,22 @@ export function HpcBottlenecks() {
             <em>Gate-All-Around (GAA)</em>, donde la compuerta envuelve por completo el canal de
             silicio para suprimir fugas cuánticas por efecto túnel.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 4b. BACKSIDE POWER DELIVERY */}
+      <SlideSection
+        brand="MFQC // FÍSICA DEL SILICIO"
+        meta="ALIMENTACIÓN POR EL REVERSO: POWERVIA"
+        title={
+          <>
+            Revolución Eléctrica: <span className="text-mfqc-cyan">Backside Power Delivery</span>
+          </>
+        }
+        lead="Mover los rieles de suministro eléctrico al reverso del silicio para eliminar la resistencia parásita."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Para resolver la resistencia parásita en las líneas de potencia, la industria introduce
             la alimentación por el reverso:{" "}
             <strong className="text-mfqc-cyan">Backside Power Delivery</strong> (PowerVia). Mover
@@ -132,49 +191,62 @@ export function HpcBottlenecks() {
         </div>
       </SlideSection>
 
-      {/* 5. ARQUITECTURA DE CHIPLETS & EMPAQUETADO 2.5D/3D */}
+      {/* 5a. EL LÍMITE DE RETÍCULO */}
       <SlideSection
         brand="MFQC // EMPAQUETADO AVANZADO"
-        meta="CHIPLETS & EMPAQUETADO 2.5D/3D"
+        meta="EL LÍMITE FÍSICO DE RETÍCULO (~858 MM²)"
         title={
           <>
-            El Fin del Silicio Monolítico: <span className="text-mfqc-yellow">Chiplets</span> &amp;{" "}
-            <span className="text-mfqc-cyan">CoWoS 3D</span>
+            El Fin del Silicio Monolítico:{" "}
+            <span className="text-mfqc-yellow">Límite de Retículo</span>
           </>
         }
-        lead="Construir megachips de una sola pieza ya no es viable física ni económicamente: el futuro del cómputo radica en la modularidad 3D."
+        lead="Construir megachips de una sola pieza ya no es viable física ni económicamente: el silicio monolítico ha muerto."
       >
         <div className="max-w-[1240px]">
           <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Un acelerador moderno de IA o HPC superaría con creces el límite físico de retículo de
             las máquinas de litografía (<strong className="text-white">~858 mm²</strong>). Intentar
             fabricar un die gigante monolítico se traduce en rendimientos de oblea (<em>yield</em>)
-            desastrosos y costos prohibitivos.
-          </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
-            La solución universal es la{" "}
-            <strong className="text-mfqc-yellow">arquitectura de chiplets</strong>: el procesador se
-            descompone en dies especializados interconectados a través de sustratos de silicio
-            pasivo o activo de ultra alta densidad (
-            <strong className="text-white">TSMC CoWoS</strong>, Intel EMIB) y apilamiento
-            tridimensional (<strong className="text-mfqc-cyan">TSMC SoIC</strong>), rodeando los
-            núcleos con pilas verticales de memoria HBM3e con miles de micro-bumps por milímetro
-            cuadrado.
+            desastrosos y costos multimillonarios por cada chip funcional.
           </p>
         </div>
       </SlideSection>
 
-      {/* 6. DEL COBRE A LA FOTÓNICA */}
+      {/* 5b. CHIPLETS & COWOS 3D */}
       <SlideSection
-        brand="MFQC // INTERCONEXIÓN ÓPTICA"
-        meta="EL COBRE SE QUEDA CORTO: FOTÓNICA & CPO"
+        brand="MFQC // EMPAQUETADO AVANZADO"
+        meta="CHIPLETS & EMPAQUETADO 2.5D/3D"
         title={
           <>
-            El Cobre se Queda Corto: De Electrones a la{" "}
-            <span className="text-mfqc-cyan">Fotónica (CPO)</span>
+            La Solución Modular: <span className="text-mfqc-cyan">Chiplets &amp; CoWoS 3D</span>
           </>
         }
-        lead="A velocidades de 800G y 1.6T, enviar electrones por cables de cobre genera pérdidas resistivas inasumibles: la luz debe viajar directo al chip."
+        lead="El futuro del cómputo radica en la modularidad 3D con micro-bumps y sustratos de alta densidad."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+            La respuesta universal es la{" "}
+            <strong className="text-mfqc-yellow">arquitectura de chiplets</strong>: el procesador se
+            descompone en dies especializados interconectados a través de sustratos de silicio
+            pasivo o activo de ultra alta densidad (
+            <strong className="text-white">TSMC CoWoS</strong>, Intel EMIB) y apilamiento 3D (
+            <strong className="text-mfqc-cyan">TSMC SoIC</strong>), rodeando los núcleos con pilas
+            verticales de memoria HBM3e con miles de micro-bumps por milímetro cuadrado.
+          </p>
+        </div>
+      </SlideSection>
+
+      {/* 6a. EL COBRE TOCA TECHO */}
+      <SlideSection
+        brand="MFQC // INTERCONEXIÓN ÓPTICA"
+        meta="LÍMITES DEL COBRE: ATENUACIÓN ELÉCTRICA"
+        title={
+          <>
+            El Cobre se Queda Corto: <span className="text-mfqc-yellow">Pérdidas a 800G</span>
+          </>
+        }
+        lead="A velocidades de 800G y 1.6T, enviar electrones por cables de cobre genera pérdidas resistivas inasumibles."
       >
         <div className="max-w-[1240px]">
           <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
@@ -184,28 +256,42 @@ export function HpcBottlenecks() {
             de los racks y disipan vatios preciosos únicamente en vencer la resistencia del
             conductor.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 6b. CO-PACKAGED OPTICS (CPO) */}
+      <SlideSection
+        brand="MFQC // INTERCONEXIÓN ÓPTICA"
+        meta="FOTÓNICA EN EL DIE: CO-PACKAGED OPTICS"
+        title={
+          <>
+            De Electrones a la Luz: <span className="text-mfqc-cyan">Fotónica Integrada (CPO)</span>
+          </>
+        }
+        lead="Integrar motores fotónicos directamente en el sustrato del procesador o switch."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             La respuesta disruptiva es{" "}
             <strong className="text-mfqc-cyan">Co-Packaged Optics (CPO)</strong>: en lugar de
             convertir señales eléctricas a ópticas en transceptores del panel frontal, se integran{" "}
             <strong className="text-white">motores fotónicos de silicio (Silicon Photonics)</strong>{" "}
-            directamente en el sustrato del procesador o switch. Los fotones nacen a milímetros de
-            los núcleos, recortando drásticamente la latencia y el consumo energético de la red.
+            directamente en el sustrato del procesador. Los fotones nacen a milímetros de los
+            núcleos, recortando drásticamente la latencia y el consumo energético de la red.
           </p>
         </div>
       </SlideSection>
 
-      {/* 7. TERMODINÁMICA & ENFRIAMIENTO LÍQUIDO */}
+      {/* 7a. TERMODINÁMICA: 1,000 W POR SOCKET */}
       <SlideSection
         brand="MFQC // TERMODINÁMICA"
-        meta="TERMODINÁMICA & ENFRIAMIENTO LÍQUIDO"
+        meta="TERMODINÁMICA EXTREMA: EL FIN DEL AIRE"
         title={
           <>
-            Termodinámica Extrema: <span className="text-mfqc-yellow">Direct Liquid Cooling</span>{" "}
-            &amp; <span className="text-mfqc-cyan">Inmersión</span>
+            Termodinámica Extrema: <span className="text-mfqc-yellow">1,000+ Watts por Socket</span>
           </>
         }
-        lead="Los ventiladores ruidosos han tocado techo: remover 1,000+ vatios de un área milimétrica exige física de fluidos de alta capacidad térmica."
+        lead="Los ventiladores ruidosos han tocado techo: remover calor masivo de un área milimétrica exige física de fluidos."
       >
         <div className="max-w-[1240px]">
           <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
@@ -215,21 +301,36 @@ export function HpcBottlenecks() {
             turbinas que consumirían más electricidad que los propios cálculos y provocarían
             estrangulamiento térmico (<em>thermal throttling</em>) inmediato en los nodos.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 7b. DIRECT LIQUID COOLING & INMERSIÓN */}
+      <SlideSection
+        brand="MFQC // TERMODINÁMICA"
+        meta="ENFRIAMIENTO LÍQUIDO & INMERSIÓN BIFÁSICA"
+        title={
+          <>
+            Enfriamiento Líquido: <span className="text-mfqc-cyan">DLC &amp; Inmersión</span>
+          </>
+        }
+        lead="Placas frías con agua tibia y fluidos dieléctricos con transferencia de calor por cambio de fase."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Los centros de datos de supercómputo han hecho la transición obligatoria a{" "}
             <strong className="text-mfqc-cyan">Direct Liquid Cooling (DLC)</strong> mediante placas
             frías que bombean agua tibia (~30–45 °C) acopladas directamente sobre el silicio con
             CDUs, o a <strong className="text-white">inmersión bifásica</strong>, donde los
             servidores completos se sumergen en fluidos dieléctricos que hierven al contacto con el
-            chip transfiriendo calor por cambio de fase de manera extraordinariamente eficiente.
+            chip transfiriendo calor con eficiencia extrema.
           </p>
         </div>
       </SlideSection>
 
-      {/* 8. DATACENTERS DE GIGAWATT & ENERGÍA */}
+      {/* 8a. CONSUMO ELÉCTRICO GIGAWATT */}
       <SlideSection
         brand="MFQC // ENERGÍA & PLANETA"
-        meta="DATACENTERS DE ESCALA GIGAWATT & ENERGÍA"
+        meta="CONSUMO ENERGÉTICO A ESCALA GIGAWATT"
         title={
           <>
             Consumo Energético: La Era de los{" "}
@@ -245,18 +346,32 @@ export function HpcBottlenecks() {
             de potencia eléctrica continua por instalación: el consumo equivalente al de una ciudad
             entera, colapsando la capacidad de las subestaciones y líneas de transmisión regionales.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 8b. REACTORES SMR & GREEN500 */}
+      <SlideSection
+        brand="MFQC // ENERGÍA & PLANETA"
+        meta="ENERGÍA NUCLEAR & GREEN500"
+        title={
+          <>
+            Energía Dedicada: <span className="text-mfqc-cyan">Reactores SMR &amp; Green500</span>
+          </>
+        }
+        lead="Sin eficiencia energética extrema, ningún algoritmo a gran escala puede desplegarse en el planeta."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Esta crisis impulsa contratos directos con centrales nucleares, inversiones masivas en{" "}
             <strong className="text-mfqc-cyan">Reactores Modulares Pequeños (SMRs)</strong>{" "}
             dedicados en el campus del datacenter y una obsesión absoluta por la métrica reina del
             supercómputo: el ranking <strong className="text-white">Green500</strong> y los{" "}
-            <strong className="text-white">GFLOPS por Vatio</strong>. Sin eficiencia energética
-            extrema, ningún algoritmo a gran escala puede desplegarse.
+            <strong className="text-white">GFLOPS por Vatio</strong>.
           </p>
         </div>
       </SlideSection>
 
-      {/* 9. JERARQUÍAS PROFUNDAS DE MEMORIA */}
+      {/* 9a. JERARQUÍAS PROFUNDAS DE MEMORIA */}
       <SlideSection
         brand="MFQC // ARQUITECTURA DEL SILICIO"
         meta="JERARQUÍAS PROFUNDAS DE MEMORIA"
@@ -277,25 +392,40 @@ export function HpcBottlenecks() {
             <strong className="text-mfqc-yellow">HBM3e</strong> con varios terabytes por segundo de
             ancho de banda agregado.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 9b. LA PENALIZACIÓN DE ESCALÓN */}
+      <SlideSection
+        brand="MFQC // ARQUITECTURA DEL SILICIO"
+        meta="LOCALIDAD: LA PENALIZACIÓN DE 10X A 100X"
+        title={
+          <>
+            El Arte del Cómputo:{" "}
+            <span className="text-mfqc-cyan">Penalizaciones de 10× a 100×</span>
+          </>
+        }
+        lead="Mantener el flujo de datos lo más cerca posible de las unidades de cálculo en todo momento."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Subir un escalón innecesario en la jerarquía (por ejemplo, permitir que un tensor de uso
             frecuente resida en HBM en lugar de en SRAM compartida o registros) penaliza el tiempo
             de acceso en{" "}
             <strong className="text-mfqc-cyan">órdenes de magnitud (10× a 100×)</strong>. El arte
-            del cómputo de alto rendimiento consiste en mantener el flujo de datos lo más cerca
-            posible de las ALUs matemáticas en todo momento.
+            del cómputo de alto rendimiento consiste en diseñar software que respete estrictamente
+            la jerarquía física del chip.
           </p>
         </div>
       </SlideSection>
 
-      {/* 10. ASINCRONÍA, TMA & SILICIO OCIOSO */}
+      {/* 10a. ASINCRONÍA & TMA */}
       <SlideSection
         brand="MFQC // HARDWARE ASÍNCRONO"
-        meta="ASINCRONÍA, TMA & SILICIO OCIOSO"
+        meta="COPIA POR HARDWARE: TENSOR MEMORY ACCELERATOR"
         title={
           <>
-            Domar a la Bestia: <span className="text-mfqc-yellow">Asincronía</span> &amp;{" "}
-            <span className="text-mfqc-cyan">Silicio Ocioso</span>
+            Domar a la Bestia: <span className="text-mfqc-yellow">Asincronía &amp; TMA</span>
           </>
         }
         lead="Tener silicio de última generación no garantiza velocidad: sin asincronía agresiva, los motores matriciales pasan la mayor parte del tiempo durmiendo."
@@ -309,24 +439,38 @@ export function HpcBottlenecks() {
             transfiere bloques multidimensionales entre memoria global y SRAM de forma completamente
             asíncrona mientras los núcleos ejecutan operaciones matemáticas concurrentes.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 10b. EL PELIGRO DEL SILICIO OCIOSO */}
+      <SlideSection
+        brand="MFQC // HARDWARE ASÍNCRONO"
+        meta="EL PELIGRO DEL SILICIO OCIOSO"
+        title={
+          <>
+            Evitando la Trampa: <span className="text-mfqc-cyan">El Silicio Ocioso</span>
+          </>
+        }
+        lead="Un supercomputador multimillonario puede terminar rindiendo a menos del 15% por sincronizaciones torpes."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             Si el programador introduce sincronizaciones innecesarias (<em>barriers</em>),
             contención en los bancos de memoria (<em>bank conflicts</em>) o falla en solapar las
             copias de red con el cálculo local, el clúster sufre de{" "}
-            <strong className="text-white">silicio ocioso</strong>: un supercomputador
-            multimillonario puede terminar operando a menos del 15% de sus FLOPS teóricos,
-            desperdiciando teravatios de potencia eléctrica.
+            <strong className="text-white">silicio ocioso</strong>: el hardware de vanguardia queda
+            esperando datos y disipando teravatios de potencia eléctrica sin avanzar el cálculo.
           </p>
         </div>
       </SlideSection>
 
-      {/* 11. EL RETO DE LA PROGRAMABILIDAD */}
+      {/* 11a. LA TORRE DE BABEL DEL SOFTWARE */}
       <SlideSection
         brand="MFQC // EL RETO DEL SOFTWARE"
-        meta="DOMAR A LA BESTIA: PROGRAMABILIDAD"
+        meta="LA TORRE DE BABEL DEL SOFTWARE PROPIETARIO"
         title={
           <>
-            Domar a la Bestia: El Gran Reto de la{" "}
+            Domar a la Bestia: El Reto de la{" "}
             <span className="text-mfqc-yellow">Programabilidad</span>
           </>
         }
@@ -340,7 +484,22 @@ export function HpcBottlenecks() {
             inutilizable al migrar a otro fabricante o a aceleradores emergentes como TPUs o
             Tenstorrent.
           </p>
-          <p className="mt-2.5 font-sans text-[12.5px] leading-[1.5] text-mfqc-gray md:mt-6 md:text-[21px] md:leading-[1.55]">
+        </div>
+      </SlideSection>
+
+      {/* 11b. COMPILACIÓN MULTINIVEL CON MLIR */}
+      <SlideSection
+        brand="MFQC // EL RETO DEL SOFTWARE"
+        meta="COMPILACIÓN MULTINIVEL: MLIR"
+        title={
+          <>
+            La Salida: <span className="text-mfqc-cyan">Compilación Multinivel (MLIR)</span>
+          </>
+        }
+        lead="Ergonomía, portabilidad y rendimiento sin sacrificar el control bare-metal sobre el silicio."
+      >
+        <div className="max-w-[1240px]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
             La solución moderna no consiste en programar ensamblador a mano para cada silicio, sino
             en adoptar infraestructuras de compilación multinivel como{" "}
             <strong className="text-mfqc-cyan">
