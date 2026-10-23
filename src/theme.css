@@ -220,6 +220,37 @@ html.reveal-print .reveal .slides .pdf-page > section {
   box-shadow: -2px 0 12px rgba(0, 245, 212, 0.25);
 }
 
+/* Hero Title Neon FLOPS */
+.title-neon-flops {
+  box-shadow:
+    6px 6px 0px var(--color-mfqc-cyan),
+    9px 9px 20px rgba(0, 245, 212, 0.75),
+    0 0 25px rgba(255, 230, 0, 0.7),
+    0 0 50px rgba(255, 230, 0, 0.35) !important;
+  animation: neon-pulse 3s ease-in-out infinite alternate;
+}
+
+@media (min-width: 768px) {
+  .title-neon-flops {
+    box-shadow:
+      8px 8px 0px var(--color-mfqc-cyan),
+      12px 12px 28px rgba(0, 245, 212, 0.8),
+      0 0 32px rgba(255, 230, 0, 0.75),
+      0 0 65px rgba(255, 230, 0, 0.4) !important;
+  }
+}
+
+@keyframes neon-pulse {
+  from {
+    filter: drop-shadow(0 0 8px rgba(255, 230, 0, 0.5))
+      drop-shadow(6px 6px 12px rgba(0, 245, 212, 0.6));
+  }
+  to {
+    filter: drop-shadow(0 0 16px rgba(255, 230, 0, 0.8))
+      drop-shadow(6px 6px 20px rgba(0, 245, 212, 0.85));
+  }
+}
+
 .reveal h1,
 .reveal h2 {
   font-family: var(--font-display) !important;
