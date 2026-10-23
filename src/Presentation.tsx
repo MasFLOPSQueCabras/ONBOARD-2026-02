@@ -20,10 +20,12 @@ function getViewportConfig() {
   if (typeof window === "undefined" || /print-pdf/i.test(window.location.search)) {
     return { width: 1600, height: 900, margin: 0.04 };
   }
-  const isMobileOrPortrait = window.innerHeight > window.innerWidth || window.innerWidth < 768;
+  const vWidth = window.visualViewport?.width ?? window.innerWidth;
+  const vHeight = window.visualViewport?.height ?? window.innerHeight;
+  const isMobileOrPortrait = vHeight > vWidth || vWidth < 768;
   if (isMobileOrPortrait) {
     const mobileWidth = 440;
-    const aspect = window.innerHeight / Math.max(window.innerWidth, 1);
+    const aspect = vHeight / Math.max(vWidth, 1);
     const mobileHeight = Math.max(760, Math.min(1040, Math.round(mobileWidth * aspect)));
     return { width: mobileWidth, height: mobileHeight, margin: 0 };
   }
@@ -50,9 +52,11 @@ export function Presentation() {
     };
     window.addEventListener("resize", onResize, { passive: true });
     window.addEventListener("orientationchange", onResize, { passive: true });
+    window.visualViewport?.addEventListener("resize", onResize, { passive: true });
     return () => {
       window.removeEventListener("resize", onResize);
       window.removeEventListener("orientationchange", onResize);
+      window.visualViewport?.removeEventListener("resize", onResize);
     };
   }, []);
 
@@ -68,6 +72,10 @@ export function Presentation() {
       scrollActivationWidth: 0,
       slideNumber: "c/t" as const,
       showSlideNumber: "all" as const,
+      controls: true,
+      controlsTutorial: true,
+      controlsLayout: "bottom-right" as const,
+      controlsBackArrows: "faded" as const,
     }),
     [viewport.width, viewport.height, viewport.margin],
   );

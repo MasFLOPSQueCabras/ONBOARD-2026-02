@@ -31,21 +31,21 @@ export function FeatureItem({
   const isCyan = accent === "cyan";
   return (
     <div
-      className={`flex flex-col gap-1 border-l-4 bg-white/[0.025] py-2.5 pr-3.5 pl-4 md:gap-3 md:bg-transparent md:py-0 md:pr-0 md:pl-8 ${
+      className={`flex flex-col gap-1 border-l-4 bg-white/[0.025] py-2 pr-3 pl-3.5 md:gap-3 md:bg-transparent md:py-0 md:pr-0 md:pl-8 ${
         isCyan ? "border-mfqc-cyan" : "border-mfqc-yellow"
       } ${className}`}
     >
       <span
-        className={`font-mono text-[12px] font-bold tracking-[0.12em] uppercase md:text-[16.8px] md:tracking-[0.14em] ${
+        className={`font-mono text-[10.5px] font-bold tracking-[0.12em] uppercase md:text-[16.8px] md:tracking-[0.14em] ${
           isCyan ? "text-mfqc-cyan" : "text-mfqc-yellow"
         }`}
       >
         {tag}
       </span>
-      <h3 className="font-sans text-[21px]! leading-[1.18]! font-bold text-white md:text-[36px]! md:leading-[1.15]!">
+      <h3 className="font-sans text-[17px]! leading-[1.18]! font-bold text-white md:text-[36px]! md:leading-[1.15]!">
         {title}
       </h3>
-      <p className="font-sans text-[15.5px]! leading-[1.42]! text-mfqc-gray md:text-[21.6px]! md:leading-[1.5]!">
+      <p className="font-sans text-[13.5px]! leading-[1.42]! text-mfqc-gray md:text-[21.6px]! md:leading-[1.5]!">
         {children}
       </p>
     </div>

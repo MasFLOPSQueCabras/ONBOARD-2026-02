@@ -14,9 +14,12 @@
 
 html:not(.reveal-print),
 html:not(.reveal-print) body,
+html:not(.reveal-print) #root,
 html:not(.reveal-print) .reveal-viewport {
   width: 100%;
   height: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -28,6 +31,8 @@ html:not(.reveal-print) .reveal-viewport {
 html:not(.reveal-print) #root {
   width: 100%;
   height: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -163,15 +168,39 @@ html.reveal-print .reveal .slides .pdf-page > section {
   margin: 0 !important;
 }
 
+.reveal-viewport {
+  --r-controls-spacing: calc(16px + env(safe-area-inset-bottom, 0px));
+}
+
 .reveal .controls {
   color: var(--color-mfqc-cyan) !important;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+  z-index: 32 !important;
+}
+
+.reveal .controls button.enabled {
+  opacity: 0.95 !important;
+  color: var(--color-mfqc-cyan) !important;
+  filter: drop-shadow(0 0 6px rgba(0, 245, 212, 0.6)) !important;
+}
+
+.reveal .controls button.enabled:hover,
+.reveal .controls button.enabled:active {
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 10px var(--color-mfqc-cyan)) !important;
+}
+
+.reveal .controls .navigate-down.enabled {
+  color: var(--color-mfqc-yellow) !important;
+  filter: drop-shadow(0 0 8px rgba(255, 230, 0, 0.8)) !important;
 }
 
 .reveal .slide-number {
   position: absolute !important;
   left: 24px !important;
   right: auto !important;
-  bottom: 24px !important;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
   top: auto !important;
   font-family: var(--font-mono) !important;
   font-size: 13px !important;
@@ -198,9 +227,15 @@ html.reveal-print .reveal .slides .pdf-page > section {
 }
 
 @media (max-width: 768px) {
+  .reveal .controls {
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    right: calc(12px + env(safe-area-inset-right, 0px)) !important;
+    font-size: 8.5px !important;
+  }
+
   .reveal .slide-number {
-    left: 12px !important;
-    bottom: 12px !important;
+    left: calc(12px + env(safe-area-inset-left, 0px)) !important;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
     font-size: 11px !important;
     padding: 3px 7px !important;
   }
