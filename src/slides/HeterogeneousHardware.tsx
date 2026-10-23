@@ -13,8 +13,10 @@ export function HeterogeneousHardware() {
         tag="EL FIN DE LA ERA GRATIS"
         statement={
           <>
-            <span className="text-mfqc-yellow">«The Free Lunch Is Over»</span>: Durante décadas
-            bastaba esperar un CPU más rápido. Esa era murió.
+            <span className="text-mfqc-yellow">«The Free Lunch Is Over»</span>:
+            <span className="mt-1.5 block">
+              durante décadas bastaba esperar un nuevo CPU... esa era murió.
+            </span>
           </>
         }
         detail="A principios de los 2000, la física impuso el fin de la escala Dennard: subir la frecuencia disipaba calor inmanejable. Hoy el rendimiento no proviene de gigahertz gratis, sino de paralelismo extremo, aceleradores dedicados y código tallado para el silicio."
@@ -171,8 +173,10 @@ export function HeterogeneousHardware() {
         statement={
           <>
             Mover tensores entre GPUs remotas a{" "}
-            <span className="text-mfqc-cyan">~1 microsegundo de latencia</span> sin despertar a la
-            CPU ni tocar la RAM del sistema.
+            <span className="text-mfqc-cyan">~1 microsegundo de latencia</span>:
+            <span className="mt-1.5 block">
+              sin despertar a la CPU ni tocar la RAM del sistema.
+            </span>
           </>
         }
         detail="Con GPUDirect RDMA, los datos viajan directamente de VRAM a VRAM a través de PCIe y redes InfiniBand / RoCEv2. Cero copias en memoria host, cero cambios de contexto y ancho de banda masivo sin fricción."

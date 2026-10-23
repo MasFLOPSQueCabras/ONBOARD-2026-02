@@ -28,7 +28,9 @@ export function NextStepsMojo() {
         statement={
           <>
             Erradicando el <span className="text-mfqc-yellow">«Two-Language Problem»</span>:
-            prototipar en Python fácil y reescribir todo en C++/CUDA para correr a velocidad real.
+            <span className="mt-1.5 block">
+              prototipar en Python fácil... y reescribir todo en C++/CUDA para producción.
+            </span>
           </>
         }
         detail="Mojo unifica ambos mundos: sintaxis pura y legible como Python, pero con tipado estático, ownership de memoria sin garbage collector, vectorización SIMD nativa y rendimiento bare-metal al nivel de C++."
@@ -112,9 +114,11 @@ export function NextStepsMojo() {
         tag="PIONEROS EN LA UNIVERSIDAD"
         statement={
           <>
-            MFQC dictará por primera vez en la universidad{" "}
-            <span className="text-mfqc-yellow">lectures abiertas de Mojo 🔥</span> y cómputo
-            heterogéneo.
+            MFQC dictará en la universidad{" "}
+            <span className="text-mfqc-yellow">lectures abiertas de Mojo 🔥</span>:
+            <span className="mt-1.5 block">
+              cómputo heterogéneo antes de que llegue a los pensums estándar.
+            </span>
           </>
         }
         detail="Mientras los cursos estándar enseñan herramientas de hace décadas, en el semillero aprenderás directamente el lenguaje que está reescribiendo los kernels de IA y computación masiva en la industria."

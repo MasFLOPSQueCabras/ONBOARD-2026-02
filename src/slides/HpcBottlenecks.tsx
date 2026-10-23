@@ -35,9 +35,11 @@ export function HpcBottlenecks() {
         tag="LA LEY FÍSICA DEL HPC"
         statement={
           <>
-            Traer un solo dato de 64 bits desde memoria externa consume de{" "}
-            <span className="text-mfqc-cyan">100 a 1,000 veces más energía física</span> que
-            ejecutar la operación matemática en registros locales.
+            Traer 1 dato de 64 bits de memoria externa consume:
+            <span className="mt-1.5 block">
+              de <span className="text-mfqc-cyan">100 a 1,000 veces más energía física</span>
+            </span>
+            <span className="mt-1.5 block">que calcular la operación en registros locales.</span>
           </>
         }
         detail="Ejecutar una instrucción matemática FMA cuesta una fracción de picojulio (pJ), pero mover el byte por los buses de silicio disipa órdenes de magnitud más calor. La regla dorada del supercómputo es optimizar la localidad de datos antes que la velocidad de cálculo."
@@ -99,8 +101,11 @@ export function HpcBottlenecks() {
         tag="LA TIRANÍA DEL NODO MÁS LENTO"
         statement={
           <>
-            En una sincronización colectiva masiva (AllReduce), el clúster entero avanza a la
-            velocidad del <span className="text-mfqc-yellow">paquete de red más rezagado</span>.
+            En una sincronización colectiva masiva (AllReduce):
+            <span className="mt-1.5 block">
+              el clúster entero avanza a la velocidad del{" "}
+              <span className="text-mfqc-yellow">paquete de red más rezagado</span>.
+            </span>
           </>
         }
         detail="Si 10,000 GPUs están sincronizando gradientes de IA, ningún procesador puede avanzar al siguiente ciclo hasta que el último byte del último nodo llegue a su destino. Un microsegundo de jitter en un switch frena a todo el supercomputador."

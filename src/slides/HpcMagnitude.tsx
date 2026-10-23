@@ -59,16 +59,21 @@ export function HpcMagnitude() {
       <StatementSlide
         brand="MFQC // ESCALA HPC"
         meta="LA BRECHA DE CÓMPUTO"
-        tag="BRECHA DE POTENCIA: DE MESES A MEDIO SEGUNDO"
+        tag="BRECHA DE POTENCIA"
         statement={
           <>
-            Lo que a un computador personal le toma{" "}
-            <span className="text-mfqc-yellow">4 meses de cálculo continuo</span>... un único nodo
-            HPC lo resuelve en <span className="text-mfqc-cyan">1 hora</span>, y el supercomputador
-            TOP500 #1 lo liquida en <span className="text-mfqc-yellow">medio segundo</span>.
+            Lo que a tu computador le toma{" "}
+            <span className="text-mfqc-yellow">4 meses de cálculo continuo</span>...
+            <span className="mt-1.5 block">
+              un único nodo HPC lo resuelve en <span className="text-mfqc-cyan">1 hora</span>,
+            </span>
+            <span className="mt-1.5 block">
+              y el supercomputador #1 lo liquida en{" "}
+              <span className="text-mfqc-yellow">medio segundo</span>.
+            </span>
           </>
         }
-        detail="Una aceleración superior a 20 millones de veces. En ciencia e ingeniería, pasar de esperar meses a obtener respuestas en segundos transforma por completo las preguntas que podemos formular."
+        detail="Una aceleración superior a 20 millones de veces: pasar de esperar meses a obtener respuestas en segundos transforma por completo qué ciencia e IA podemos construir."
         accent="yellow"
       />
 
@@ -93,16 +98,20 @@ export function HpcMagnitude() {
       <StatementSlide
         brand="MFQC // ESCALA HPC"
         meta="EL RÍO DE DATOS"
-        tag="ANCHO DE BANDA: ALIMENTANDO EL CÓMPUTO"
+        tag="ANCHO DE BANDA DE MEMORIA"
         statement={
           <>
-            Los núcleos mueren de hambre si los datos no llegan a tiempo: de{" "}
-            <span className="text-mfqc-cyan">450 GB/s</span> en un SoC personal a{" "}
-            <span className="text-mfqc-yellow">18 Petabytes por segundo</span> inundando el tejido
-            del clúster.
+            Los núcleos mueren de hambre si los datos no llegan a tiempo:
+            <span className="mt-1.5 block">
+              de <span className="text-mfqc-cyan">450 GB/s</span> en un SoC personal...
+            </span>
+            <span className="mt-1.5 block">
+              a <span className="text-mfqc-yellow">18 Petabytes por segundo</span> inundando el
+              tejido del clúster.
+            </span>
           </>
         }
-        detail="El mayor cuello de botella en supercómputo no es ejecutar operaciones matemáticas; es construir un sistema circulatorio masivo capaz de bombear terabytes por segundo a cada acelerador."
+        detail="El mayor cuello de botella en supercómputo moderno no es ejecutar operaciones matemáticas; es bombear terabytes de datos a cada procesador sin saturar los buses."
         accent="cyan"
       />
 
@@ -131,8 +140,11 @@ export function HpcMagnitude() {
         statement={
           <>
             Alimentar 11 millones de núcleos exige{" "}
-            <span className="text-mfqc-yellow">29.5 Megavatios continuos</span>: suficiente energía
-            para abastecer una <span className="text-mfqc-cyan">ciudad pequeña</span>.
+            <span className="text-mfqc-yellow">29.5 Megavatios continuos</span>:
+            <span className="mt-1.5 block">
+              energía suficiente para abastecer una{" "}
+              <span className="text-mfqc-cyan">ciudad pequeña</span>.
+            </span>
           </>
         }
         detail="El supercómputo a escala Exaflop se topa de frente con la física: diseñar subestaciones eléctricas dedicadas y sistemas de refrigeración líquida directa para disipar gigavatios de calor."

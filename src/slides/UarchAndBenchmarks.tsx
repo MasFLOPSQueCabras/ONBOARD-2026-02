@@ -137,9 +137,14 @@ export function UarchAndBenchmarks() {
         tag="ANALOGÍA: SI 1 CICLO FUERA 1 SEGUNDO"
         statement={
           <>
-            Si 1 ciclo de reloj equivaliera a <span className="text-mfqc-yellow">1 segundo</span>...
-            leer memoria RAM toma <span className="text-mfqc-cyan">varios minutos</span>, y salir a
-            la red tradicional equivale a <span className="text-mfqc-yellow">esperar 3 días</span>.
+            Si 1 ciclo de reloj equivaliera a <span className="text-mfqc-yellow">1 segundo</span>:
+            <span className="mt-1.5 block">
+              leer memoria RAM toma <span className="text-mfqc-cyan">varios minutos</span>,
+            </span>
+            <span className="mt-1.5 block">
+              y salir a la red tradicional equivale a{" "}
+              <span className="text-mfqc-yellow">esperar 3 días</span>.
+            </span>
           </>
         }
         detail="A nivel de silicio 1 ciclo son 0.25 nanosegundos. Si los datos no están preparados en las cachés ultrarrápidas L1/L2/L3, el procesador queda completamente paralizado esperando una eternidad en tiempo relativo."

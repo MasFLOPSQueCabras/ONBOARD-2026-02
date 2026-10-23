@@ -248,11 +248,12 @@ export function Skillset() {
         tag="LA MENTALIDAD DEL INGENIERO HPC"
         statement={
           <>
-            No se trata de programar a ciegas sobre capas de abstracción: se trata de{" "}
-            <span className="text-mfqc-cyan">
-              entender con precisión física qué ocurre en el silicio
-            </span>{" "}
-            cuando tu software se ejecuta.
+            No programar a ciegas sobre capas de abstracción:
+            <span className="mt-1.5 block">
+              entender con precisión física{" "}
+              <span className="text-mfqc-cyan">qué ocurre en el silicio</span> cuando tu código se
+              ejecuta.
+            </span>
           </>
         }
         detail="«Mechanical sympathy» en cualquier stack: medir con rigor antes de especular, erradicar trabajo redundante y dominar cómo viajan los datos entre transistores, registros, buses y redes."

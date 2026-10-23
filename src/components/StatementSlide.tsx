@@ -43,30 +43,29 @@ export function StatementSlide({
         </div>
 
         {/* Center Prominent Statement & Detail */}
-        <div className="my-auto flex flex-col justify-center gap-4 py-2 md:gap-8 md:py-6">
+        <div className="flex flex-1 flex-col justify-center gap-3.5 py-4 md:gap-8 md:py-8">
           {tag && (
             <span
-              className={`font-mono text-[11px] font-extrabold tracking-[0.14em] uppercase md:text-[17px] ${tagColor}`}
+              className={`font-mono text-[10.5px] font-bold tracking-[0.12em] uppercase md:text-[16px] md:tracking-[0.14em] ${tagColor}`}
             >
               [ {tag} ]
             </span>
           )}
 
-          <div className={`border-l-4 pl-4 md:border-l-8 md:pl-8 ${borderColor}`}>
-            <p className="font-display text-[22px]! leading-[1.22]! font-extrabold text-white sm:text-[26px]! md:text-[46px]! md:leading-[1.18]!">
+          <div
+            className={`border-l-4 bg-white/[0.025] py-3 pr-3 pl-3.5 md:border-l-8 md:bg-transparent md:py-0 md:pr-0 md:pl-8 ${borderColor}`}
+          >
+            <p className="font-display text-[17px]! leading-[1.3]! font-extrabold text-white sm:text-[20px]! md:text-[42px]! md:leading-[1.18]!">
               {statement}
             </p>
           </div>
 
           {detail && (
-            <p className="mt-1! max-w-[1180px] font-sans text-[14px]! leading-[1.48]! text-mfqc-gray md:mt-2! md:text-[25px]! md:leading-[1.5]!">
+            <p className="max-w-[1180px] font-sans text-[13px]! leading-[1.45]! text-mfqc-gray md:text-[22px]! md:leading-[1.5]!">
               {detail}
             </p>
           )}
         </div>
-
-        {/* Bottom subtle accent line or spacer */}
-        <div className="h-2 w-full opacity-0" aria-hidden="true" />
       </div>
     </section>
   );
