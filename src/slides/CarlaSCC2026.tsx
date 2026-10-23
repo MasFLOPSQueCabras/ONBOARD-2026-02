@@ -39,9 +39,14 @@ export function CarlaSCC2026() {
             fetchPriority="low"
             className="max-h-[300px] w-full max-w-[720px] border-4 border-mfqc-yellow object-cover shadow-[8px_8px_0px_#00f5d4] md:max-h-[520px] md:shadow-[14px_14px_0px_#00f5d4]"
           />
-          <span className="font-mono text-[11px] font-bold tracking-widest text-mfqc-cyan uppercase md:text-[14px]">
-            [ SEMILLERO MÁS FLOPS QUE CABRAS EN CARLA SCC 2026 ]
-          </span>
+          <div className="flex flex-col items-center justify-center gap-1 text-center">
+            <span className="font-mono text-[11px] font-bold tracking-wide text-mfqc-cyan uppercase md:text-[15px]">
+              Semillero Más FLOPS que Cabras
+            </span>
+            <span className="font-mono text-[9.5px] font-semibold tracking-wider text-mfqc-yellow uppercase md:text-[12px]">
+              [ Equipo UniAndes · CARLA SCC 2026 ]
+            </span>
+          </div>
         </div>
       </SlideSection>
 
