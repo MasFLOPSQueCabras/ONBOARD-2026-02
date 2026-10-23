@@ -29,6 +29,13 @@ export function Deck({ config, children }: DeckProps) {
 
       const deck = new Reveal(el, initialConfigRef.current);
       deckRef.current = deck;
+      deck.on("overviewshown", () => {
+        el.querySelectorAll("section").forEach((section) => {
+          section.removeAttribute("hidden");
+          section.removeAttribute("aria-hidden");
+        });
+      });
+
       if (/print-pdf/i.test(window.location.search)) {
         const unhideSections = () => {
           el.querySelectorAll("section").forEach((section) => {

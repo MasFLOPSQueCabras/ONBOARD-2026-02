@@ -76,6 +76,9 @@ export function Presentation() {
       controlsTutorial: true,
       controlsLayout: "bottom-right" as const,
       controlsBackArrows: "faded" as const,
+      overview: true,
+      viewDistance: 50,
+      mobileViewDistance: 50,
     }),
     [viewport.width, viewport.height, viewport.margin],
   );
