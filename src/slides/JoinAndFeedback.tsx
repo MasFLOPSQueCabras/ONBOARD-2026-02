@@ -90,28 +90,28 @@ export function JoinAndFeedback({ onOpenPoster }: JoinAndFeedbackProps) {
 
       {/* 2b. QR & CARTEL */}
       <SlideSection brand="MFQC // CONÉCTATE" meta="ESCANEA & COMPARTE">
-        <div className="flex flex-col items-center justify-center gap-4 md:gap-6">
-          <div className="inline-flex border-4 border-mfqc-yellow bg-white p-3 shadow-[8px_8px_0px_#00f5d4] md:p-6 md:shadow-[14px_14px_0px_#00f5d4]">
+        <div className="flex flex-col items-center justify-center gap-3.5 md:gap-6">
+          <div className="inline-flex border-4 border-mfqc-yellow bg-white p-3.5 shadow-[8px_8px_0px_#00f5d4] md:border-[6px] md:p-6 md:shadow-[16px_16px_0px_#00f5d4]">
             <QRCodeSVG
               value={MFQC_CONFIG.onboardingQrUrl}
-              size={240}
+              size={420}
               bgColor="#ffffff"
-              fgColor="#08080c"
+              fgColor="#000000"
               level="H"
-              className="h-[140px] w-[140px] md:h-[240px] md:w-[240px]"
+              className="h-[220px] w-[220px] sm:h-[260px] sm:w-[260px] md:h-[370px] md:w-[370px] lg:h-[400px] lg:w-[400px]"
             />
           </div>
 
-          <span className="font-mono text-[11px] font-bold tracking-[0.14em] text-mfqc-yellow uppercase md:text-[16px]">
+          <span className="max-w-[340px] text-center font-mono text-[11px] font-bold tracking-[0.12em] text-mfqc-yellow uppercase sm:max-w-none md:text-[16px] md:tracking-[0.14em]">
             [ ESCANEA PARA VER ESTA PRESENTACIÓN EN TU CELULAR ]
           </span>
 
           {onOpenPoster && (
-            <div className="mt-1">
+            <div className="mt-0.5 md:mt-1">
               <button
                 type="button"
                 onClick={onOpenPoster}
-                className="cursor-pointer border-none bg-mfqc-cyan px-4 py-2 font-mono text-[12px] font-extrabold tracking-[0.1em] text-mfqc-black uppercase shadow-[3px_3px_0px_#ffe600] transition-all hover:bg-white md:px-6 md:py-3 md:text-[14px] md:shadow-[4px_4px_0px_#ffe600]"
+                className="cursor-pointer border-none bg-mfqc-cyan px-5 py-2.5 font-mono text-[12px] font-extrabold tracking-[0.1em] text-mfqc-black uppercase shadow-[3px_3px_0px_#ffe600] transition-all hover:bg-white md:px-7 md:py-3.5 md:text-[15px] md:shadow-[4px_4px_0px_#ffe600]"
               >
                 Ver Cartel / Imprimir 📄
               </button>
