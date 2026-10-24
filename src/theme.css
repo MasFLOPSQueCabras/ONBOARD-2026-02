@@ -1,15 +1,69 @@
 @import "tailwindcss";
 
-@theme {
-  --color-mfqc-black: #08080c;
-  --color-mfqc-card: #0c0c12;
+:root {
+  --color-mfqc-black: #000000;
+  --color-mfqc-card: #08080c;
   --color-mfqc-yellow: #ffe600;
   --color-mfqc-cyan: #00f5d4;
+  --color-mfqc-pink: #ff2a85;
+  --color-mfqc-purple: #a855f7;
   --color-mfqc-white: #ffffff;
   --color-mfqc-gray: #d4d4d8;
+}
+
+/* Adobe RGB (a98-rgb) for pro creative and engineering displays */
+@supports (color: color(a98-rgb 1 1 1)) {
+  :root {
+    --color-mfqc-yellow: color(a98-rgb 0.99 0.9 0.05);
+    --color-mfqc-cyan: color(a98-rgb 0.1 0.96 0.83);
+    --color-mfqc-pink: color(a98-rgb 0.98 0.15 0.52);
+    --color-mfqc-purple: color(a98-rgb 0.65 0.32 0.96);
+  }
+}
+
+/* DCI-P3 / Display P3 for iPhone Super Retina XDR, MacBook Liquid Retina, and AMOLED mobile screens */
+@media (color-gamut: p3) {
+  :root {
+    --color-mfqc-yellow: color(display-p3 0.99 0.91 0.08);
+    --color-mfqc-cyan: color(display-p3 0.15 0.96 0.84);
+    --color-mfqc-pink: color(display-p3 0.98 0.16 0.53);
+    --color-mfqc-purple: color(display-p3 0.65 0.33 0.96);
+  }
+}
+
+/* Rec. 2020 for ultra-wide gamut UHD / HDR displays */
+@media (color-gamut: rec2020) {
+  :root {
+    --color-mfqc-yellow: color(rec2020 0.95 0.89 0.12);
+    --color-mfqc-cyan: color(rec2020 0.22 0.95 0.83);
+    --color-mfqc-pink: color(rec2020 0.94 0.22 0.52);
+    --color-mfqc-purple: color(rec2020 0.63 0.35 0.95);
+  }
+}
+
+@theme {
+  --color-mfqc-black: var(--color-mfqc-black);
+  --color-mfqc-card: var(--color-mfqc-card);
+  --color-mfqc-yellow: var(--color-mfqc-yellow);
+  --color-mfqc-cyan: var(--color-mfqc-cyan);
+  --color-mfqc-pink: var(--color-mfqc-pink);
+  --color-mfqc-purple: var(--color-mfqc-purple);
+  --color-mfqc-white: var(--color-mfqc-white);
+  --color-mfqc-gray: var(--color-mfqc-gray);
   --font-display: "Syne", sans-serif;
   --font-sans: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+svg {
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
 }
 
 html:not(.reveal-print),
@@ -62,8 +116,7 @@ html:not(.reveal-print) .reveal-viewport::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(rgba(255, 230, 0, 0.16) 1.5px, transparent 1.5px), rgba(8, 8, 12, 0.66);
+  background: radial-gradient(rgba(255, 230, 0, 0.16) 1.5px, transparent 1.5px), rgba(0, 0, 0, 0.7);
   background-size:
     48px 48px,
     100% 100%;
@@ -165,8 +218,7 @@ html.reveal-print .reveal .slides .pdf-page::before {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(rgba(255, 230, 0, 0.16) 1.5px, transparent 1.5px), rgba(8, 8, 12, 0.66);
+  background: radial-gradient(rgba(255, 230, 0, 0.16) 1.5px, transparent 1.5px), rgba(0, 0, 0, 0.7);
   background-size:
     48px 48px,
     100% 100%;
@@ -214,6 +266,8 @@ html.reveal-print .reveal .slides .pdf-page > section {
 
 /* Hero Title Neon FLOPS */
 .title-neon-flops {
+  will-change: transform, filter;
+  transform: translate3d(0, 0, 0);
   box-shadow:
     6px 6px 0px var(--color-mfqc-cyan),
     9px 9px 20px rgba(0, 245, 212, 0.75),
@@ -229,6 +283,32 @@ html.reveal-print .reveal .slides .pdf-page > section {
       12px 12px 28px rgba(0, 245, 212, 0.8),
       0 0 32px rgba(255, 230, 0, 0.75),
       0 0 65px rgba(255, 230, 0, 0.4) !important;
+  }
+}
+
+/* HDR (High Dynamic Range) emissive phosphor radiance */
+@media (dynamic-range: high) {
+  .text-mfqc-yellow {
+    text-shadow:
+      0 0 12px rgba(255, 230, 0, 0.65),
+      0 0 26px rgba(255, 230, 0, 0.35);
+  }
+
+  .text-mfqc-cyan {
+    text-shadow:
+      0 0 12px rgba(0, 245, 212, 0.65),
+      0 0 26px rgba(0, 245, 212, 0.35);
+  }
+
+  .text-mfqc-pink {
+    text-shadow:
+      0 0 12px rgba(255, 42, 133, 0.65),
+      0 0 26px rgba(255, 42, 133, 0.35);
+  }
+
+  .title-neon-flops {
+    filter: drop-shadow(0 0 18px rgba(255, 230, 0, 0.9))
+      drop-shadow(6px 6px 24px rgba(0, 245, 212, 0.95)) !important;
   }
 }
 
@@ -276,6 +356,13 @@ html.reveal-print .reveal .slides .pdf-page > section {
   bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
   right: calc(16px + env(safe-area-inset-right, 0px)) !important;
   z-index: 32 !important;
+  touch-action: manipulation;
+}
+
+.reveal .controls button {
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: manipulation;
 }
 
 .reveal .controls button.enabled {

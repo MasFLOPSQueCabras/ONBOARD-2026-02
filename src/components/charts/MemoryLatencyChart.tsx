@@ -20,7 +20,7 @@ const RAW_LATENCY_DATA = [
     latencyNs: 1.0,
     display: "1.0 ns (~4 ciclos CPU)",
     shortDisplay: "1 ns",
-    color: "#ffe600",
+    color: "var(--color-mfqc-yellow)",
   },
   {
     tier: "02 // L2 Cache",
@@ -29,7 +29,7 @@ const RAW_LATENCY_DATA = [
     latencyNs: 3.5,
     display: "3.5 ns (~14 ciclos CPU)",
     shortDisplay: "3.5 ns",
-    color: "#ffe600",
+    color: "var(--color-mfqc-yellow)",
   },
   {
     tier: "03 // L3 Cache (Compartida)",
@@ -38,7 +38,7 @@ const RAW_LATENCY_DATA = [
     latencyNs: 12.0,
     display: "12 ns (~50 ciclos CPU)",
     shortDisplay: "12 ns",
-    color: "#ffe600",
+    color: "var(--color-mfqc-yellow)",
   },
   {
     tier: "04 // RAM DDR5 Local (NUMA 0)",
@@ -47,7 +47,7 @@ const RAW_LATENCY_DATA = [
     latencyNs: 70.0,
     display: "70 ns (~280 ciclos CPU)",
     shortDisplay: "70 ns",
-    color: "#00f5d4",
+    color: "var(--color-mfqc-cyan)",
   },
   {
     tier: "05 // RAM Remota (Cross-Socket)",
@@ -56,7 +56,7 @@ const RAW_LATENCY_DATA = [
     latencyNs: 135.0,
     display: "135 ns (NUMA Inter-Socket)",
     shortDisplay: "135 ns",
-    color: "#00f5d4",
+    color: "var(--color-mfqc-cyan)",
   },
   {
     tier: "06 // NVLink Inter-GPU (VRAM Remota)",
@@ -65,7 +65,7 @@ const RAW_LATENCY_DATA = [
     latencyNs: 280.0,
     display: "280 ns (Malla GPU NVLink)",
     shortDisplay: "280 ns",
-    color: "#ff2a85",
+    color: "var(--color-mfqc-pink)",
   },
   {
     tier: "07 // InfiniBand RDMA (Red Clúster)",
@@ -74,7 +74,7 @@ const RAW_LATENCY_DATA = [
     latencyNs: 1200.0,
     display: "1,200 ns (1.2 µs sin kernel)",
     shortDisplay: "1.2 µs",
-    color: "#a855f7",
+    color: "var(--color-mfqc-purple)",
   },
   {
     tier: "08 // Red Ethernet TCP/IP Tradicional",
