@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Deck } from "./components/RevealDeck";
 import { Title } from "./slides/Title";
 import { WhatIsHPC } from "./slides/WhatIsHPC";
@@ -11,10 +11,9 @@ import { CarlaSCC2026 } from "./slides/CarlaSCC2026";
 import { Roadmap2027 } from "./slides/Roadmap2027";
 import { Skillset } from "./slides/Skillset";
 import { JoinAndFeedback } from "./slides/JoinAndFeedback";
+import { PosterModal } from "./components/PosterModal";
 import "reveal.js/reveal.css";
 import "./theme.css";
-
-const PosterModal = lazy(() => import("./components/PosterModal"));
 
 function getViewportConfig() {
   if (typeof window === "undefined" || /print-pdf/i.test(window.location.search)) {
@@ -34,7 +33,14 @@ function getViewportConfig() {
 
 export function Presentation() {
   const [viewport, setViewport] = useState(getViewportConfig);
-  const [showPoster, setShowPoster] = useState(false);
+  const [showPoster, setShowPoster] = useState(() => {
+    if (typeof window !== "undefined") {
+      return (
+        /[?&]poster(=|&|$)/i.test(window.location.search) || window.location.hash === "#poster"
+      );
+    }
+    return false;
+  });
 
   useEffect(() => {
     const onResize = () => {
@@ -89,11 +95,7 @@ export function Presentation() {
   );
 
   if (showPoster) {
-    return (
-      <Suspense fallback={<div className="min-h-screen w-screen bg-mfqc-black" />}>
-        <PosterModal onClose={() => setShowPoster(false)} />
-      </Suspense>
-    );
+    return <PosterModal onClose={() => setShowPoster(false)} />;
   }
 
   return (
