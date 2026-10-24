@@ -128,10 +128,10 @@ export function PosterApp() {
                 />
               </div>
 
-              <div className="mt-3 font-mono text-xs font-extrabold tracking-widest text-mfqc-yellow uppercase sm:text-base">
+              <div className="mt-3 block w-full font-mono text-xs font-extrabold tracking-widest text-mfqc-yellow uppercase sm:text-base">
                 ESCANEA PARA UNIRTE AL GRUPO
               </div>
-              <div className="mt-0.5 font-mono text-[10px] text-mfqc-cyan sm:text-xs">
+              <div className="mt-0.5 block w-full font-mono text-[10px] text-mfqc-cyan sm:text-xs">
                 https://masflopsquecabras.github.io/ONBOARD-2026-02/
               </div>
             </div>
@@ -205,10 +205,10 @@ export function PosterApp() {
                   />
                 </div>
 
-                <div className="mt-2.5 font-mono text-xs font-extrabold tracking-widest text-mfqc-cyan uppercase sm:text-sm">
+                <div className="mt-2.5 block w-full font-mono text-xs font-extrabold tracking-widest text-mfqc-cyan uppercase sm:text-sm">
                   ESCANEA PARA ENTRAR
                 </div>
-                <div className="mt-0.5 font-mono text-[10px] text-white/70">
+                <div className="mt-0.5 block w-full font-mono text-[10px] text-white/70">
                   masflopsquecabras.github.io
                 </div>
               </div>

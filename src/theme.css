@@ -294,7 +294,6 @@ html.reveal-print .text-mfqc-cyan,
 html.reveal-print .text-mfqc-pink {
   -webkit-mask-image: none !important;
   mask-image: none !important;
-  display: inline !important;
   filter: none !important;
   text-shadow: none !important;
 }
@@ -314,7 +313,6 @@ html.reveal-print .text-mfqc-pink {
   .text-mfqc-pink {
     -webkit-mask-image: none !important;
     mask-image: none !important;
-    display: inline !important;
     filter: none !important;
     text-shadow: none !important;
   }
@@ -580,10 +578,20 @@ html:not(.reveal-print) .reveal:not(.overview) section.present .title-goat {
 }
 
 /* Retro CRT Terminal Phosphor Scanline Styling (Subtle & High Legibility) */
+span.text-mfqc-yellow,
+span.text-mfqc-cyan,
+span.text-mfqc-pink,
+strong.text-mfqc-yellow,
+strong.text-mfqc-cyan,
+strong.text-mfqc-pink,
+a.text-mfqc-yellow,
+a.text-mfqc-cyan {
+  display: inline-block;
+}
+
 .text-mfqc-yellow,
 .text-mfqc-cyan,
 .text-mfqc-pink {
-  display: inline-block;
   -webkit-mask-image: repeating-linear-gradient(
     to bottom,
     #000 0px,
