@@ -43,12 +43,16 @@ export function PosterModal({ onClose }: PosterModalProps) {
           STUDENT SUPERCOMPUTING &amp; HPC • UNIANDES
         </div>
 
-        <h1 className="m-0 mb-4 font-display text-3xl leading-[1.12] font-extrabold text-white sm:text-[3.4rem] sm:leading-[1.06] print:mb-3 print:text-[2.85rem] print:leading-[1.08]">
-          Más{" "}
-          <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-3 py-0.5 text-mfqc-black shadow-[6px_6px_0px_#00f5d4] sm:px-4 sm:shadow-[8px_8px_0px_#00f5d4]">
-            FLOPS
+        <h1 className="m-0 mb-4 font-display text-3xl leading-[1.25] font-extrabold text-white sm:text-[3.2rem] sm:leading-[1.2] print:mb-3 print:text-[2.85rem] print:leading-[1.2]">
+          <span className="inline-block whitespace-nowrap">
+            Más{" "}
+            <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-3 py-0.5 text-mfqc-black shadow-[6px_6px_0px_#00f5d4] sm:px-4 sm:shadow-[8px_8px_0px_#00f5d4]">
+              FLOPS
+            </span>
           </span>{" "}
-          que Cabras 🐐
+          <span className="relative z-10 mt-1 inline-block whitespace-nowrap">
+            que Cabras <span className="title-goat relative z-20 inline-block">🐐</span>
+          </span>
         </h1>
 
         <p className="m-0 mb-6 text-sm leading-relaxed text-mfqc-gray sm:mb-8 sm:text-xl print:mb-6 print:text-base">

@@ -100,13 +100,15 @@ export function PosterApp() {
 
             {/* Hero Title */}
             <div className="my-3 sm:my-4">
-              <h1 className="m-0 font-display text-3xl font-extrabold leading-[1.1] text-white sm:text-5xl">
+              <h1 className="m-0 font-display text-3xl font-extrabold leading-[1.25] text-white sm:text-5xl sm:leading-[1.18]">
                 Más{" "}
                 <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-2.5 py-0.5 text-mfqc-black shadow-[4px_4px_0px_#00f5d4] sm:px-4 sm:shadow-[6px_6px_0px_#00f5d4]">
                   FLOPS
                 </span>
                 <br />
-                <span className="mt-1 inline-block">que Cabras 🐐</span>
+                <span className="relative z-10 mt-1 inline-block">
+                  que Cabras <span className="title-goat relative z-20 inline-block">🐐</span>
+                </span>
               </h1>
               <p className="mt-2 text-sm leading-relaxed text-mfqc-gray sm:text-lg">
                 Para los interesados en que su código corra a la{" "}
@@ -169,12 +171,14 @@ export function PosterApp() {
             <div className="my-4 grid grid-cols-1 items-center gap-6 sm:my-6 md:grid-cols-12 md:gap-8 print:my-3 print:grid-cols-12">
               {/* Left Column (7 cols) */}
               <div className="flex flex-col gap-3 text-left md:col-span-7 print:col-span-7">
-                <h1 className="m-0 font-display text-3xl font-extrabold leading-[1.08] text-white sm:text-5xl">
+                <h1 className="m-0 font-display text-3xl font-extrabold leading-[1.22] text-white sm:text-5xl sm:leading-[1.15]">
                   Más{" "}
                   <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-2.5 py-0.5 text-mfqc-black shadow-[5px_5px_0px_#00f5d4] sm:px-4 sm:shadow-[7px_7px_0px_#00f5d4]">
                     FLOPS
                   </span>{" "}
-                  que Cabras 🐐
+                  <span className="relative z-10 inline-block">
+                    que Cabras <span className="title-goat relative z-20 inline-block">🐐</span>
+                  </span>
                 </h1>
 
                 <p className="text-sm leading-relaxed text-mfqc-gray sm:text-base">

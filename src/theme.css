@@ -627,9 +627,16 @@ a.text-mfqc-cyan {
 
 /* Hero Title Neon FLOPS - Clean Brutalist Block, No Giant Cloud Blur */
 .title-neon-flops {
+  position: relative;
+  z-index: 0;
   will-change: transform;
   transform: translate3d(0, 0, 0);
   box-shadow: 6px 6px 0px var(--color-mfqc-cyan) !important;
+}
+
+.title-goat {
+  position: relative;
+  z-index: 20;
 }
 
 @media (min-width: 768px) {

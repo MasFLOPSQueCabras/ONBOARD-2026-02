@@ -230,7 +230,7 @@ export default function MfqcInvitation({
                   fontFamily: FONT_DISPLAY,
                   fontSize: "30px",
                   fontWeight: 800,
-                  lineHeight: "1.2",
+                  lineHeight: "1.25",
                   color: "#ffffff",
                 }}
               >
@@ -244,11 +244,13 @@ export default function MfqcInvitation({
                     fontWeight: 900,
                     boxShadow: "4px 4px 0px #00f5d4",
                     display: "inline-block",
+                    position: "relative",
+                    zIndex: 0,
                   }}
                 >
                   FLOPS
                 </span>{" "}
-                que Cabras 🐐
+                <span style={{ position: "relative", zIndex: 10 }}>que Cabras 🐐</span>
               </Heading>
 
               <Text
