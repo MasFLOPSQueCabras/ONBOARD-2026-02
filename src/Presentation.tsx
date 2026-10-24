@@ -60,6 +60,8 @@ export function Presentation() {
     };
   }, []);
 
+  const isPrintPdf = typeof window !== "undefined" && /print-pdf/i.test(window.location.search);
+
   const deckConfig = useMemo(
     () => ({
       width: viewport.width,
@@ -79,8 +81,11 @@ export function Presentation() {
       overview: true,
       viewDistance: 50,
       mobileViewDistance: 50,
+      transition: isPrintPdf ? ("none" as const) : ("slide" as const),
+      backgroundTransition: isPrintPdf ? ("none" as const) : ("slide" as const),
+      transitionSpeed: "default" as const,
     }),
-    [viewport.width, viewport.height, viewport.margin],
+    [viewport.width, viewport.height, viewport.margin, isPrintPdf],
   );
 
   if (showPoster) {
