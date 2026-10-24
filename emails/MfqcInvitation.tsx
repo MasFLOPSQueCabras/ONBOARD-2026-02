@@ -68,6 +68,45 @@ export default function MfqcInvitation({
           .mfqc-text-cyan { color: #00f5d4 !important; }
           .mfqc-text-gray { color: #cbd5e1 !important; }
           .mfqc-btn-yellow { background-color: #ffe600 !important; color: #08080c !important; }
+
+          /* Inky Neon Glows for Modern Clients */
+          .mfqc-neon-yellow {
+            color: #ffe600 !important;
+            text-shadow: 0 0 10px rgba(255, 230, 0, 0.55), 0 0 20px rgba(255, 230, 0, 0.25);
+          }
+          .mfqc-neon-cyan {
+            color: #00f5d4 !important;
+            text-shadow: 0 0 10px rgba(0, 245, 212, 0.55), 0 0 20px rgba(0, 245, 212, 0.25);
+          }
+
+          /* Subtle Retro CRT Scanline effect on modern renderers (Apple Mail, Webmail, Thunderbird) */
+          .mfqc-crt-text {
+            -webkit-mask-image: repeating-linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 1) 0px,
+              rgba(0, 0, 0, 1) 2px,
+              rgba(0, 0, 0, 0.82) 2px,
+              rgba(0, 0, 0, 0.82) 3px
+            );
+            mask-image: repeating-linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 1) 0px,
+              rgba(0, 0, 0, 1) 2px,
+              rgba(0, 0, 0, 0.82) 2px,
+              rgba(0, 0, 0, 0.82) 3px
+            );
+          }
+
+          /* Neobrutalist Neon Box Shadow for FLOPS Badge & Containers */
+          .mfqc-flops-badge {
+            box-shadow: 4px 4px 0px #00f5d4, 0 0 14px rgba(255, 230, 0, 0.35);
+          }
+          .mfqc-neon-box-cyan {
+            box-shadow: 6px 6px 0px #00f5d4, 0 0 20px rgba(0, 245, 212, 0.15);
+          }
+          .mfqc-neon-box-yellow {
+            box-shadow: 6px 6px 0px #ffe600, 0 0 20px rgba(255, 230, 0, 0.15);
+          }
         `}</style>
       </Head>
 
@@ -100,11 +139,13 @@ export default function MfqcInvitation({
 
           {/* Centered Main Container */}
           <Container
+            className="mfqc-neon-box-yellow"
             style={{
               maxWidth: "600px",
               margin: "24px auto",
               backgroundColor: "#12121a",
               border: "4px solid #ffe600",
+              boxShadow: "6px 6px 0px #00f5d4",
               padding: "24px",
             }}
           >
@@ -118,6 +159,7 @@ export default function MfqcInvitation({
               <Row>
                 <Column>
                   <Text
+                    className="mfqc-neon-cyan mfqc-crt-text"
                     style={{
                       margin: "0",
                       fontFamily: FONT_MONO,
@@ -126,6 +168,7 @@ export default function MfqcInvitation({
                       letterSpacing: "2px",
                       color: "#00f5d4",
                       textTransform: "uppercase",
+                      textShadow: "0 0 8px rgba(0, 245, 212, 0.45)",
                     }}
                   >
                     MFQC // SUPERCOMPUTING • UNIANDES
@@ -133,12 +176,14 @@ export default function MfqcInvitation({
                 </Column>
                 <Column align="right">
                   <Text
+                    className="mfqc-neon-yellow mfqc-crt-text"
                     style={{
                       margin: "0",
                       fontFamily: FONT_MONO,
                       fontSize: "11px",
                       fontWeight: 700,
                       color: "#ffe600",
+                      textShadow: "0 0 8px rgba(255, 230, 0, 0.45)",
                     }}
                   >
                     TEMPORADA 2026-2027
@@ -159,6 +204,7 @@ export default function MfqcInvitation({
                     width: "100%",
                     display: "block",
                     border: "2px solid #00f5d4",
+                    boxShadow: "4px 4px 0px #ffe600",
                   }}
                 />
               </Link>
@@ -190,11 +236,14 @@ export default function MfqcInvitation({
               >
                 Más{" "}
                 <span
+                  className="mfqc-flops-badge mfqc-crt-text"
                   style={{
                     backgroundColor: "#ffe600",
                     color: "#08080c",
                     padding: "2px 8px",
                     fontWeight: 900,
+                    boxShadow: "4px 4px 0px #00f5d4",
+                    display: "inline-block",
                   }}
                 >
                   FLOPS
@@ -213,7 +262,14 @@ export default function MfqcInvitation({
                 }}
               >
                 Para los interesados en que su código corra a la{" "}
-                <strong style={{ color: "#ffe600", fontWeight: 800 }}>
+                <strong
+                  className="mfqc-neon-yellow mfqc-crt-text"
+                  style={{
+                    color: "#ffe600",
+                    fontWeight: 800,
+                    textShadow: "0 0 8px rgba(255, 230, 0, 0.45)",
+                  }}
+                >
                   velocidad de la luz ⚡
                 </strong>
                 . Te invitamos a la sesión de inducción del grupo de supercómputo y HPC de la
@@ -273,15 +329,18 @@ export default function MfqcInvitation({
 
             {/* Event Details Card */}
             <Section
+              className="mfqc-neon-box-yellow"
               style={{
                 marginTop: "20px",
                 marginBottom: "20px",
                 border: "2px solid #ffe600",
                 backgroundColor: "#08080c",
                 padding: "18px",
+                boxShadow: "4px 4px 0px #ffe600",
               }}
             >
               <Text
+                className="mfqc-neon-yellow mfqc-crt-text"
                 style={{
                   margin: "0 0 12px 0",
                   fontFamily: FONT_MONO,
@@ -290,6 +349,7 @@ export default function MfqcInvitation({
                   letterSpacing: "1px",
                   color: "#ffe600",
                   textTransform: "uppercase",
+                  textShadow: "0 0 8px rgba(255, 230, 0, 0.45)",
                 }}
               >
                 DATOS DEL ENCUENTRO
@@ -393,7 +453,10 @@ export default function MfqcInvitation({
                     cellPadding={0}
                     cellSpacing={0}
                     role="presentation"
-                    style={{ margin: "0 auto" }}
+                    style={{
+                      margin: "0 auto",
+                      boxShadow: "4px 4px 0px #00f5d4",
+                    }}
                   >
                     <tbody>
                       <tr>
@@ -434,7 +497,10 @@ export default function MfqcInvitation({
                     cellPadding={0}
                     cellSpacing={0}
                     role="presentation"
-                    style={{ margin: "0 auto" }}
+                    style={{
+                      margin: "0 auto",
+                      boxShadow: "4px 4px 0px #ffe600",
+                    }}
                   >
                     <tbody>
                       <tr>

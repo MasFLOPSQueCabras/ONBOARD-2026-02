@@ -92,7 +92,7 @@ export function PosterApp() {
           <div className="relative box-border flex w-full max-w-[680px] flex-col items-center justify-between border-4 border-mfqc-yellow bg-mfqc-card p-5 text-center shadow-[10px_10px_0px_#00f5d4] sm:p-8 md:shadow-[14px_14px_0px_#00f5d4] print:h-[calc(100vh-0.7in)] print:w-full print:max-w-none print:border-4 print:border-mfqc-yellow print:bg-mfqc-card print:p-6 print:shadow-none">
             {/* Top Badge */}
             <div className="flex w-full items-center justify-between border-b border-white/20 pb-3 font-mono text-xs tracking-wider uppercase sm:text-sm">
-              <span className="bg-mfqc-yellow px-2 py-0.5 font-extrabold text-mfqc-black shadow-[2px_2px_0px_#00f5d4]">
+              <span className="inky-badge bg-mfqc-yellow px-2 py-0.5 font-extrabold text-mfqc-black shadow-[2px_2px_0px_#00f5d4]">
                 MFQC // SUPERCOMPUTING
               </span>
               <span className="font-bold text-mfqc-cyan">UNIVERSIDAD DE LOS ANDES • 2026</span>
@@ -102,7 +102,7 @@ export function PosterApp() {
             <div className="my-3 sm:my-4">
               <h1 className="m-0 font-display text-3xl font-extrabold leading-[1.1] text-white sm:text-5xl">
                 Más{" "}
-                <span className="inline-block bg-mfqc-yellow px-2.5 py-0.5 text-mfqc-black shadow-[4px_4px_0px_#00f5d4] sm:px-4 sm:shadow-[6px_6px_0px_#00f5d4]">
+                <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-2.5 py-0.5 text-mfqc-black shadow-[4px_4px_0px_#00f5d4] sm:px-4 sm:shadow-[6px_6px_0px_#00f5d4]">
                   FLOPS
                 </span>
                 <br />
@@ -115,7 +115,7 @@ export function PosterApp() {
             </div>
 
             {/* QR Card Container */}
-            <div className="flex flex-col items-center border-4 border-mfqc-cyan bg-mfqc-black p-3 sm:p-5">
+            <div className="flex flex-col items-center border-4 border-mfqc-cyan bg-mfqc-black p-3 shadow-[6px_6px_0px_#ffe600] sm:p-5 print:shadow-none">
               <div className="bg-white p-2.5 sm:p-3">
                 <QRCodeSVG
                   value={MFQC_CONFIG.onboardingQrUrl}
@@ -159,7 +159,7 @@ export function PosterApp() {
           <div className="relative box-border flex w-full max-w-[1100px] flex-col justify-between border-4 border-mfqc-cyan bg-mfqc-card p-5 shadow-[12px_12px_0px_#ffe600] sm:p-8 md:shadow-[16px_16px_0px_#ffe600] print:h-[calc(100vh-0.7in)] print:w-full print:max-w-none print:border-4 print:border-mfqc-cyan print:bg-mfqc-card print:p-6 print:shadow-none">
             {/* Top Bar */}
             <div className="flex w-full items-center justify-between border-b border-white/20 pb-3 font-mono text-xs uppercase sm:text-sm">
-              <span className="bg-mfqc-cyan px-2.5 py-0.5 font-extrabold text-mfqc-black shadow-[2px_2px_0px_#ffe600]">
+              <span className="inky-badge bg-mfqc-cyan px-2.5 py-0.5 font-extrabold text-mfqc-black shadow-[2px_2px_0px_#ffe600]">
                 MFQC // SUPERCOMPUTING
               </span>
               <span className="font-bold text-mfqc-yellow">UNIVERSIDAD DE LOS ANDES • 2026</span>
@@ -171,7 +171,7 @@ export function PosterApp() {
               <div className="flex flex-col gap-3 text-left md:col-span-7 print:col-span-7">
                 <h1 className="m-0 font-display text-3xl font-extrabold leading-[1.08] text-white sm:text-5xl">
                   Más{" "}
-                  <span className="inline-block bg-mfqc-yellow px-2.5 py-0.5 text-mfqc-black shadow-[5px_5px_0px_#00f5d4] sm:px-4 sm:shadow-[7px_7px_0px_#00f5d4]">
+                  <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-2.5 py-0.5 text-mfqc-black shadow-[5px_5px_0px_#00f5d4] sm:px-4 sm:shadow-[7px_7px_0px_#00f5d4]">
                     FLOPS
                   </span>{" "}
                   que Cabras 🐐
@@ -192,7 +192,7 @@ export function PosterApp() {
               </div>
 
               {/* Right Column (5 cols): QR Box */}
-              <div className="flex flex-col items-center justify-center border-4 border-mfqc-yellow bg-mfqc-black p-4 text-center md:col-span-5 print:col-span-5">
+              <div className="flex flex-col items-center justify-center border-4 border-mfqc-yellow bg-mfqc-black p-4 text-center shadow-[6px_6px_0px_#00f5d4] md:col-span-5 print:col-span-5 print:shadow-none">
                 <div className="bg-white p-2.5">
                   <QRCodeSVG
                     value={MFQC_CONFIG.onboardingQrUrl}

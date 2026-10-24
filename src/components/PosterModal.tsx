@@ -7,7 +7,7 @@ export interface PosterModalProps {
 
 export function PosterModal({ onClose }: PosterModalProps) {
   return (
-    <div className="box-border flex min-h-screen w-screen flex-col items-center justify-center bg-mfqc-black p-4 text-center font-sans text-white sm:p-8 print:min-h-screen print:w-full print:bg-mfqc-black print:p-8">
+    <div className="poster-preview box-border flex min-h-screen w-screen flex-col items-center justify-center bg-mfqc-black p-4 text-center font-sans text-white sm:p-8 print:min-h-screen print:w-full print:bg-mfqc-black print:p-8">
       <style>{"@page { size: letter portrait; margin: 0; }"}</style>
       <div className="fixed top-4 right-4 z-10 flex gap-2.5 sm:top-5 sm:right-5 sm:gap-3 print:hidden">
         <button
@@ -33,7 +33,7 @@ export function PosterModal({ onClose }: PosterModalProps) {
 
         <h1 className="m-0 mb-4 font-display text-3xl leading-[1.12] font-extrabold text-white sm:text-[3.4rem] sm:leading-[1.06] print:text-[3.2rem]">
           Más{" "}
-          <span className="inline-block bg-mfqc-yellow px-3 py-0.5 text-mfqc-black shadow-[5px_5px_0px_#00f5d4] sm:px-4 sm:shadow-[7px_7px_0px_#00f5d4]">
+          <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-3 py-0.5 text-mfqc-black shadow-[6px_6px_0px_#00f5d4] sm:px-4 sm:shadow-[8px_8px_0px_#00f5d4]">
             FLOPS
           </span>{" "}
           que Cabras 🐐
@@ -45,7 +45,7 @@ export function PosterModal({ onClose }: PosterModalProps) {
           <strong className="text-white">Rumbo a SuperComputing, CARLA y ASC 2027</strong>
         </p>
 
-        <div className="inline-flex border-4 border-mfqc-cyan bg-white p-4 sm:p-7 print:p-7">
+        <div className="inline-flex border-4 border-mfqc-cyan bg-white p-4 shadow-[6px_6px_0px_#ffe600] sm:p-7 print:p-7 print:shadow-none">
           <QRCodeSVG
             value={MFQC_CONFIG.onboardingQrUrl}
             title="Código QR para unirse a Más FLOPS que Cabras"

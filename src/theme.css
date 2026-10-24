@@ -124,7 +124,9 @@ html:not(.reveal-print) .reveal-viewport::before {
 }
 
 /* Overhead Inky Neon Light Fixture & Cone - Subtle & Refined */
-html:not(.reveal-print) .reveal-viewport::after {
+html:not(.reveal-print) .reveal-viewport::after,
+#poster-root::after,
+.poster-preview::after {
   content: "";
   position: fixed;
   top: 0;
@@ -153,6 +155,14 @@ html:not(.reveal-print) .reveal-viewport::after {
 
 html.reveal-print .reveal-viewport::after {
   display: none !important;
+}
+
+@media print {
+  .reveal-viewport::after,
+  #poster-root::after,
+  .poster-preview::after {
+    display: none !important;
+  }
 }
 
 .reveal {
@@ -449,11 +459,27 @@ html:not(.reveal-print) .reveal:not(.overview) section.present .inky-badge {
     neon-box-flicker 3.6s 0.6s infinite ease-in-out;
 }
 
-/* Continuous Light Bulb Flicker on Active Slide Elements */
+/* Continuous Light Bulb Flicker on Active Slide Elements, Posters & Previews */
 html:not(.reveal-print) .reveal:not(.overview) section.present .text-mfqc-yellow,
 html:not(.reveal-print) .reveal:not(.overview) section.present .text-mfqc-cyan,
-html:not(.reveal-print) .reveal:not(.overview) section.present .text-mfqc-pink {
+html:not(.reveal-print) .reveal:not(.overview) section.present .text-mfqc-pink,
+#poster-root .text-mfqc-yellow,
+#poster-root .text-mfqc-cyan,
+.poster-preview .text-mfqc-yellow,
+.poster-preview .text-mfqc-cyan {
   animation: neon-bulb-flicker 3.6s infinite ease-in-out;
+}
+
+#poster-root .title-neon-flops,
+.poster-preview .title-neon-flops {
+  animation: neon-box-flicker 3.6s infinite ease-in-out !important;
+}
+
+#poster-root .inky-badge,
+.poster-preview .inky-badge {
+  animation:
+    inky-neon-drop 0.54s cubic-bezier(0.18, 0.9, 0.32, 1) both,
+    neon-box-flicker 3.6s 0.6s infinite ease-in-out;
 }
 
 /* ==========================================================================
