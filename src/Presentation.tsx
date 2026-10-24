@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Deck } from "./components/RevealDeck";
 import { Title } from "./slides/Title";
 import { WhatIsHPC } from "./slides/WhatIsHPC";
@@ -12,27 +12,12 @@ import { Roadmap2027 } from "./slides/Roadmap2027";
 import { Skillset } from "./slides/Skillset";
 import { JoinAndFeedback } from "./slides/JoinAndFeedback";
 import { PosterModal } from "./components/PosterModal";
+import { useRevealViewport } from "./core/useRevealViewport";
 import "reveal.js/reveal.css";
 import "./theme.css";
 
-function getViewportConfig() {
-  if (typeof window === "undefined" || /print-pdf/i.test(window.location.search)) {
-    return { width: 1600, height: 900, margin: 0.04 };
-  }
-  const vWidth = window.visualViewport?.width ?? window.innerWidth;
-  const vHeight = window.visualViewport?.height ?? window.innerHeight;
-  const isMobileOrPortrait = vHeight > vWidth || vWidth < 768;
-  if (isMobileOrPortrait) {
-    const mobileWidth = 440;
-    const aspect = vHeight / Math.max(vWidth, 1);
-    const mobileHeight = Math.max(760, Math.min(1040, Math.round(mobileWidth * aspect)));
-    return { width: mobileWidth, height: mobileHeight, margin: 0 };
-  }
-  return { width: 1600, height: 900, margin: 0.04 };
-}
-
 export function Presentation() {
-  const [viewport, setViewport] = useState(getViewportConfig);
+  const viewport = useRevealViewport();
   const [showPoster, setShowPoster] = useState(() => {
     if (typeof window !== "undefined") {
       return (
@@ -41,32 +26,6 @@ export function Presentation() {
     }
     return false;
   });
-
-  useEffect(() => {
-    const onResize = () => {
-      setViewport((prev) => {
-        const next = getViewportConfig();
-        if (
-          prev.width === next.width &&
-          prev.height === next.height &&
-          prev.margin === next.margin
-        ) {
-          return prev;
-        }
-        return next;
-      });
-    };
-    window.addEventListener("resize", onResize, { passive: true });
-    window.addEventListener("orientationchange", onResize, { passive: true });
-    window.visualViewport?.addEventListener("resize", onResize, { passive: true });
-    return () => {
-      window.removeEventListener("resize", onResize);
-      window.removeEventListener("orientationchange", onResize);
-      window.visualViewport?.removeEventListener("resize", onResize);
-    };
-  }, []);
-
-  const isPrintPdf = typeof window !== "undefined" && /print-pdf/i.test(window.location.search);
 
   const deckConfig = useMemo(
     () => ({
@@ -87,11 +46,11 @@ export function Presentation() {
       overview: true,
       viewDistance: 50,
       mobileViewDistance: 50,
-      transition: isPrintPdf ? ("none" as const) : ("slide" as const),
-      backgroundTransition: isPrintPdf ? ("none" as const) : ("slide" as const),
+      transition: viewport.isPrintPdf ? ("none" as const) : ("slide" as const),
+      backgroundTransition: viewport.isPrintPdf ? ("none" as const) : ("slide" as const),
       transitionSpeed: "default" as const,
     }),
-    [viewport.width, viewport.height, viewport.margin, isPrintPdf],
+    [viewport.width, viewport.height, viewport.margin, viewport.isPrintPdf],
   );
 
   if (showPoster) {
