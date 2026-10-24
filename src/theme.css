@@ -279,6 +279,16 @@ html.reveal-print *::after {
   transform: none !important;
 }
 
+html.reveal-print .text-mfqc-yellow,
+html.reveal-print .text-mfqc-cyan,
+html.reveal-print .text-mfqc-pink {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  display: inline !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
 @media print {
   *,
   *::before,
@@ -287,6 +297,16 @@ html.reveal-print *::after {
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .text-mfqc-yellow,
+  .text-mfqc-cyan,
+  .text-mfqc-pink {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    display: inline !important;
+    filter: none !important;
+    text-shadow: none !important;
   }
 }
 
@@ -533,17 +553,37 @@ html:not(.reveal-print) .reveal:not(.overview) section.present .title-goat {
   transform-origin: center bottom;
 }
 
-/* Measured Neon Glow Accents - Tight, Crisp, Zero Cloud Blur */
+/* Retro CRT Terminal Phosphor Scanline Styling (Subtle & High Legibility) */
+.text-mfqc-yellow,
+.text-mfqc-cyan,
+.text-mfqc-pink {
+  display: inline-block;
+  -webkit-mask-image: repeating-linear-gradient(
+    to bottom,
+    #000 0px,
+    #000 2px,
+    rgba(0, 0, 0, 0.82) 2px,
+    rgba(0, 0, 0, 0.82) 3px
+  );
+  mask-image: repeating-linear-gradient(
+    to bottom,
+    #000 0px,
+    #000 2px,
+    rgba(0, 0, 0, 0.82) 2px,
+    rgba(0, 0, 0, 0.82) 3px
+  );
+}
+
 .text-mfqc-yellow {
-  text-shadow: 0 0 3px rgba(255, 230, 0, 0.4);
+  text-shadow: 0 0 3px rgba(255, 230, 0, 0.35);
 }
 
 .text-mfqc-cyan {
-  text-shadow: 0 0 3px rgba(0, 245, 212, 0.4);
+  text-shadow: 0 0 3px rgba(0, 245, 212, 0.35);
 }
 
 .text-mfqc-pink {
-  text-shadow: 0 0 3px rgba(255, 42, 133, 0.4);
+  text-shadow: 0 0 3px rgba(255, 42, 133, 0.35);
 }
 
 .bg-mfqc-yellow,
