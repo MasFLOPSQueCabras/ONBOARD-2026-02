@@ -21,11 +21,11 @@ export function SlideSection({
   return (
     <section>
       <div className="box-border flex h-full w-full flex-col justify-between p-5 pb-24 md:px-20 md:pt-12 md:pb-14">
-        <div className="flex items-center justify-between gap-2.5 border-b-2 border-white/22 pb-2.5 font-mono text-[11px] tracking-[0.08em] uppercase md:gap-4 md:pb-4.5 md:text-[15.2px] md:tracking-[0.14em]">
-          <span className="inline-flex shrink-0 items-center bg-mfqc-yellow px-2 py-0.5 text-[11px] font-extrabold whitespace-nowrap text-mfqc-black shadow-[3px_3px_0px_#00f5d4] md:px-4 md:py-1.5 md:text-[15.2px] md:shadow-[4px_4px_0px_#00f5d4]">
+        <div className="flex items-center justify-between gap-2 border-b-2 border-white/22 pb-2 font-mono text-[11px] tracking-[0.08em] uppercase md:gap-4 md:pb-4.5 md:text-[15.2px] md:tracking-[0.14em]">
+          <span className="inline-flex shrink-0 items-center bg-mfqc-yellow px-1.5 py-0.5 text-[10px] font-extrabold whitespace-nowrap text-mfqc-black shadow-[3px_3px_0px_#00f5d4] sm:px-2 sm:text-[11px] md:px-4 md:py-1.5 md:text-[15.2px] md:shadow-[4px_4px_0px_#00f5d4]">
             {brand}
           </span>
-          <span className="min-w-0 flex-1 truncate text-right text-[10px] leading-tight font-bold text-mfqc-cyan md:text-[15.2px]">
+          <span className="min-w-0 flex-1 text-right text-[9px] leading-[1.22] font-bold text-mfqc-cyan sm:text-[11px] md:text-[15.2px] md:leading-tight">
             {displayMeta}
           </span>
         </div>
