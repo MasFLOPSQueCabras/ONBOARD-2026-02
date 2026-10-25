@@ -792,6 +792,15 @@ a.text-mfqc-cyan {
   z-index: 31 !important;
   line-height: 1 !important;
   border-radius: 0 !important;
+  cursor: pointer !important;
+  transition:
+    filter 0.15s ease,
+    box-shadow 0.15s ease !important;
+}
+
+.reveal .slide-number:hover {
+  filter: brightness(1.2) !important;
+  box-shadow: 3px 3px 0px var(--color-mfqc-pink) !important;
 }
 
 .reveal .slide-number a {

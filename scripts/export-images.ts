@@ -38,10 +38,11 @@ async function main() {
       // fallback
     }
 
+    const dpi = process.env.DPI || "300";
     const workerCount = Math.max(1, Math.min(cpus().length, 16));
     const chunkSize = Math.ceil(totalPages / workerCount);
     console.log(
-      `Extracting ${totalPages} slide pages in parallel using ${workerCount} worker threads...`,
+      `Extracting ${totalPages} slide pages in parallel using ${workerCount} worker threads (${dpi} DPI)...`,
     );
 
     const promises: Promise<void>[] = [];
@@ -55,7 +56,7 @@ async function main() {
           const proc = spawn(pdftoppmPath, [
             "-png",
             "-r",
-            "150",
+            dpi,
             "-f",
             String(start),
             "-l",

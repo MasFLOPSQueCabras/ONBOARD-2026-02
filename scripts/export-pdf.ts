@@ -3,7 +3,7 @@ import { mkdirSync, copyFileSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 
 async function main() {
-  console.log("🚀 Starting High-Resolution Vector PDF Export (300 DPI)...");
+  console.log("🚀 Starting High-Resolution Vector PDF Export (600 DPI Press-Ready)...");
 
   const targetUrl = process.env.TARGET_URL || "http://localhost:5173/?print-pdf";
   const publicPdfPath = resolve(process.cwd(), "public/exports/presentation.pdf");

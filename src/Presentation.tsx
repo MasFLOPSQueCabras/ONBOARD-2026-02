@@ -12,7 +12,7 @@ import { Roadmap2027 } from "./slides/Roadmap2027";
 import { Skillset } from "./slides/Skillset";
 import { JoinAndFeedback } from "./slides/JoinAndFeedback";
 import { PosterModal } from "./components/PosterModal";
-import { DownloadToolbar } from "./components/DownloadToolbar";
+import { ExportModal } from "./components/ExportModal";
 import { useRevealViewport } from "./core/useRevealViewport";
 import "reveal.js/reveal.css";
 import "./theme.css";
@@ -61,7 +61,7 @@ export function Presentation() {
 
   return (
     <>
-      <DownloadToolbar />
+      <ExportModal />
       <Deck config={deckConfig}>
         <Title />
         <WhatIsHPC />
