@@ -1,5 +1,6 @@
-import { execSync } from "node:child_process";
+import { execSync, spawn } from "node:child_process";
 import { mkdirSync, existsSync, rmSync, copyFileSync } from "node:fs";
+import { cpus } from "node:os";
 import { resolve, dirname } from "node:path";
 
 async function main() {
@@ -20,16 +21,58 @@ async function main() {
   const pdftoppmPath = existsSync("/usr/bin/pdftoppm") ? "/usr/bin/pdftoppm" : null;
 
   if (pdftoppmPath) {
-    // Fast path: Ensure vector PDF exists, then extract pages in vector quality
+    // Fast path: Ensure vector PDF exists, then extract pages in parallel
     if (!existsSync(publicPdfPath)) {
       console.log("Vector PDF not found, generating PDF first...");
       execSync("bun run export:pdf", { stdio: "inherit" });
     }
 
-    console.log(`Extracting slide pages via ${pdftoppmPath}...`);
-    execSync(`"${pdftoppmPath}" -png -r 150 "${publicPdfPath}" "${tempDir}/slide"`, {
-      stdio: "inherit",
-    });
+    let totalPages = 1;
+    try {
+      const pdfinfoOut = execSync(`pdfinfo "${publicPdfPath}"`).toString();
+      const match = pdfinfoOut.match(/Pages:\s+(\d+)/);
+      if (match) {
+        totalPages = Number.parseInt(match[1], 10);
+      }
+    } catch {
+      // fallback
+    }
+
+    const workerCount = Math.max(1, Math.min(cpus().length, 16));
+    const chunkSize = Math.ceil(totalPages / workerCount);
+    console.log(
+      `Extracting ${totalPages} slide pages in parallel using ${workerCount} worker threads...`,
+    );
+
+    const promises: Promise<void>[] = [];
+    for (let i = 0; i < workerCount; i++) {
+      const start = i * chunkSize + 1;
+      const end = Math.min((i + 1) * chunkSize, totalPages);
+      if (start > totalPages) break;
+
+      promises.push(
+        new Promise((res, rej) => {
+          const proc = spawn(pdftoppmPath, [
+            "-png",
+            "-r",
+            "150",
+            "-f",
+            String(start),
+            "-l",
+            String(end),
+            publicPdfPath,
+            `${tempDir}/slide_${String(i).padStart(2, "0")}`,
+          ]);
+          proc.on("exit", (code) => {
+            if (code === 0) res();
+            else rej(new Error(`pdftoppm exited with code ${code}`));
+          });
+          proc.on("error", rej);
+        }),
+      );
+    }
+
+    await Promise.all(promises);
   } else {
     // Fallback path: Headless Chrome screenshots
     const chromePath =
@@ -58,13 +101,13 @@ async function main() {
     }
   }
 
-  // Bundle captured images into ZIP archive
+  // Bundle captured images into ZIP archive with fast compression
   console.log(`📦 Packaging captured images into ${publicZipPath}...`);
   if (existsSync(publicZipPath)) {
     rmSync(publicZipPath);
   }
 
-  execSync(`zip -j -9 "${publicZipPath}" "${tempDir}"/*.png`, { stdio: "ignore" });
+  execSync(`zip -q -j -1 "${publicZipPath}" "${tempDir}"/*.png`, { stdio: "ignore" });
 
   if (existsSync(dirname(distZipPath))) {
     copyFileSync(publicZipPath, distZipPath);
