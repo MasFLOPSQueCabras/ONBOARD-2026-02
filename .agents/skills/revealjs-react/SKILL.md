@@ -240,6 +240,44 @@ When Reveal.js detects `?print-pdf` in the URL:
      }
    }
    ```
+7. **Lock Page & Section Geometry in `?print-pdf`**:
+   To prevent headless Chrome from defaulting to an 800px viewport, breaking Tailwind's `md:` breakpoint, or miscalculating flexbox vertical centering:
+   ```css
+   html.reveal-print,
+   html.reveal-print body,
+   html.reveal-print #root,
+   html.reveal-print .reveal,
+   html.reveal-print .reveal .slides,
+   html.reveal-print .reveal .slides .pdf-page {
+     width: 1664px !important;
+     min-width: 1664px !important;
+   }
+
+   html.reveal-print .reveal .slides .pdf-page {
+     position: relative !important;
+     height: 936px !important;
+     min-height: 936px !important;
+     max-height: 936px !important;
+     page-break-after: always !important;
+   }
+
+   html.reveal-print .reveal .slides .pdf-page > section {
+     display: block !important;
+     visibility: visible !important;
+     opacity: 1 !important;
+     position: absolute !important;
+     top: 18px !important;
+     left: 32px !important;
+     width: 1600px !important;
+     height: 900px !important;
+     margin: 0 !important;
+     padding: 0 !important;
+     box-sizing: border-box !important;
+     overflow: hidden !important;
+     z-index: 1 !important;
+   }
+   ```
+   Always pass `pdfSeparateFragments: false` in Reveal's configuration to prevent fragments from splitting across redundant pages, and pass `--window-size=1920,1080` in headless Chrome CLI invocations.
 
 ---
 
