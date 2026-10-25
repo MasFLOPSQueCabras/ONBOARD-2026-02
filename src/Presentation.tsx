@@ -46,6 +46,7 @@ export function Presentation() {
       controlsLayout: "bottom-right" as const,
       controlsBackArrows: "faded" as const,
       overview: true,
+      pdfSeparateFragments: false,
       viewDistance: 50,
       mobileViewDistance: 50,
       transition: viewport.isPrintPdf ? ("none" as const) : ("slide" as const),

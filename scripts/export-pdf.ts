@@ -25,6 +25,7 @@ async function main() {
     "--headless=new",
     "--disable-gpu",
     "--no-sandbox",
+    "--window-size=1920,1080",
     "--force-device-scale-factor=2",
     "--run-all-compositor-stages-before-draw",
     "--virtual-time-budget=6000",

@@ -283,8 +283,12 @@ html.reveal-print .reveal .slides > section.stack:empty {
 /* Reveal.js /?print-pdf multi-page slide export support */
 html.reveal-print,
 html.reveal-print body,
-html.reveal-print #root {
-  width: auto !important;
+html.reveal-print #root,
+html.reveal-print .reveal,
+html.reveal-print .reveal .slides,
+html.reveal-print .reveal .slides .pdf-page {
+  width: 1664px !important;
+  min-width: 1664px !important;
   height: auto !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -293,6 +297,11 @@ html.reveal-print #root {
 }
 
 html.reveal-print .reveal .slides .pdf-page {
+  position: relative !important;
+  height: 936px !important;
+  min-height: 936px !important;
+  max-height: 936px !important;
+  page-break-after: always !important;
   background-color: var(--color-mfqc-black) !important;
   background-image: radial-gradient(
     circle at 50% 0%,
@@ -319,11 +328,15 @@ html.reveal-print .reveal .slides .pdf-page > section {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  position: absolute !important;
+  top: 18px !important;
+  left: 32px !important;
+  width: 1600px !important;
+  height: 900px !important;
+  margin: 0 !important;
   padding: 0 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
   z-index: 1 !important;
 }
 
