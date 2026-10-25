@@ -12,7 +12,6 @@ import { Roadmap2027 } from "./slides/Roadmap2027";
 import { Skillset } from "./slides/Skillset";
 import { JoinAndFeedback } from "./slides/JoinAndFeedback";
 import { PosterModal } from "./components/PosterModal";
-import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { DownloadToolbar } from "./components/DownloadToolbar";
 import { useRevealViewport } from "./core/useRevealViewport";
 import "reveal.js/reveal.css";
@@ -62,7 +61,6 @@ export function Presentation() {
 
   return (
     <>
-      <ThemeSwitcher />
       <DownloadToolbar />
       <Deck config={deckConfig}>
         <Title />
