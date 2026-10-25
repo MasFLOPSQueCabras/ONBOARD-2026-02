@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .react-email
+public/exports/
 
 # Editor directories and files
 .vscode/*

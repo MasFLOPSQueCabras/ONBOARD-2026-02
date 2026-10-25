@@ -12,6 +12,8 @@ import { Roadmap2027 } from "./slides/Roadmap2027";
 import { Skillset } from "./slides/Skillset";
 import { JoinAndFeedback } from "./slides/JoinAndFeedback";
 import { PosterModal } from "./components/PosterModal";
+import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import { DownloadToolbar } from "./components/DownloadToolbar";
 import { useRevealViewport } from "./core/useRevealViewport";
 import "reveal.js/reveal.css";
 import "./theme.css";
@@ -58,18 +60,22 @@ export function Presentation() {
   }
 
   return (
-    <Deck config={deckConfig}>
-      <Title />
-      <WhatIsHPC />
-      <HpcMagnitude />
-      <UarchAndBenchmarks />
-      <HpcBottlenecks />
-      <HeterogeneousHardware />
-      <NextStepsMojo />
-      <CarlaSCC2026 />
-      <Roadmap2027 />
-      <Skillset />
-      <JoinAndFeedback onOpenPoster={() => setShowPoster(true)} />
-    </Deck>
+    <>
+      <ThemeSwitcher />
+      <DownloadToolbar />
+      <Deck config={deckConfig}>
+        <Title />
+        <WhatIsHPC />
+        <HpcMagnitude />
+        <UarchAndBenchmarks />
+        <HpcBottlenecks />
+        <HeterogeneousHardware />
+        <NextStepsMojo />
+        <CarlaSCC2026 />
+        <Roadmap2027 />
+        <Skillset />
+        <JoinAndFeedback onOpenPoster={() => setShowPoster(true)} />
+      </Deck>
+    </>
   );
 }
