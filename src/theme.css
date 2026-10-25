@@ -311,14 +311,12 @@ html.reveal-print .text-mfqc-pink {
   text-shadow: none !important;
 }
 
-html.reveal-print .print-hidden,
-html.reveal-print .download-toolbar {
+html.reveal-print .print-hidden {
   display: none !important;
 }
 
 @media print {
-  .print-hidden,
-  .download-toolbar {
+  .print-hidden {
     display: none !important;
   }
 }

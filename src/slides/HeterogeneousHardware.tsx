@@ -2,7 +2,6 @@ import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
 import { StatementSlide } from "../components/StatementSlide";
 import { FeatureItem } from "../components/FeatureGrid";
-import { ThreeHpcTopology } from "../components/ThreeHpcTopology";
 
 export function HeterogeneousHardware() {
   return (
@@ -48,22 +47,6 @@ export function HeterogeneousHardware() {
             , enviando cada porción del cálculo al silicio que la ejecuta con la máxima eficiencia y
             menor costo energético.
           </FeatureItem>
-        </div>
-      </SlideSection>
-
-      {/* 1c. TOPOLOGÍA DE RED Y SILICIO 3D */}
-      <SlideSection
-        brand="MFQC // INTERCONEXIÓN Y TOPOLOGÍA"
-        meta="TOPOLOGÍA 3D WEBGPU"
-        title={
-          <>
-            Topología de Interconexión y <span className="text-mfqc-cyan">Silicio 3D</span>
-          </>
-        }
-        lead="Mapeo orbital interactivo en tiempo real de nodos acelerados, matrices sistólicas y enlaces de interconexión."
-      >
-        <div className="max-w-[1240px]">
-          <ThreeHpcTopology />
         </div>
       </SlideSection>
 
