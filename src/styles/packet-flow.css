@@ -1,0 +1,217 @@
+.packet-layout {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+}
+.packet-body {
+  gap: 14px;
+}
+.packet-layout > p {
+  font-size: 13px;
+  line-height: 1.42;
+}
+.packet-flow {
+  margin: 0;
+  min-width: 0;
+}
+.packet-scene {
+  contain: paint;
+  isolation: isolate;
+  max-width: 640px;
+  margin-inline: auto;
+}
+.packet-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.packet-block rect {
+  fill: var(--color-mfqc-card);
+  stroke: var(--color-mfqc-cyan);
+  stroke-width: 1.5;
+}
+.packet-diagram text {
+  font: 20px var(--font-mono);
+  text-anchor: middle;
+  fill: var(--color-mfqc-white);
+}
+.packet-diagram .packet-detail {
+  font-size: 15px;
+}
+.packet-diagram .packet-pcie {
+  text-anchor: start;
+}
+.packet-route {
+  fill: none;
+  stroke-width: 2;
+  opacity: 0.65;
+}
+.packet-memory {
+  stroke: var(--color-mfqc-yellow);
+}
+.packet-network {
+  stroke: var(--color-mfqc-cyan);
+}
+.packet-arrow-memory {
+  fill: var(--color-mfqc-yellow);
+}
+.packet-arrow-network {
+  fill: var(--color-mfqc-cyan);
+}
+.packet-pulse {
+  display: none;
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 4 46;
+}
+.packet-queue,
+.packet-constraint {
+  display: none;
+}
+.packet-queued-item {
+  fill: var(--color-mfqc-yellow);
+}
+.packet-constraint path {
+  stroke: var(--color-mfqc-pink);
+  stroke-width: 5;
+}
+.packet-explanation {
+  min-height: 4.2em;
+  font: 12px/1.4 var(--font-sans);
+  color: var(--color-mfqc-white);
+}
+.packet-busy-copy {
+  display: none;
+}
+.packet-flow:has([data-diagram-step="1"].visible) .packet-normal-copy {
+  display: none;
+}
+.packet-flow:has([data-diagram-step="1"].visible)
+  :is(.packet-busy-copy, .packet-queue, .packet-constraint) {
+  display: block;
+}
+.packet-definitions {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  font: 10.5px/1.4 var(--font-sans);
+}
+.packet-definitions div {
+  display: inline;
+}
+.packet-definitions dt {
+  display: inline;
+  font-weight: 700;
+  color: var(--color-mfqc-cyan);
+}
+.packet-definitions dt::after {
+  content: ": ";
+}
+.packet-definitions dd {
+  display: inline;
+  margin: 0;
+  color: var(--color-mfqc-gray);
+}
+.packet-flow figcaption {
+  margin-top: 8px;
+  font: 10px/1.4 var(--font-mono);
+  color: var(--color-mfqc-gray);
+}
+@container deck (min-width: 768px) {
+  .packet-layout {
+    grid-template-columns: 0.9fr 1.5fr;
+    gap: 36px;
+  }
+  .packet-body {
+    gap: 18px;
+  }
+  .packet-layout > p {
+    font-size: 21px;
+    line-height: 1.5;
+  }
+  .packet-explanation {
+    min-height: 2.8em;
+    font-size: 20px;
+  }
+  .packet-definitions {
+    gap: 6px;
+    font-size: 17px;
+  }
+  .packet-flow figcaption {
+    font-size: 13px;
+  }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  @keyframes packet-travel {
+    to {
+      stroke-dashoffset: -100;
+    }
+  }
+  @keyframes packet-queue-arrival {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .reveal[data-motion="enabled"] [data-motion-active] .packet-pulse {
+    display: block;
+    animation: packet-travel 2s linear infinite;
+  }
+  .reveal[data-motion="enabled"]
+    [data-motion-active]
+    .packet-flow:has([data-diagram-step="1"].visible)
+    .packet-limited
+    .packet-pulse {
+    animation-duration: 4s;
+  }
+  .reveal[data-motion="enabled"]
+    [data-motion-active]
+    .packet-flow:has([data-diagram-step="1"].visible)
+    .packet-queued-item {
+    animation: packet-queue-arrival 180ms var(--queue-delay) ease-out both;
+  }
+}
+html.reveal-print .packet-pulse {
+  display: none !important;
+}
+html.reveal-print .packet-normal-copy {
+  display: none !important;
+}
+html.reveal-print :is(.packet-busy-copy, .packet-queue, .packet-constraint) {
+  display: block !important;
+}
+@media print {
+  .packet-pulse {
+    display: none !important;
+  }
+  .packet-normal-copy {
+    display: none !important;
+  }
+  .packet-busy-copy,
+  .packet-queue,
+  .packet-constraint {
+    display: block !important;
+  }
+}
+
+.packet-diagram[data-static] :is(.packet-queue, .packet-constraint) {
+  display: block;
+}
+.packet-diagram[data-static] .packet-route {
+  opacity: 1;
+}
+.packet-static {
+  contain: none;
+  isolation: auto;
+}
+html.reveal-print .packet-static {
+  display: block;
+}
+@media print {
+  .packet-static {
+    display: block;
+  }
+}

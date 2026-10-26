@@ -1,12 +1,15 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
 import { StatementSlide } from "../components/StatementSlide";
+import { HardwarePacketFlow } from "../components/HardwarePacketFlow";
 
 export function HpcBottlenecks() {
   return (
     <Slide>
       {/* 1a. THE MEMORY WALL: FLOPS VS BANDWIDTH */}
       <SlideSection
+        className="packet-slide"
+        bodyClassName="packet-body"
         brand="MFQC // BOTTLENECKS"
         meta="THE MEMORY WALL: ACELERADORES HAMBRIENTOS"
         title={
@@ -16,7 +19,7 @@ export function HpcBottlenecks() {
         }
         lead="Hoy calcular operaciones en coma flotante es rápido y barato; el verdadero cuello de botella es alimentar a los núcleos a tiempo sin ahogar el ancho de banda."
       >
-        <div className="max-w-[1240px]">
+        <div className="packet-layout">
           <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Los núcleos de cálculo multiplican matrices a ritmo exponencial (TFLOPS), pero el ancho
             de banda hacia la memoria principal (
@@ -25,6 +28,7 @@ export function HpcBottlenecks() {
             pasan cientos de ciclos de reloj{" "}
             <strong className="text-white">completamente ociosos esperando datos</strong>.
           </p>
+          <HardwarePacketFlow kind="memory" />
         </div>
       </SlideSection>
 
@@ -73,6 +77,8 @@ export function HpcBottlenecks() {
 
       {/* 2b. CONGESTIÓN Y HEAD-OF-LINE BLOCKING */}
       <SlideSection
+        className="packet-slide"
+        bodyClassName="packet-body"
         brand="MFQC // INTERCONEXIÓN"
         meta="FÍSICA DE COLAS: CONGESTIÓN"
         title={
@@ -82,7 +88,7 @@ export function HpcBottlenecks() {
         }
         lead="La física de colas impone desafíos implacables cuando miles de nodos transmiten concurrentemente."
       >
-        <div className="max-w-[1240px]">
+        <div className="packet-layout">
           <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Cuando cientos de aceleradores transmiten simultáneamente hacia el mismo nodo de
             destino, se produce el temido fenómeno de{" "}
@@ -91,6 +97,7 @@ export function HpcBottlenecks() {
             los buffers de los switches y provocando caídas masivas en el rendimiento efectivo de la
             red del clúster.
           </p>
+          <HardwarePacketFlow kind="network" />
         </div>
       </SlideSection>
 
