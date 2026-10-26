@@ -24,3 +24,7 @@ public/exports/
 *.njsproj
 *.sln
 *.sw?
+
+# Browser verification artifacts
+test-results/
+playwright-report/

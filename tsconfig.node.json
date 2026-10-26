@@ -14,11 +14,14 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts", "scripts"]
+  "include": ["vite.config.ts", "playwright.config.ts", "scripts"]
 }

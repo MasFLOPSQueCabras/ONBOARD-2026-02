@@ -8,12 +8,12 @@ export function CarlaSCC2026() {
     <Slide>
       {/* 1a. HITO CARLA 2026 */}
       <SlideSection brand="MFQC // CARLA 2026" meta="EXPERIENCIA EN COMPETENCIA">
-        <div className="flex max-w-[1100px] flex-col gap-3 md:gap-6">
-          <h2 className="font-display text-[26px]! leading-[1.12]! font-extrabold text-white md:text-[64px]! md:leading-[1.06]!">
+        <div className="flex max-w-[1100px] flex-col gap-3 @min-[768px]/deck:gap-6">
+          <h2 className="font-display text-[26px]! leading-[1.12]! font-extrabold text-white @min-[768px]/deck:text-[64px]! @min-[768px]/deck:leading-[1.06]!">
             Hito: <span className="text-mfqc-yellow">SCC CARLA 2026</span>
           </h2>
 
-          <p className="m-0! font-sans text-[13.5px]! leading-[1.42]! text-mfqc-gray md:text-[24px]! md:leading-[1.5]!">
+          <p className="m-0! font-sans text-[13.5px]! leading-[1.42]! text-mfqc-gray @min-[768px]/deck:text-[24px]! @min-[768px]/deck:leading-[1.5]!">
             Representamos a la universidad en la competencia latinoamericana de supercomputación
             enfrentando hardware bare-metal e infraestructura de centro de datos real.
           </p>
@@ -37,13 +37,13 @@ export function CarlaSCC2026() {
             loading="lazy"
             decoding="async"
             fetchPriority="low"
-            className="max-h-[300px] w-full max-w-[720px] border-4 border-mfqc-yellow object-cover shadow-[8px_8px_0px_#00f5d4] md:max-h-[520px] md:shadow-[14px_14px_0px_#00f5d4]"
+            className="max-h-[300px] w-full max-w-[720px] border-4 border-mfqc-yellow object-cover shadow-[8px_8px_0px_#00f5d4] @min-[768px]/deck:max-h-[520px] @min-[768px]/deck:shadow-[14px_14px_0px_#00f5d4]"
           />
           <div className="flex flex-col items-center justify-center gap-1 text-center">
-            <span className="font-mono text-[11px] font-bold tracking-wide text-mfqc-cyan uppercase md:text-[15px]">
+            <span className="font-mono text-[11px] font-bold tracking-wide text-mfqc-cyan uppercase @min-[768px]/deck:text-[15px]">
               Semillero Más FLOPS que Cabras
             </span>
-            <span className="font-mono text-[9.5px] font-semibold tracking-wider text-mfqc-yellow uppercase md:text-[12px]">
+            <span className="font-mono text-[9.5px] font-semibold tracking-wider text-mfqc-yellow uppercase @min-[768px]/deck:text-[12px]">
               [ Equipo UniAndes · CARLA SCC 2026 ]
             </span>
           </div>

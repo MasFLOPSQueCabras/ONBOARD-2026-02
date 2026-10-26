@@ -1,16 +1,24 @@
 import { useEffect, useLayoutEffect, useRef, type HTMLAttributes, type ReactNode } from "react";
 import Reveal, { type RevealApi, type RevealConfig } from "reveal.js";
 
+declare global {
+  interface Window {
+    RevealDeck?: RevealApi;
+  }
+}
+
 export interface DeckProps {
   config?: RevealConfig;
+  initialSlide?: { h: number; v: number };
   children: ReactNode;
 }
 
-export function Deck({ config, children }: DeckProps) {
+export function Deck({ config, initialSlide, children }: DeckProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deckRef = useRef<RevealApi | null>(null);
   const mountIdRef = useRef(0);
   const initialConfigRef = useRef(config);
+  const initialSlideRef = useRef(initialSlide);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -29,7 +37,7 @@ export function Deck({ config, children }: DeckProps) {
 
       const deck = new Reveal(el, initialConfigRef.current);
       deckRef.current = deck;
-      (window as any).RevealDeck = deck;
+      window.RevealDeck = deck;
 
       const unhideOverview = () => {
         if (!deck.isOverview()) return;
@@ -56,6 +64,10 @@ export function Deck({ config, children }: DeckProps) {
         deck.on("ready", unhideSections);
         deck.on("pdf-ready", unhideSections);
       }
+      deck.on("ready", () => {
+        const position = initialSlideRef.current;
+        if (position) deck.slide(position.h, position.v);
+      });
       void deck.initialize();
     }
 
@@ -67,8 +79,8 @@ export function Deck({ config, children }: DeckProps) {
           } catch {
             // Ignore cleanup errors when unmounting
           }
-          if ((window as any).RevealDeck === deckRef.current) {
-            delete (window as any).RevealDeck;
+          if (window.RevealDeck === deckRef.current) {
+            delete window.RevealDeck;
           }
           deckRef.current = null;
         }

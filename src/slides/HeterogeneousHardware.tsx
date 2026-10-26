@@ -62,7 +62,7 @@ export function HeterogeneousHardware() {
         lead="Diseñadas exclusivamente para el álgebra de tensores de redes neuronales, desechando el overhead de una GPU genérica."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             En lugar de leer y escribir registros por cada hilo en cada ciclo, la Matrix Multiply
             Unit (<strong className="text-mfqc-yellow">MXU</strong>) de una TPU hace fluir los datos
             como en una onda cardíaca (sístole): las entradas y pesos se deslizan rítmicamente entre
@@ -84,7 +84,7 @@ export function HeterogeneousHardware() {
         lead="Reconfigurar la topología física de un supercomputador en tiempo real usando haces de luz."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             A escala de clúster, miles de TPUs (v4, v5p) se interconectan en{" "}
             <strong className="text-mfqc-cyan">toros tridimensionales directos</strong> mediante
             conmutación óptica (
@@ -108,7 +108,7 @@ export function HeterogeneousHardware() {
         lead="Liderada por la leyenda del silicio Jim Keller, Tenstorrent propone una arquitectura modular basada en RISC-V orientada al flujo espacial de grafos."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Cada procesador Tenstorrent (Wormhole, Blackhole) contiene una cuadrícula masiva de
             núcleos <strong className="text-mfqc-cyan">Tensix</strong>. Cada núcleo combina cinco
             micro-procesadores <strong className="text-white">RISC-V</strong> ("baby cores")
@@ -130,7 +130,7 @@ export function HeterogeneousHardware() {
         lead="Sin la penalización de mantener coherencia de caché global: el silicio como un río programable de datos."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             En lugar de gastar silicio y vatios en mantener coherencia de caché global entre cientos
             de núcleos, Tenstorrent conecta su cuadrícula mediante una{" "}
             <strong className="text-mfqc-yellow">red en chip (NoC) bidimensional</strong>: el
@@ -154,7 +154,7 @@ export function HeterogeneousHardware() {
         lead="En HPC la tarjeta de red no espera al sistema operativo: accede directamente a la memoria de otros servidores a velocidades vertiginosas."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             En una pila de red tradicional, cada paquete TCP/IP debe atravesar múltiples capas del
             kernel Linux, provocando cambios de contexto e interrupciones en la CPU del servidor.{" "}
             <strong className="text-white">Remote Direct Memory Access (RDMA)</strong> rompe este
@@ -196,7 +196,7 @@ export function HeterogeneousHardware() {
         lead="Las interfaces de red modernas son verdaderos aceleradores programables con hardware dedicado para telemetría y congestión."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Adaptadores de última generación como{" "}
             <strong className="text-white">NVIDIA Mellanox ConnectX-7/8</strong> y{" "}
             <strong className="text-mfqc-cyan">AMD Pensando Pollara 400</strong> no son simples
@@ -219,7 +219,7 @@ export function HeterogeneousHardware() {
         lead="Adaptando la red al tsunami de tráfico de la inteligencia artificial generativa."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Estas tarjetas analizan la latencia de cada paquete y el estado de los buffers
             intermedios en el tejido de la red, ajustando dinámicamente las ventanas de transmisión
             para protocolos como <strong className="text-white">InfiniBand, RoCEv2</strong> y el
@@ -242,7 +242,7 @@ export function HeterogeneousHardware() {
         lead="La DPU convierte a la tarjeta de red en un computador autónomo que descarga por completo al procesador principal."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Junto a la CPU y la GPU, la <strong className="text-mfqc-yellow">DPU</strong> (NVIDIA
             BlueField, AMD Pensando Elba) se erige como el tercer componente central del centro de
             datos: integra una docena de núcleos ARM de 64 bits, aceleradores criptográficos y
@@ -265,7 +265,7 @@ export function HeterogeneousHardware() {
         lead="Calcular operaciones matemáticas dentro del propio cable mientras los datos viajan."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Mediante tecnologías como <strong className="text-mfqc-cyan">NVIDIA SHARP</strong>, los
             propios switches y DPUs calculan operaciones de reducción colectiva (
             <strong className="text-white">AllReduce, sumas y mínimos</strong> de gradientes) dentro

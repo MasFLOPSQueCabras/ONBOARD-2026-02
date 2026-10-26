@@ -1,3 +1,4 @@
+import { INVITATION_DEFAULTS, MFQC_CONFIG, PRODUCTION_BASE_URL } from "../src/config.ts";
 import {
   Body,
   Column,
@@ -26,8 +27,6 @@ export interface MfqcInvitationProps {
   contactEmail?: string;
 }
 
-const PRODUCTION_BASE_URL = "https://masflopsquecabras.github.io/ONBOARD-2026-02";
-
 // Bulletproof font stacks with universal web-safe fallbacks for email clients
 const FONT_DISPLAY =
   "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
@@ -37,12 +36,12 @@ const FONT_BODY =
 
 export default function MfqcInvitation({
   recipientName = "Colega",
-  eventDate = "Jueves 5 de Marzo, 2026",
-  eventTime = "5:00 PM - 6:30 PM (COT)",
-  eventLocation = "Auditorio Mario Laserna (ML) / Híbrido",
-  presentationUrl = `${PRODUCTION_BASE_URL}/`,
-  posterUrl = `${PRODUCTION_BASE_URL}/posters/`,
-  contactEmail = "i.bermudezl@uniandes.edu.co",
+  eventDate = INVITATION_DEFAULTS.eventDate,
+  eventTime = INVITATION_DEFAULTS.eventTime,
+  eventLocation = INVITATION_DEFAULTS.eventLocation,
+  presentationUrl = INVITATION_DEFAULTS.presentationUrl,
+  posterUrl = INVITATION_DEFAULTS.posterUrl,
+  contactEmail = INVITATION_DEFAULTS.contactEmail,
 }: MfqcInvitationProps) {
   const previewText =
     "¿Interesado en que tu código corra a la velocidad de la luz? Charla de Onboarding Más FLOPS que Cabras 🐐";
@@ -571,7 +570,7 @@ export default function MfqcInvitation({
                 <br />
                 Repositorio &amp; Código:{" "}
                 <Link
-                  href="https://github.com/MasFLOPSQueCabras/ONBOARD-2026-02"
+                  href={MFQC_CONFIG.repositoryUrl}
                   style={{ color: "#00f5d4", textDecoration: "underline" }}
                 >
                   GitHub @MasFLOPSQueCabras
@@ -587,11 +586,6 @@ export default function MfqcInvitation({
 
 // Development preview props
 MfqcInvitation.PreviewProps = {
+  ...INVITATION_DEFAULTS,
   recipientName: "Estudiante Uniandes",
-  eventDate: "Jueves 5 de Marzo, 2026",
-  eventTime: "5:00 PM - 6:30 PM (COT)",
-  eventLocation: "Auditorio Mario Laserna (ML) / Teams",
-  presentationUrl: "https://masflopsquecabras.github.io/ONBOARD-2026-02/",
-  posterUrl: "https://masflopsquecabras.github.io/ONBOARD-2026-02/posters/",
-  contactEmail: "i.bermudezl@uniandes.edu.co",
 } satisfies MfqcInvitationProps;

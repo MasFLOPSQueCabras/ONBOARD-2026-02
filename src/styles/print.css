@@ -1,0 +1,118 @@
+html.reveal-print .reveal .slides > section.stack:empty {
+  display: none !important;
+}
+
+/* Reveal.js /?print-pdf multi-page slide export support */
+html.reveal-print,
+html.reveal-print body,
+html.reveal-print #root,
+html.reveal-print .reveal,
+html.reveal-print .reveal .slides,
+html.reveal-print .reveal .slides .pdf-page {
+  width: 1664px !important;
+  min-width: 1664px !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  background-color: var(--color-mfqc-black) !important;
+}
+
+html.reveal-print .reveal .slides .pdf-page {
+  position: relative !important;
+  height: 936px !important;
+  min-height: 936px !important;
+  max-height: 936px !important;
+  page-break-after: always !important;
+  background-color: var(--color-mfqc-black) !important;
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    rgba(255, 230, 0, 0.025) 0%,
+    transparent 45%
+  ) !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+html.reveal-print .reveal .slides .pdf-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(rgba(255, 230, 0, 0.16) 1.5px, transparent 1.5px), rgba(0, 0, 0, 0.7);
+  background-size:
+    48px 48px,
+    100% 100%;
+  z-index: 0;
+}
+
+html.reveal-print .reveal .slides .pdf-page > section {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: 18px !important;
+  left: 32px !important;
+  width: 1600px !important;
+  height: 900px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+/* Hard print-pdf and print override: cancel all animations/transitions to guarantee instantaneous static export */
+html.reveal-print *,
+html.reveal-print *::before,
+html.reveal-print *::after {
+  animation: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+html.reveal-print .text-mfqc-yellow,
+html.reveal-print .text-mfqc-cyan,
+html.reveal-print .text-mfqc-pink {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+html.reveal-print .print-hidden {
+  display: none !important;
+}
+
+@media print {
+  .print-hidden {
+    display: none !important;
+  }
+}
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .text-mfqc-yellow,
+  .text-mfqc-cyan,
+  .text-mfqc-pink {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    filter: none !important;
+    text-shadow: none !important;
+  }
+}
+
+/* Do not force a trailing blank sheet after the final slide. */
+html.reveal-print .reveal .slides .pdf-page:last-child {
+  break-after: auto !important;
+  page-break-after: auto !important;
+}

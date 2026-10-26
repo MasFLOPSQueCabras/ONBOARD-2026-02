@@ -1,0 +1,152 @@
+:root {
+  --color-mfqc-black: #000000;
+  --color-mfqc-card: #08080c;
+  --color-mfqc-yellow: #ffe600;
+  --color-mfqc-cyan: #00f5d4;
+  --color-mfqc-pink: #ff2a85;
+  --color-mfqc-purple: #a855f7;
+  --color-mfqc-white: #ffffff;
+  --color-mfqc-gray: #d4d4d8;
+}
+
+/* Adobe RGB (a98-rgb) for pro creative and engineering displays */
+@supports (color: color(a98-rgb 1 1 1)) {
+  :root {
+    --color-mfqc-yellow: color(a98-rgb 0.99 0.9 0.05);
+    --color-mfqc-cyan: color(a98-rgb 0.1 0.96 0.83);
+    --color-mfqc-pink: color(a98-rgb 0.98 0.15 0.52);
+    --color-mfqc-purple: color(a98-rgb 0.65 0.32 0.96);
+  }
+}
+
+/* DCI-P3 / Display P3 for iPhone Super Retina XDR, MacBook Liquid Retina, and AMOLED mobile screens */
+@media (color-gamut: p3) {
+  :root {
+    --color-mfqc-yellow: color(display-p3 0.99 0.91 0.08);
+    --color-mfqc-cyan: color(display-p3 0.15 0.96 0.84);
+    --color-mfqc-pink: color(display-p3 0.98 0.16 0.53);
+    --color-mfqc-purple: color(display-p3 0.65 0.33 0.96);
+  }
+}
+
+/* Rec. 2020 for ultra-wide gamut UHD / HDR displays */
+@media (color-gamut: rec2020) {
+  :root {
+    --color-mfqc-yellow: color(rec2020 0.95 0.89 0.12);
+    --color-mfqc-cyan: color(rec2020 0.22 0.95 0.83);
+    --color-mfqc-pink: color(rec2020 0.94 0.22 0.52);
+    --color-mfqc-purple: color(rec2020 0.63 0.35 0.95);
+  }
+}
+
+@theme {
+  --color-mfqc-black: var(--color-mfqc-black);
+  --color-mfqc-card: var(--color-mfqc-card);
+  --color-mfqc-yellow: var(--color-mfqc-yellow);
+  --color-mfqc-cyan: var(--color-mfqc-cyan);
+  --color-mfqc-pink: var(--color-mfqc-pink);
+  --color-mfqc-purple: var(--color-mfqc-purple);
+  --color-mfqc-white: var(--color-mfqc-white);
+  --color-mfqc-gray: var(--color-mfqc-gray);
+  --font-display: "Syne", sans-serif;
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+svg {
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+}
+
+/* Retro CRT Terminal Phosphor Scanline Styling (Subtle & High Legibility) */
+span.text-mfqc-yellow,
+span.text-mfqc-cyan,
+span.text-mfqc-pink,
+strong.text-mfqc-yellow,
+strong.text-mfqc-cyan,
+strong.text-mfqc-pink,
+a.text-mfqc-yellow,
+a.text-mfqc-cyan {
+  display: inline-block;
+}
+
+.text-mfqc-yellow,
+.text-mfqc-cyan,
+.text-mfqc-pink {
+  -webkit-mask-image: repeating-linear-gradient(
+    to bottom,
+    #000 0px,
+    #000 2px,
+    rgba(0, 0, 0, 0.82) 2px,
+    rgba(0, 0, 0, 0.82) 3px
+  );
+  mask-image: repeating-linear-gradient(
+    to bottom,
+    #000 0px,
+    #000 2px,
+    rgba(0, 0, 0, 0.82) 2px,
+    rgba(0, 0, 0, 0.82) 3px
+  );
+}
+
+.text-mfqc-yellow {
+  text-shadow: 0 0 3px rgba(255, 230, 0, 0.35);
+}
+
+.text-mfqc-cyan {
+  text-shadow: 0 0 3px rgba(0, 245, 212, 0.35);
+}
+
+.text-mfqc-pink {
+  text-shadow: 0 0 3px rgba(255, 42, 133, 0.35);
+}
+
+.bg-mfqc-yellow,
+.bg-mfqc-cyan {
+  filter: none !important;
+}
+
+/* Hero Title Neon FLOPS - Clean Brutalist Block, No Giant Cloud Blur */
+.title-neon-flops {
+  position: relative;
+  z-index: 0;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  box-shadow: 6px 6px 0px var(--color-mfqc-cyan) !important;
+}
+
+.title-goat {
+  position: relative;
+  z-index: 20;
+}
+
+@media (min-width: 768px) {
+  .title-neon-flops {
+    box-shadow: 8px 8px 0px var(--color-mfqc-cyan) !important;
+  }
+}
+
+/* HDR (High Dynamic Range) emissive phosphor radiance - tight, non-cloudy */
+@media (dynamic-range: high) {
+  .text-mfqc-yellow {
+    text-shadow: 0 0 4px rgba(255, 230, 0, 0.5);
+  }
+
+  .text-mfqc-cyan {
+    text-shadow: 0 0 4px rgba(0, 245, 212, 0.5);
+  }
+
+  .text-mfqc-pink {
+    text-shadow: 0 0 4px rgba(255, 42, 133, 0.5);
+  }
+
+  .title-neon-flops {
+    filter: none !important;
+  }
+}

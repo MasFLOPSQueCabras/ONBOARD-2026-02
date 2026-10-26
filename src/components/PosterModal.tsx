@@ -1,4 +1,5 @@
-import { QRCodeSVG } from "qrcode.react";
+import { OnboardingQR } from "./OnboardingQR";
+import { PosterBrand } from "./PosterBrand";
 import { MFQC_CONFIG } from "../config";
 
 export interface PosterModalProps {
@@ -44,15 +45,10 @@ export function PosterModal({ onClose }: PosterModalProps) {
         </div>
 
         <h1 className="m-0 mb-4 font-display text-3xl leading-[1.25] font-extrabold text-white sm:text-[3.2rem] sm:leading-[1.2] print:mb-3 print:text-[2.85rem] print:leading-[1.2]">
-          <span className="inline-block whitespace-nowrap">
-            Más{" "}
-            <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-3 py-0.5 text-mfqc-black shadow-[6px_6px_0px_#00f5d4] sm:px-4 sm:shadow-[8px_8px_0px_#00f5d4]">
-              FLOPS
-            </span>
-          </span>{" "}
-          <span className="relative z-10 mt-1 inline-block whitespace-nowrap">
-            que Cabras <span className="title-goat relative z-20 inline-block">🐐</span>
-          </span>
+          <PosterBrand
+            badgeClassName="px-3 shadow-[6px_6px_0px_#00f5d4] sm:px-4 sm:shadow-[8px_8px_0px_#00f5d4]"
+            keepFirstLine
+          />
         </h1>
 
         <p className="m-0 mb-6 text-sm leading-relaxed text-mfqc-gray sm:mb-8 sm:text-xl print:mb-6 print:text-base">
@@ -63,13 +59,8 @@ export function PosterModal({ onClose }: PosterModalProps) {
 
         <div className="flex flex-col items-center">
           <div className="inline-flex border-4 border-mfqc-cyan bg-white p-4 shadow-[6px_6px_0px_#ffe600] sm:p-7 print:p-5 print:shadow-none">
-            <QRCodeSVG
-              value={MFQC_CONFIG.onboardingQrUrl}
-              title="Código QR para unirse a Más FLOPS que Cabras"
+            <OnboardingQR
               size={340}
-              bgColor="#ffffff"
-              fgColor="#08080c"
-              level="H"
               className="h-[200px] w-[200px] sm:h-[320px] sm:w-[320px] print:h-[260px] print:w-[260px]"
             />
           </div>

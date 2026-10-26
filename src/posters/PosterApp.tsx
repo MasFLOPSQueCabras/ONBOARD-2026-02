@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { QRCodeSVG } from "qrcode.react";
+import { OnboardingQR } from "../components/OnboardingQR";
+import { PosterBrand } from "../components/PosterBrand";
 import { MFQC_CONFIG } from "../config";
 
 export function PosterApp() {
@@ -14,11 +15,11 @@ export function PosterApp() {
   const isPortrait = layout === "portrait";
 
   return (
-    <div className="min-h-screen w-full bg-mfqc-black font-sans text-white print:bg-mfqc-black">
+    <div className="min-h-screen w-full bg-mfqc-black font-sans text-white print:min-h-0 print:bg-mfqc-black">
       {/* Dynamic @page orientation rule with print-safe margins */}
       <style>{`
         @page {
-          size: ${isPortrait ? "portrait" : "landscape"};
+          size: letter ${isPortrait ? "portrait" : "landscape"};
           margin: 0.35in;
         }
         @media print {
@@ -89,7 +90,7 @@ export function PosterApp() {
       <main className="flex min-h-[calc(100vh-60px)] items-center justify-center p-3 sm:p-6 print:min-h-0 print:p-0">
         {isPortrait ? (
           /* ================= PORTRAIT LAYOUT ================= */
-          <div className="relative box-border flex w-full max-w-[680px] flex-col items-center justify-between border-4 border-mfqc-yellow bg-mfqc-card p-5 text-center shadow-[10px_10px_0px_#00f5d4] sm:p-8 md:shadow-[14px_14px_0px_#00f5d4] print:h-[calc(100vh-0.7in)] print:w-full print:max-w-none print:border-4 print:border-mfqc-yellow print:bg-mfqc-card print:p-6 print:shadow-none">
+          <div className="relative box-border flex w-full max-w-[680px] flex-col items-center justify-between border-4 border-mfqc-yellow bg-mfqc-card p-5 text-center shadow-[10px_10px_0px_#00f5d4] sm:p-8 md:shadow-[14px_14px_0px_#00f5d4] print:h-[calc(10.3in-1px)] print:w-full print:max-w-none print:border-4 print:border-mfqc-yellow print:bg-mfqc-card print:p-6 print:shadow-none">
             {/* Top Badge */}
             <div className="flex w-full items-center justify-between border-b border-white/20 pb-3 font-mono text-xs tracking-wider uppercase sm:text-sm">
               <span className="inky-badge bg-mfqc-yellow px-2 py-0.5 font-extrabold text-mfqc-black shadow-[2px_2px_0px_#00f5d4]">
@@ -101,14 +102,10 @@ export function PosterApp() {
             {/* Hero Title */}
             <div className="my-3 sm:my-4">
               <h1 className="m-0 font-display text-3xl font-extrabold leading-[1.25] text-white sm:text-5xl sm:leading-[1.18]">
-                Más{" "}
-                <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-2.5 py-0.5 text-mfqc-black shadow-[4px_4px_0px_#00f5d4] sm:px-4 sm:shadow-[6px_6px_0px_#00f5d4]">
-                  FLOPS
-                </span>
-                <br />
-                <span className="relative z-10 mt-1 inline-block">
-                  que Cabras <span className="title-goat relative z-20 inline-block">🐐</span>
-                </span>
+                <PosterBrand
+                  badgeClassName="px-2.5 shadow-[4px_4px_0px_#00f5d4] sm:px-4 sm:shadow-[6px_6px_0px_#00f5d4]"
+                  breakLine
+                />
               </h1>
               <p className="mt-2 text-sm leading-relaxed text-mfqc-gray sm:text-lg">
                 Para los interesados en que su código corra a la{" "}
@@ -119,13 +116,8 @@ export function PosterApp() {
             {/* QR Card Container */}
             <div className="flex flex-col items-center border-4 border-mfqc-cyan bg-mfqc-black p-3 shadow-[6px_6px_0px_#ffe600] sm:p-5 print:shadow-none">
               <div className="bg-white p-2.5 sm:p-3">
-                <QRCodeSVG
-                  value={MFQC_CONFIG.onboardingQrUrl}
-                  title="Código QR para unirse a Más FLOPS que Cabras"
+                <OnboardingQR
                   size={220}
-                  bgColor="#ffffff"
-                  fgColor="#08080c"
-                  level="H"
                   className="h-[150px] w-[150px] sm:h-[200px] sm:w-[200px]"
                 />
               </div>
@@ -134,7 +126,7 @@ export function PosterApp() {
                 ESCANEA PARA UNIRTE AL GRUPO
               </div>
               <div className="mt-0.5 block w-full font-mono text-[10px] text-mfqc-cyan sm:text-xs">
-                https://masflopsquecabras.github.io/ONBOARD-2026-02/
+                {MFQC_CONFIG.onboardingQrUrl}
               </div>
             </div>
 
@@ -158,7 +150,7 @@ export function PosterApp() {
           </div>
         ) : (
           /* ================= LANDSCAPE LAYOUT ================= */
-          <div className="relative box-border flex w-full max-w-[1100px] flex-col justify-between border-4 border-mfqc-cyan bg-mfqc-card p-5 shadow-[12px_12px_0px_#ffe600] sm:p-8 md:shadow-[16px_16px_0px_#ffe600] print:h-[calc(100vh-0.7in)] print:w-full print:max-w-none print:border-4 print:border-mfqc-cyan print:bg-mfqc-card print:p-6 print:shadow-none">
+          <div className="relative box-border flex w-full max-w-[1100px] flex-col justify-between border-4 border-mfqc-cyan bg-mfqc-card p-5 shadow-[12px_12px_0px_#ffe600] sm:p-8 md:shadow-[16px_16px_0px_#ffe600] print:h-[calc(7.8in-1px)] print:w-full print:max-w-none print:border-4 print:border-mfqc-cyan print:bg-mfqc-card print:p-6 print:shadow-none">
             {/* Top Bar */}
             <div className="flex w-full items-center justify-between border-b border-white/20 pb-3 font-mono text-xs uppercase sm:text-sm">
               <span className="inky-badge bg-mfqc-cyan px-2.5 py-0.5 font-extrabold text-mfqc-black shadow-[2px_2px_0px_#ffe600]">
@@ -172,13 +164,7 @@ export function PosterApp() {
               {/* Left Column (7 cols) */}
               <div className="flex flex-col gap-3 text-left md:col-span-7 print:col-span-7">
                 <h1 className="m-0 font-display text-3xl font-extrabold leading-[1.22] text-white sm:text-5xl sm:leading-[1.15]">
-                  Más{" "}
-                  <span className="title-neon-flops relative z-0 inline-block bg-mfqc-yellow px-2.5 py-0.5 text-mfqc-black shadow-[5px_5px_0px_#00f5d4] sm:px-4 sm:shadow-[7px_7px_0px_#00f5d4]">
-                    FLOPS
-                  </span>{" "}
-                  <span className="relative z-10 inline-block">
-                    que Cabras <span className="title-goat relative z-20 inline-block">🐐</span>
-                  </span>
+                  <PosterBrand badgeClassName="px-2.5 shadow-[5px_5px_0px_#00f5d4] sm:px-4 sm:shadow-[7px_7px_0px_#00f5d4]" />
                 </h1>
 
                 <p className="text-sm leading-relaxed text-mfqc-gray sm:text-base">
@@ -198,13 +184,8 @@ export function PosterApp() {
               {/* Right Column (5 cols): QR Box */}
               <div className="flex flex-col items-center justify-center border-4 border-mfqc-yellow bg-mfqc-black p-4 text-center shadow-[6px_6px_0px_#00f5d4] md:col-span-5 print:col-span-5 print:shadow-none">
                 <div className="bg-white p-2.5">
-                  <QRCodeSVG
-                    value={MFQC_CONFIG.onboardingQrUrl}
-                    title="Código QR para unirse a Más FLOPS que Cabras"
+                  <OnboardingQR
                     size={220}
-                    bgColor="#ffffff"
-                    fgColor="#08080c"
-                    level="H"
                     className="h-[150px] w-[150px] sm:h-[190px] sm:w-[190px]"
                   />
                 </div>

@@ -77,7 +77,12 @@ export function Skillset() {
         meta="ACELERADORES: MOJO & CUDA"
         title={
           <>
-            Kernels en GPU: <span className="text-mfqc-yellow">Mojo 🔥 &amp; CUDA</span>
+            Kernels en GPU:{" "}
+            <span className="inline-block whitespace-nowrap">
+              <span className="text-mfqc-yellow">Mojo</span>{" "}
+              <span className="inline-block align-middle leading-[1.3]">🔥</span>{" "}
+              <span className="text-mfqc-yellow">&amp; CUDA</span>
+            </span>
           </>
         }
         lead="Escritura de código masivamente paralelo que escala en decenas de miles de núcleos."

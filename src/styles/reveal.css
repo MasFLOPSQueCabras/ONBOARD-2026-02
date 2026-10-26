@@ -1,0 +1,277 @@
+html:not(.reveal-print):has(.reveal),
+html:not(.reveal-print):has(.reveal) body,
+html:not(.reveal-print) #root,
+html:not(.reveal-print) .reveal-viewport {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--color-mfqc-black) !important;
+  color: var(--color-mfqc-white);
+  font-family: var(--font-sans);
+}
+
+html:not(.reveal-print) #root {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent !important;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.reveal-viewport {
+  background-color: var(--color-mfqc-black) !important;
+  background-image: radial-gradient(
+    ellipse 30% 12% at 50% 0%,
+    rgba(255, 230, 0, 0.025) 0%,
+    transparent 65%
+  ) !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+html:not(.reveal-print) .reveal-viewport::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(rgba(255, 230, 0, 0.16) 1.5px, transparent 1.5px), rgba(0, 0, 0, 0.7);
+  background-size:
+    48px 48px,
+    100% 100%;
+  z-index: 0;
+}
+
+/* Overhead Inky Neon Light Fixture & Cone - Subtle & Refined */
+html:not(.reveal-print) .reveal-viewport::after,
+#poster-root::after,
+.poster-preview::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 260px;
+  pointer-events: none;
+  background:
+    /* Top neon filament strip - refined 240px x 1.5px */
+    radial-gradient(
+      ellipse 240px 1.5px at 50% 0%,
+      rgba(255, 230, 0, 0.75) 0%,
+      rgba(0, 245, 212, 0.5) 50%,
+      transparent 100%
+    ),
+    /* Downward glowing light cone - gentle 5.5% intensity */
+    radial-gradient(
+      ellipse 48% 220px at 50% 0%,
+      rgba(255, 230, 0, 0.055) 0%,
+      rgba(0, 245, 212, 0.02) 40%,
+      transparent 75%
+    );
+  z-index: 0;
+}
+
+html.reveal-print .reveal-viewport::after {
+  display: none !important;
+}
+
+@media print {
+  .reveal-viewport::after,
+  #poster-root::after,
+  .poster-preview::after {
+    display: none !important;
+  }
+}
+
+.reveal {
+  color: var(--color-mfqc-white) !important;
+  font-family: var(--font-sans) !important;
+  z-index: 1;
+}
+
+.reveal .slides {
+  text-align: left !important;
+}
+
+html:not(.reveal-print) .reveal .slides > section,
+html:not(.reveal-print) .reveal .slides > section > section {
+  padding: 0 !important;
+  height: 100% !important;
+}
+
+@layer base {
+  html.reveal-print .reveal .slides section[hidden] {
+    display: block !important;
+  }
+}
+
+/* Reveal.js Overview Mode (Bird's eye view / 'O' / ESC) */
+.reveal.overview .slides section,
+.reveal.overview .slides section[hidden],
+.reveal.overview .slides section.past,
+.reveal.overview .slides section.future,
+.reveal.overview .slides > section,
+.reveal.overview .slides > section.past,
+.reveal.overview .slides > section.future,
+.reveal.overview .slides > section > section,
+.reveal.overview .slides > section > section.past,
+.reveal.overview .slides > section > section.future {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.reveal.overview .slides > section.stack {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background: transparent !important;
+  outline: none !important;
+  overflow: visible !important;
+}
+
+.reveal.overview .slides section:not(.stack) {
+  background-color: var(--color-mfqc-black) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.reveal.overview .slides section.present {
+  outline: 4px solid var(--color-mfqc-cyan) !important;
+  outline-offset: 4px !important;
+}
+
+.reveal.overview .slides section:hover {
+  outline: 4px solid var(--color-mfqc-yellow) !important;
+  outline-offset: 4px !important;
+}
+
+.reveal h1,
+.reveal h2 {
+  font-family: var(--font-display) !important;
+  color: var(--color-mfqc-white) !important;
+  text-transform: none !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  margin: 0 !important;
+}
+
+.reveal h3,
+.reveal h4 {
+  font-family: var(--font-sans) !important;
+  color: var(--color-mfqc-white) !important;
+  text-transform: none !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 !important;
+}
+
+.reveal p {
+  margin: 0 !important;
+}
+
+.reveal-viewport {
+  --r-controls-spacing: calc(16px + env(safe-area-inset-bottom, 0px));
+}
+
+.reveal .controls {
+  color: var(--color-mfqc-cyan) !important;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+  z-index: 32 !important;
+  touch-action: manipulation;
+}
+
+.reveal .controls button {
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+.reveal .controls button.enabled {
+  opacity: 0.95 !important;
+  color: var(--color-mfqc-cyan) !important;
+  filter: drop-shadow(0 0 3px rgba(0, 245, 212, 0.35)) !important;
+}
+
+.reveal .controls button.enabled:hover,
+.reveal .controls button.enabled:active {
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 5px rgba(0, 245, 212, 0.5)) !important;
+}
+
+.reveal .controls .navigate-down.enabled {
+  color: var(--color-mfqc-yellow) !important;
+  filter: drop-shadow(0 0 3px rgba(255, 230, 0, 0.4)) !important;
+}
+
+.reveal .slide-number {
+  position: absolute !important;
+  left: 24px !important;
+  right: auto !important;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+  top: auto !important;
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  color: var(--color-mfqc-yellow) !important;
+  background: rgba(8, 8, 12, 0.88) !important;
+  border: 1px solid rgba(255, 230, 0, 0.4) !important;
+  box-shadow: 2px 2px 0px var(--color-mfqc-cyan) !important;
+  padding: 4px 10px !important;
+  z-index: 31 !important;
+  line-height: 1 !important;
+  border-radius: 0 !important;
+}
+
+.reveal .slide-number a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.reveal .slide-number .slide-number-delimiter {
+  color: rgba(255, 255, 255, 0.45) !important;
+  margin: 0 4px !important;
+}
+
+@media (max-width: 768px) {
+  .reveal .controls {
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    right: calc(12px + env(safe-area-inset-right, 0px)) !important;
+    font-size: 8.5px !important;
+  }
+
+  .reveal .slide-number {
+    left: calc(12px + env(safe-area-inset-left, 0px)) !important;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    font-size: 11px !important;
+    padding: 3px 7px !important;
+  }
+}
+
+.reveal .progress {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: var(--color-mfqc-yellow) !important;
+  height: 5px !important;
+}
+
+.reveal .slides {
+  container: deck / inline-size;
+}
+body:has(.poster-preview) #root {
+  overflow: auto;
+}

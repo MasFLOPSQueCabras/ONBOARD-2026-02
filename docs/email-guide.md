@@ -23,7 +23,7 @@ Exported files will be generated at:
 
 ## 2. Customizing Event Information
 
-Edit [emails/MfqcInvitation.tsx](../emails/MfqcInvitation.tsx) or pass props when calling `MfqcInvitation`:
+Edit `INVITATION_DEFAULTS` in [src/config.ts](../src/config.ts), or pass props when calling `MfqcInvitation`. The template, development preview, and HTML/text exporter share those defaults. The March 2026 event is historical; update its details before reuse.
 
 | Prop              | Default                                                          | Description                    |
 | :---------------- | :--------------------------------------------------------------- | :----------------------------- |

@@ -111,26 +111,26 @@ export function MojoCodeBox({ header, code, highlightLines = [], footer }: MojoC
   }, [code, highlightLines]);
 
   return (
-    <div className="box-border rounded-2xl border border-white/12 bg-[#0a0a0c]/60 p-4 backdrop-blur-[2px] md:px-8 md:py-6">
+    <div className="box-border rounded-2xl border border-white/12 bg-[#0a0a0c]/60 p-4 backdrop-blur-[2px] @min-[768px]/deck:px-8 @min-[768px]/deck:py-6">
       {header && (
-        <div className="mb-3 flex items-center justify-between border-b border-white/10 pb-3 md:mb-4 md:pb-3.5">
-          <span className="font-mono text-[11.5px] font-semibold tracking-[0.08em] text-yellow-400 md:text-[16px]">
+        <div className="mb-3 flex items-center justify-between border-b border-white/10 pb-3 @min-[768px]/deck:mb-4 @min-[768px]/deck:pb-3.5">
+          <span className="font-mono text-[11.5px] font-semibold tracking-[0.08em] text-yellow-400 @min-[768px]/deck:text-[16px]">
             {header}
           </span>
         </div>
       )}
 
-      <pre className="m-0! overflow-x-hidden bg-transparent! p-0! font-mono! text-[10.8px]! leading-[1.52]! shadow-none! md:text-[18.5px]! md:leading-[1.6]!">
+      <pre className="m-0! overflow-x-hidden bg-transparent! p-0! font-mono! text-[10.8px]! leading-[1.52]! shadow-none! @min-[768px]/deck:text-[18.5px]! @min-[768px]/deck:leading-[1.6]!">
         <code className="bg-transparent p-0">
           {renderedLines.map(({ lineNum, isHighlighted, tokens }) => (
             <div
               key={lineNum}
-              className={`flex items-start gap-2 rounded px-1.5 py-0.5 md:gap-6 md:px-3.5 md:py-1 ${
+              className={`flex items-start gap-2 rounded px-1.5 py-0.5 @min-[768px]/deck:gap-6 @min-[768px]/deck:px-3.5 @min-[768px]/deck:py-1 ${
                 isHighlighted ? "bg-yellow-400/15" : "bg-transparent"
               }`}
             >
               <span
-                className={`w-4 shrink-0 pt-0.5 text-right text-[10px] select-none md:w-7 md:text-[15px] ${
+                className={`w-4 shrink-0 pt-0.5 text-right text-[10px] select-none @min-[768px]/deck:w-7 @min-[768px]/deck:text-[15px] ${
                   isHighlighted ? "font-bold text-yellow-400" : "font-normal text-zinc-600"
                 }`}
               >
@@ -143,7 +143,7 @@ export function MojoCodeBox({ header, code, highlightLines = [], footer }: MojoC
       </pre>
 
       {footer && (
-        <div className="mt-2.5 border-t border-white/15 pt-2.5 font-mono text-[11px] text-zinc-400 md:mt-5 md:pt-4 md:text-base">
+        <div className="mt-2.5 border-t border-white/15 pt-2.5 font-mono text-[11px] text-zinc-400 @min-[768px]/deck:mt-5 @min-[768px]/deck:pt-4 @min-[768px]/deck:text-base">
           {footer}
         </div>
       )}

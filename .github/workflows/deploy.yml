@@ -1,19 +1,17 @@
-name: Deploy to GitHub Pages
+name: Validate and deploy
 
 on:
+  pull_request:
+    branches: [main, master]
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: validate-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -23,24 +21,47 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7.0.1
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.4.4"
+
       - name: Setup Vite+
         uses: voidzero-dev/setup-vp@v1.21.2
         with:
           node-version: "24"
           cache: true
 
-      - name: Run static checks (Oxfmt, Oxlint & Type-check)
-        run: vp check
+      - name: Install locked dependencies
+        run: bun install --frozen-lockfile
 
-      - name: Build
-        run: vp build
+      - name: Static checks
+        run: bun run check
 
-      - name: Upload artifact
+      - name: Render email HTML and text
+        run: bun run email:build
+
+      - name: Install Chromium
+        run: bunx --no-install playwright install --with-deps chromium
+
+      - name: Build and verify browser behavior
+        run: bun run test:e2e
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
         uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: dist
 
   deploy:
+    if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

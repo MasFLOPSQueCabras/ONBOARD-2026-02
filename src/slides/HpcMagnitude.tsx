@@ -1,3 +1,4 @@
+import { VeraRubinDsx } from "./VeraRubinDsx";
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
 import { StatementSlide } from "../components/StatementSlide";
@@ -18,15 +19,15 @@ export function HpcMagnitude() {
         lead="Antes de escalar a un clúster, miremos las capacidades y límites del hardware portátil más avanzado."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Los procesadores de arquitectura unificada (
-            <strong className="text-mfqc-yellow">Apple Silicon Serie M</strong>) integran CPU, GPU y
-            NPU en un único SoC con consumos de apenas ~40 a 100 W, compartiendo un bus de memoria
-            de hasta <strong className="text-white">400–546 GB/s</strong> sin cuellos de botella de
-            bus PCIe. Aunque entregan una extraordinaria eficiencia por vatio para desarrollo y
-            prototipado local de modelos de IA, su rendimiento sostenido queda estrictamente acotado
-            por las restricciones térmicas del chasis delgado y la imposibilidad física de escalar
-            más allá de una sola máquina.
+            <strong className="text-mfqc-yellow">M4 Max (MacBook Pro 2024)</strong>) integran CPU,
+            GPU y NPU en un único SoC, compartiendo una memoria unificada con ancho de banda de
+            hasta <strong className="text-white">546 GB/s (GPU de 40 núcleos)</strong> sin cuellos
+            de botella de bus PCIe. Aunque entregan una extraordinaria eficiencia por vatio para
+            desarrollo y prototipado local de modelos de IA, su rendimiento sostenido queda
+            estrictamente acotado por las restricciones térmicas del chasis delgado y la
+            imposibilidad física de escalar más allá de una sola máquina.
           </p>
         </div>
       </SlideSection>
@@ -43,54 +44,46 @@ export function HpcMagnitude() {
         lead="El techo del hardware de escritorio para entusiastas: potencia bruta masiva concentrada en un único chasis."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Una estación de trabajo tope de gama equipada con una GPU{" "}
-            <strong className="text-mfqc-cyan">NVIDIA RTX 5090</strong> (con un consumo de 575 W y
-            1.79 TB/s de ancho de banda sobre memoria GDDR7) entrega cerca de ~105 TFLOPS FP32 en
-            local para acelerar cómputo y render. No obstante, por más potente que sea la tarjeta,
-            sigue confinada a los límites de una sola placa madre, enlaces de bus PCIe punto a punto
-            y redes domésticas, incapaz de abordar cargas de simulación o IA que requieran
-            paralelismo masivo distribuido.
+            <strong className="text-mfqc-cyan">NVIDIA RTX 5090</strong> (con una potencia TGP
+            especificada de 575 W y 1.792 TB/s de ancho de banda sobre memoria GDDR7) dispone de 32
+            GB de memoria local para cómputo y render. No obstante, por más potente que sea la
+            tarjeta, sigue confinada a los límites de una sola placa madre, enlaces de bus PCIe
+            punto a punto y redes domésticas, incapaz de abordar cargas de simulación o IA que
+            requieran paralelismo masivo distribuido.
           </p>
         </div>
       </SlideSection>
 
-      {/* 3a. STATEMENT: LA BRECHA DE CÓMPUTO */}
       <StatementSlide
         brand="MFQC // ESCALA HPC"
-        meta="LA BRECHA DE CÓMPUTO"
-        tag="BRECHA DE POTENCIA"
+        meta="COMPARAR CON CONTEXTO"
+        tag="PRECISIÓN, CARGA Y PARALELISMO"
         statement={
           <>
-            Lo que a tu computador le toma{" "}
-            <span className="text-mfqc-yellow">4 meses de cálculo continuo</span>...
+            Más FLOPS no garantizan el mismo aumento de velocidad.
             <span className="mt-1.5 block">
-              un único nodo HPC lo resuelve en <span className="text-mfqc-cyan">1 hora</span>,
-            </span>
-            <span className="mt-1.5 block">
-              y el supercomputador #1 lo liquida en{" "}
-              <span className="text-mfqc-yellow">medio segundo</span>.
+              La precisión, la memoria y el paralelismo de tu problema determinan el resultado.
             </span>
           </>
         }
-        detail="Una aceleración superior a 20 millones de veces: pasar de esperar meses a obtener respuestas en segundos transforma por completo qué ciencia e IA podemos construir."
+        detail="Un pico de operaciones tensoriales de baja precisión no equivale a un resultado medido en HPL FP64. Para calcular una aceleración, ejecuta la misma carga y compara tiempos."
         accent="yellow"
       />
-
-      {/* 3b. GRÁFICA: POTENCIA DE CÓMPUTO */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
-        meta="POTENCIA DE CÓMPUTO (TFLOPS)"
+        meta="CAPACIDADES, NO UN RANKING DE VELOCIDAD"
         title={
           <>
-            La Brecha de Escala: <span className="text-mfqc-yellow">Del Portátil</span> a los{" "}
-            <span className="text-mfqc-cyan">ExaFLOPS</span>
+            Del <span className="text-mfqc-yellow">Portátil</span> al{" "}
+            <span className="text-mfqc-cyan">Rack NVL72</span>
           </>
         }
-        lead="Comparativa de rendimiento en escala logarítmica: de 50 TFLOPS en silicio personal a más de 1,700,000 TFLOPS en supercómputo nacional."
+        lead="Cuatro ejemplos de hardware. Cada cifra describe una capacidad distinta; no son resultados de una misma prueba."
       >
         <div className="w-full max-w-[1340px]">
-          <HpcScaleChart metric="compute" />
+          <HpcScaleCards />
         </div>
       </SlideSection>
 
@@ -101,31 +94,27 @@ export function HpcMagnitude() {
         tag="ANCHO DE BANDA DE MEMORIA"
         statement={
           <>
-            Los núcleos mueren de hambre si los datos no llegan a tiempo:
+            No basta con calcular: hay que alimentar a los núcleos.
             <span className="mt-1.5 block">
-              de <span className="text-mfqc-cyan">450 GB/s</span> en un SoC personal...
-            </span>
-            <span className="mt-1.5 block">
-              a <span className="text-mfqc-yellow">18 Petabytes por segundo</span> inundando el
-              tejido del clúster.
+              La memoria local, la memoria agregada y la interconexión tienen límites diferentes.
             </span>
           </>
         }
-        detail="El mayor cuello de botella en supercómputo moderno no es ejecutar operaciones matemáticas; es bombear terabytes de datos a cada procesador sin saturar los buses."
+        detail="El sistema de ocho B300 suma hasta 64 TB/s de ancho de banda HBM. NVLink comunica las GPU por otro camino: no convierte esa suma en un único bus de memoria."
         accent="cyan"
       />
 
       {/* 4b. GRÁFICA: ANCHO DE BANDA */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
-        meta="ANCHO DE BANDA DE MEMORIA (GB/s)"
+        meta="MEMORIA LOCAL Y AGREGADA (GB/s)"
         title={
           <>
             El Río de Datos: <span className="text-mfqc-cyan">Memoria</span>, Buses y{" "}
             <span className="text-mfqc-yellow">Tejido</span>
           </>
         }
-        lead="Comparativa de ancho de banda agregado entre la memoria del sistema y las redes de interconexión."
+        lead="Especificaciones de memoria del M4 Max, una RTX 5090 y sistemas B300 de 8 y 72 GPU. No representan el ancho de banda de la red."
       >
         <div className="w-full max-w-[1340px]">
           <HpcScaleChart metric="bandwidth" />
@@ -139,29 +128,27 @@ export function HpcMagnitude() {
         tag="POTENCIA ELÉCTRICA: EL PEAJE FÍSICO"
         statement={
           <>
-            Alimentar 11 millones de núcleos exige{" "}
-            <span className="text-mfqc-yellow">29.5 Megavatios continuos</span>:
+            La escala de hardware cambia el presupuesto eléctrico.
             <span className="mt-1.5 block">
-              energía suficiente para abastecer una{" "}
-              <span className="text-mfqc-cyan">ciudad pequeña</span>.
+              Una tarjeta, un servidor y un centro de datos requieren mediciones distintas.
             </span>
           </>
         }
-        detail="El supercómputo a escala Exaflop se topa de frente con la física: diseñar subestaciones eléctricas dedicadas y sistemas de refrigeración líquida directa para disipar gigavatios de calor."
+        detail="La RTX 5090 especifica 575 W de TGP; el DGX B300, 14.5 kW especificados para el sistema. El consumo real depende de la carga y no incluye necesariamente la refrigeración del edificio."
         accent="yellow"
       />
 
       {/* 5b. GRÁFICA: CONSUMO ENERGÉTICO */}
       <SlideSection
         brand="MFQC // ESCALA HPC"
-        meta="CONSUMO ENERGÉTICO CONTINUO (WATTS)"
+        meta="POTENCIA ESPECIFICADA (WATTS)"
         title={
           <>
-            La Factura Térmica: De <span className="text-mfqc-yellow">70 Watts</span> a una{" "}
-            <span className="text-mfqc-cyan">Planta Eléctrica</span>
+            La Factura Térmica: De <span className="text-mfqc-yellow">una GPU</span> a un{" "}
+            <span className="text-mfqc-cyan">Servidor</span>
           </>
         }
-        lead="Comparativa de potencia requerida para sostener cómputo ininterrumpido en cada escala de hardware."
+        lead="Dos especificaciones con distinto alcance: potencia de una tarjeta y máximo de un servidor completo."
       >
         <div className="w-full max-w-[1340px]">
           <HpcScaleChart metric="power" />
@@ -175,15 +162,17 @@ export function HpcMagnitude() {
         title={
           <>
             Los Cuatro Peldaños: <span className="text-mfqc-yellow">Del Portátil</span> al{" "}
-            <span className="text-mfqc-cyan">Exascale</span>
+            <span className="text-mfqc-cyan">Rack NVL72</span>
           </>
         }
         lead="Cada orden de magnitud resuelve un reto arquitectónico distinto: desde el prototipado local hasta la simulación a escala planetaria."
       >
         <div className="w-full max-w-[1340px]">
-          <HpcScaleCards />
+          <HpcScaleCards architecture />
         </div>
       </SlideSection>
+
+      <VeraRubinDsx />
 
       {/* 7a. ANATOMÍA DE UN NODO HPC: DENSIDAD DE SILICIO */}
       <SlideSection
@@ -197,13 +186,12 @@ export function HpcMagnitude() {
         lead="Un nodo de supercómputo no se parece a un PC: es una bestia de múltiples CPUs de servidor y aceleradores densos con memoria HBM3e."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Cada nodo de cómputo en un clúster alberga procesadores de servidor multi-socket (
             <strong className="text-white">AMD EPYC o Intel Xeon</strong> con hasta 128 núcleos por
             socket) acoplados a{" "}
             <strong className="text-mfqc-yellow">4 u 8 aceleradores de alta gama</strong> (NVIDIA
-            H100/B200 o AMD MI300X/A) con hasta 192 GB de memoria{" "}
-            <strong className="text-white">HBM3e</strong> cada uno.
+            B300) con 288 GB de memoria <strong className="text-white">HBM3e</strong> cada uno.
           </p>
         </div>
       </SlideSection>
@@ -220,7 +208,7 @@ export function HpcMagnitude() {
         lead="Eliminar el cuello de botella del bus PCIe: terabytes por segundo fluyendo directamente entre GPUs."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Dentro del chasis, estos chips no se comunican por el bus PCIe tradicional: utilizan
             enlaces propietarios dedicados (
             <strong className="text-mfqc-cyan">NVLink a 900–1,800 GB/s</strong> o Infinity Fabric)
@@ -242,7 +230,7 @@ export function HpcMagnitude() {
         lead="Miles de nodos individuales solo se convierten en un supercomputador gracias a un tejido de red de bajísima latencia y altísimo ancho de banda."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Para conectar miles de servidores entre sí, cada nodo equipa múltiples tarjetas de red
             de 400 a 800 Gb/s (<strong className="text-white">NVIDIA Mellanox ConnectX</strong> o{" "}
             <strong className="text-mfqc-cyan">AMD Pensando</strong>). Los datos viajan a través de
@@ -267,7 +255,7 @@ export function HpcMagnitude() {
         lead="Descarga total del sistema operativo para mantener la red operando al microsegundo."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Junto a ellas, las <strong className="text-white">DPUs (Data Processing Units)</strong>{" "}
             descargan la gestión del almacenamiento masivo paralelo (sistemas de archivos
             distribuidos como Lustre o GPFS) y la seguridad, logrando que el clúster opere como una
@@ -289,7 +277,7 @@ export function HpcMagnitude() {
         lead="En el ranking mundial TOP500, miles de estos nodos se unen para superar el ExaFLOP (10¹⁸ operaciones FP64 por segundo en HPL)."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Sistemas como <strong className="text-white">El Capitan</strong> (Lawrence Livermore) y{" "}
             <strong className="text-mfqc-yellow">Frontier</strong> (Oak Ridge) concentran cerca de
             10 millones de núcleos coordinados en topologías de red que consumen megavatios de
@@ -311,7 +299,7 @@ export function HpcMagnitude() {
         lead="La potencia exascale no es un número abstracto: permite simular fenómenos imposibles de reproducir experimentalmente."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Estas máquinas abordan la simulación de reactores de fusión nuclear, plegamiento masivo
             de proteínas para diseño de fármacos, evolución cosmológica del universo y el
             entrenamiento de los modelos fundacionales de inteligencia artificial más ambiciosos del
@@ -333,7 +321,7 @@ export function HpcMagnitude() {
         lead="Entrenar modelos de billones de parámetros exige exprimir al máximo la densidad de cómputo por ciclo."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             El pre-entrenamiento de LLMs y modelos multimodales se basa en multiplicación masiva de
             matrices densas (GEMM). Para maximizar los TFLOPS por vatio y duplicar el rendimiento
             efectivo del silicio, la industria ha migrado de FP32 y FP16 a formatos de punto
@@ -356,7 +344,7 @@ export function HpcMagnitude() {
         lead="Coordinar miles de aceleradores para que aprendan al unísono como un solo cerebro."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             El reto no termina en el chip: entrenar a escala requiere paralelismo de datos, de
             tensores y de pipeline (3D Parallelism), forzando a miles de aceleradores a ejecutar
             sincronizaciones colectivas <strong className="text-mfqc-cyan">AllReduce</strong>{" "}
@@ -378,7 +366,7 @@ export function HpcMagnitude() {
         lead="Generar respuestas token por token invierte completamente las restricciones: de cálculo intensivo pasamos a la dictadura del ancho de banda."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             En la fase de inferencia y modelos de razonamiento, la generación autoregresiva de texto
             ocurre token a token. Este proceso es estrictamente{" "}
             <strong className="text-white">memory-bound</strong>: por cada nuevo token generado,
@@ -401,7 +389,7 @@ export function HpcMagnitude() {
         lead="Millones de tokens de contexto activo exigen optimizaciones algorítmicas extremas en VRAM."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Con ventanas de contexto de millones de tokens y miles de usuarios concurrentes, el
             KV-cache desborda fácilmente los cientos de gigabytes de memoria HBM, obligando a
             emplear algoritmos como{" "}
@@ -424,7 +412,7 @@ export function HpcMagnitude() {
         lead="Los grandes problemas de la física exigen precisión matemática estricta sin tolerar errores de redondeo."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Simular el confinamiento magnético de plasma en reactores de fusión nuclear, la dinámica
             molecular de fármacos o la circulación climática planetaria exige{" "}
             <strong className="text-mfqc-yellow">doble precisión estricta (FP64 de 64 bits)</strong>
@@ -448,7 +436,7 @@ export function HpcMagnitude() {
         lead="Mallas no estructuradas, transformadas FFT y redes neuronales colaborando como sub-solvers físicos."
       >
         <div className="max-w-[1240px]">
-          <p className="font-sans text-[14px] leading-[1.55] text-white/90 md:text-[25px] md:leading-[1.6]">
+          <p className="font-sans text-[14px] leading-[1.55] text-white/90 @min-[768px]/deck:text-[25px] @min-[768px]/deck:leading-[1.6]">
             Estos modelos resuelven mallas espaciales irregulares con{" "}
             <strong className="text-white">matrices dispersas (SpMV)</strong> y transformadas de
             Fourier tridimensionales (FFTs 3D) caracterizadas por accesos no contiguos a memoria. La

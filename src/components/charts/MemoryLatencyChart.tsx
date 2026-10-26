@@ -3,7 +3,7 @@ import { defineChart, barX } from "@tanstack/charts";
 import { scaleBand } from "@tanstack/charts/scales/band";
 import { scaleLog } from "d3-scale";
 import { Chart } from "@tanstack/react-charts";
-import { useIsMobile } from "../../hooks/useIsMobile";
+import { useDeckViewport } from "../../core/DeckViewportContext";
 
 interface LatencyDatum {
   label: string;
@@ -88,7 +88,7 @@ const RAW_LATENCY_DATA = [
 ];
 
 export function MemoryLatencyChart() {
-  const isMobile = useIsMobile();
+  const { isMobile } = useDeckViewport();
 
   const chartData = useMemo<readonly LatencyDatum[]>(() => {
     return RAW_LATENCY_DATA.map((item) => ({
@@ -133,28 +133,28 @@ export function MemoryLatencyChart() {
   }, [chartData, isMobile]);
 
   return (
-    <div className="flex w-full flex-col gap-1.5 md:gap-2">
+    <div className="flex w-full flex-col gap-1.5 @min-[768px]/deck:gap-2">
       {/* Leyenda y equivalencia de tiempo */}
-      <div className="flex flex-wrap items-center justify-between gap-1.5 md:gap-2">
-        <span className="font-mono text-[10px] text-white/80 md:text-[13px]">
+      <div className="flex flex-wrap items-center justify-between gap-1.5 @min-[768px]/deck:gap-2">
+        <span className="font-mono text-[10px] text-white/80 @min-[768px]/deck:text-[13px]">
           ⚡ 1 ciclo CPU ≈ 0.25 ns a 4.0 GHz
         </span>
 
-        <div className="flex flex-wrap gap-2 font-mono text-[10px] md:gap-3 md:text-[12px]">
+        <div className="flex flex-wrap gap-2 font-mono text-[10px] @min-[768px]/deck:gap-3 @min-[768px]/deck:text-[12px]">
           <span className="flex items-center gap-1 text-mfqc-yellow">
-            <span className="inline-block h-2 w-2 rounded-xs bg-mfqc-yellow md:h-2.5 md:w-2.5" />
+            <span className="inline-block h-2 w-2 rounded-xs bg-mfqc-yellow @min-[768px]/deck:h-2.5 @min-[768px]/deck:w-2.5" />
             Caché
           </span>
           <span className="flex items-center gap-1 text-mfqc-cyan">
-            <span className="inline-block h-2 w-2 rounded-xs bg-mfqc-cyan md:h-2.5 md:w-2.5" />
+            <span className="inline-block h-2 w-2 rounded-xs bg-mfqc-cyan @min-[768px]/deck:h-2.5 @min-[768px]/deck:w-2.5" />
             RAM / NUMA
           </span>
           <span className="flex items-center gap-1 text-mfqc-pink">
-            <span className="inline-block h-2 w-2 rounded-xs bg-mfqc-pink md:h-2.5 md:w-2.5" />
+            <span className="inline-block h-2 w-2 rounded-xs bg-mfqc-pink @min-[768px]/deck:h-2.5 @min-[768px]/deck:w-2.5" />
             NVLink
           </span>
           <span className="flex items-center gap-1 text-[#a855f7]">
-            <span className="inline-block h-2 w-2 rounded-xs bg-[#a855f7] md:h-2.5 md:w-2.5" />
+            <span className="inline-block h-2 w-2 rounded-xs bg-[#a855f7] @min-[768px]/deck:h-2.5 @min-[768px]/deck:w-2.5" />
             Red RDMA
           </span>
         </div>
