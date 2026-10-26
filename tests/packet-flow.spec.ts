@@ -123,7 +123,7 @@ test("packet PDF and ordinary printing show labeled static queues without partic
   page,
 }, testInfo) => {
   await ready(page, "./?print-pdf");
-  await expect.poll(() => page.locator(".pdf-page").count()).toBe(101);
+  await expect.poll(() => page.locator(".pdf-page").count()).toBe(102);
   for (const kind of ["memory", "network"] as const) {
     await fits(page, kind);
     const figure = page.locator(`[data-packet-flow="${kind}"]`);
@@ -143,7 +143,7 @@ test("packet PDF and ordinary printing show labeled static queues without partic
     preferCSSPageSize: true,
     printBackground: true,
   });
-  expect(pdf.toString("latin1").match(/\/Type\s*\/Page\b/g)?.length).toBe(101);
+  expect(pdf.toString("latin1").match(/\/Type\s*\/Page\b/g)?.length).toBe(102);
   await page.emulateMedia({ media: "screen" });
   await page.setViewportSize({ width: 390, height: 844 });
   await ready(page);

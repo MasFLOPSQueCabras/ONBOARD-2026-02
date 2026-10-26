@@ -1,0 +1,169 @@
+.systolic-array {
+  margin: 0 auto;
+  min-width: 0;
+  max-width: 900px;
+}
+.systolic-array .diagram-steps {
+  justify-content: center;
+}
+.systolic-scene {
+  contain: paint;
+  isolation: isolate;
+  max-width: 600px;
+  margin: 8px auto;
+}
+.systolic-scene svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.systolic-scene text {
+  font: 18px var(--font-mono);
+  text-anchor: middle;
+  fill: var(--color-mfqc-white);
+}
+.systolic-scene .systolic-small {
+  font-size: 13px;
+}
+.systolic-a,
+.systolic-b {
+  fill: none;
+  stroke-width: 2;
+}
+.systolic-a {
+  stroke: var(--color-mfqc-cyan);
+}
+.systolic-b {
+  stroke: var(--color-mfqc-yellow);
+}
+.systolic-cell rect {
+  fill: var(--color-mfqc-card);
+  stroke: var(--color-mfqc-gray);
+  stroke-width: 1.5;
+}
+.systolic-result,
+.systolic-stage-1,
+.systolic-stage-2 {
+  display: none;
+}
+.systolic-summary {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid #31534f;
+  border-bottom: 1px solid #31534f;
+}
+.systolic-copy {
+  min-height: 0;
+  font: 12px/1.4 var(--font-sans);
+  text-align: left;
+}
+.systolic-equation {
+  font: 15px/1.5 var(--font-mono);
+  color: var(--color-mfqc-yellow);
+  text-align: left;
+  white-space: nowrap;
+}
+.systolic-array figcaption {
+  font: 9px/1.4 var(--font-mono);
+  color: var(--color-mfqc-gray);
+  margin-top: 6px;
+  text-align: left;
+}
+.systolic-array figcaption a {
+  text-decoration: underline;
+  white-space: nowrap;
+}
+.systolic-array:has([data-diagram-step="1"].visible) .systolic-stage-0 {
+  display: none;
+}
+.systolic-array:has([data-diagram-step="1"].visible) .systolic-stage-1 {
+  display: block;
+}
+.systolic-array:has([data-diagram-step="1"].visible) .systolic-cell rect {
+  stroke: var(--color-mfqc-cyan);
+}
+.systolic-array:has([data-diagram-step="2"].visible) :is(.systolic-stage-1, .systolic-mac) {
+  display: none;
+}
+.systolic-array:has([data-diagram-step="2"].visible) :is(.systolic-stage-2, .systolic-result) {
+  display: block;
+}
+.systolic-array:has([data-diagram-step="2"].visible) .systolic-cell rect {
+  stroke: var(--color-mfqc-yellow);
+}
+@container deck (min-width: 768px) {
+  .systolic-summary {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
+  }
+  .systolic-copy {
+    font-size: 19px;
+    min-height: 0;
+  }
+  .systolic-equation {
+    font-size: 22px;
+  }
+  .systolic-array figcaption {
+    font-size: 12px;
+  }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  @keyframes systolic-wave {
+    0%,
+    50%,
+    100% {
+      fill: var(--color-mfqc-card);
+    }
+    12%,
+    32% {
+      fill: #23584f;
+    }
+  }
+  .reveal[data-motion="enabled"]
+    [data-motion-active]
+    .systolic-array:has([data-diagram-step="1"].visible):not(:has([data-diagram-step="2"].visible))
+    .systolic-cell
+    rect {
+    animation: systolic-wave 2.4s var(--wave-delay) infinite;
+  }
+}
+html.reveal-print .systolic-scene {
+  max-width: 540px;
+  margin-block: 0;
+  contain: none;
+  isolation: auto;
+}
+html.reveal-print .systolic-array .systolic-copy p {
+  display: block;
+}
+html.reveal-print .systolic-array .systolic-mac {
+  display: none;
+}
+html.reveal-print .systolic-array .systolic-result {
+  display: block;
+}
+html.reveal-print .systolic-cell rect {
+  stroke: var(--color-mfqc-yellow);
+}
+@media print {
+  .systolic-scene {
+    max-width: 540px;
+    margin-block: 0;
+    contain: none;
+    isolation: auto;
+  }
+  .systolic-array .systolic-copy p {
+    display: block !important;
+  }
+  .systolic-array .systolic-mac {
+    display: none;
+  }
+  .systolic-array .systolic-result {
+    display: block;
+  }
+  .systolic-cell rect {
+    stroke: var(--color-mfqc-yellow);
+  }
+}

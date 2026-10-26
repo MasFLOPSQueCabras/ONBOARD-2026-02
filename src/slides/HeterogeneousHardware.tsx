@@ -1,6 +1,7 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
 import { StatementSlide } from "../components/StatementSlide";
+import { SystolicArray } from "../components/SystolicArray";
 import { FeatureItem } from "../components/FeatureGrid";
 
 export function HeterogeneousHardware() {
@@ -70,6 +71,19 @@ export function HeterogeneousHardware() {
             minimizando el movimiento de datos y maximizando la densidad de operaciones por vatio.
           </p>
         </div>
+      </SlideSection>
+
+      <SlideSection
+        brand="MFQC // ARQUITECTURA ASIC"
+        meta="MXU: FLUJO SISTÓLICO"
+        className="systolic-slide"
+        title={
+          <>
+            Dentro de la MXU: <span className="text-mfqc-yellow">una onda de cálculo</span>
+          </>
+        }
+      >
+        <SystolicArray />
       </SlideSection>
 
       {/* 2b. TPU: TOROS ÓPTICOS OCS */}
