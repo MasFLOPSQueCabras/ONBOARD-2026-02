@@ -1,0 +1,300 @@
+/* The screen scene and print sequence share the same SVG geometry. */
+.motion-print {
+  display: none;
+}
+.architecture-layout {
+  display: grid;
+  gap: 18px;
+  align-items: center;
+}
+.architecture-body {
+  gap: 18px;
+}
+.architecture-figure {
+  margin: 0;
+  min-width: 0;
+}
+.architecture-figure figcaption {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--color-mfqc-gray);
+}
+.reveal .slides .diagram-steps {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.reveal .slides .diagram-step.fragment,
+.reveal .slides .diagram-step {
+  visibility: visible;
+  opacity: 1;
+  color: var(--color-mfqc-gray);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 6px;
+}
+.diagram-step-number {
+  color: var(--color-mfqc-gray);
+}
+.reveal .slides .diagram-step:first-child,
+.reveal .slides .diagram-step.current-fragment {
+  color: var(--color-mfqc-yellow);
+  border-bottom-color: currentColor;
+}
+.reveal .slides .diagram-steps:has(.visible) .diagram-step:first-child {
+  color: var(--color-mfqc-cyan);
+  border-bottom-color: transparent;
+}
+.reveal .slides .diagram-step.visible:not(.current-fragment) {
+  color: var(--color-mfqc-cyan);
+}
+.compute-focus {
+  width: 100%;
+  /* Keep animated SVG layers from pulling the following text into a scaled texture. */
+  contain: paint;
+  isolation: isolate;
+}
+.compute-diagram {
+  --laptop-opacity: 1;
+  --gpu-opacity: 0;
+  --node-opacity: 0;
+  --units-position: translate(310px, 102px);
+  --cell-opacity: 0;
+  --cell-spread: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  fill: var(--color-mfqc-card);
+  stroke: var(--color-mfqc-cyan);
+  stroke-width: 2;
+}
+.compute-sequence:has([data-diagram-step="1"].visible) .compute-diagram,
+.compute-diagram[data-stage="gpu"] {
+  --laptop-opacity: 0;
+  --gpu-opacity: 1;
+  --units-position: translate(274px, 62px);
+  --cell-opacity: 1;
+  --cell-spread: 1;
+}
+.compute-sequence:has([data-diagram-step="2"].visible) .compute-diagram,
+.compute-diagram[data-stage="node"] {
+  --laptop-opacity: 0;
+  --gpu-opacity: 0;
+  --node-opacity: 1;
+  --units-position: translate(384px, 86px) scale(0.8);
+  --cell-opacity: 1;
+  --cell-spread: 1;
+}
+.compute-laptop {
+  opacity: var(--laptop-opacity);
+}
+.compute-gpu {
+  opacity: var(--gpu-opacity);
+}
+.compute-node {
+  opacity: var(--node-opacity);
+}
+.compute-units {
+  transform: var(--units-position);
+}
+.compute-unit {
+  fill: var(--color-mfqc-yellow);
+  stroke: none;
+  opacity: var(--cell-opacity);
+  transform: translate(
+    calc(var(--cell-x) * var(--cell-spread)),
+    calc(var(--cell-y) * var(--cell-spread))
+  );
+}
+.compute-unit:first-child {
+  opacity: 1;
+}
+.compute-led {
+  fill: var(--color-mfqc-yellow);
+  stroke: none;
+}
+.compute-link {
+  fill: none;
+}
+.compute-diagram text {
+  font: 18px var(--font-mono);
+  fill: var(--color-mfqc-white);
+  stroke: none;
+  text-anchor: middle;
+}
+.compute-diagram .compute-small-label {
+  font-size: 15px;
+}
+.compute-explanation,
+.cluster-caption {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-mfqc-white);
+}
+.compute-explanation {
+  min-height: 2.9em;
+}
+.compute-explanation [data-stage-copy] {
+  display: none;
+}
+.compute-explanation [data-stage-copy="laptop"] {
+  display: block;
+}
+.compute-sequence:has([data-diagram-step="1"].visible) [data-stage-copy="laptop"] {
+  display: none;
+}
+.compute-sequence:has([data-diagram-step="1"].visible) [data-stage-copy="gpu"] {
+  display: block;
+}
+.compute-sequence:has([data-diagram-step="2"].visible) [data-stage-copy="gpu"] {
+  display: none;
+}
+.compute-sequence:has([data-diagram-step="2"].visible) [data-stage-copy="node"] {
+  display: block;
+}
+.cluster-topology {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 40px;
+  align-items: center;
+}
+.cluster-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: var(--color-mfqc-yellow);
+  stroke: var(--color-mfqc-cyan);
+  stroke-width: 2;
+}
+.cluster-links path {
+  fill: none;
+}
+.cluster-node {
+  position: relative;
+  text-align: center;
+}
+.cluster-node strong {
+  font: 12px var(--font-mono);
+  color: var(--color-mfqc-cyan);
+}
+.cluster-origin {
+  grid-row: span 2;
+}
+.cluster-node .compute-diagram text {
+  display: none;
+}
+.reveal .cluster-caption {
+  margin-top: 12px !important;
+}
+.compute-print-sequence {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.compute-print-stage {
+  font: 17px/1.5 var(--font-sans);
+}
+.compute-print-stage strong {
+  color: var(--color-mfqc-cyan);
+  font-family: var(--font-mono);
+}
+@container deck (min-width: 768px) {
+  .architecture-layout {
+    grid-template-columns: 0.9fr 1.6fr;
+    gap: 40px;
+  }
+  .architecture-body {
+    gap: 28px;
+  }
+  .reveal .slides .diagram-steps {
+    gap: 28px;
+    font-size: 20px;
+  }
+  .compute-explanation,
+  .cluster-caption {
+    font-size: 22px;
+  }
+  .architecture-figure figcaption {
+    font-size: 14px;
+  }
+  .cluster-node strong {
+    font-size: 20px;
+  }
+  .cluster-topology {
+    gap: 16px 70px;
+  }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  .reveal[data-motion="enabled"][data-motion-paused="false"] [data-motion-active] .compute-units,
+  .reveal[data-motion="enabled"][data-motion-paused="false"] [data-motion-active] .compute-unit {
+    transition:
+      transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 350ms ease-out;
+  }
+  .reveal[data-motion="enabled"][data-motion-paused="false"]
+    [data-motion-active]
+    :is(.compute-laptop, .compute-gpu, .compute-node) {
+    transition: opacity 350ms ease-out;
+  }
+}
+html.reveal-print .motion-screen {
+  display: none !important;
+}
+html.reveal-print .compute-print-sequence {
+  display: grid;
+}
+html.reveal-print .architecture-slide:has([data-compute-transformation]) .architecture-layout {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+/* Global print opacity overrides must not reveal mutually exclusive SVG stages. */
+html.reveal-print .compute-laptop {
+  opacity: var(--laptop-opacity) !important;
+}
+html.reveal-print .compute-gpu {
+  opacity: var(--gpu-opacity) !important;
+}
+html.reveal-print .compute-node {
+  opacity: var(--node-opacity) !important;
+}
+html.reveal-print .compute-unit {
+  opacity: var(--cell-opacity) !important;
+}
+html.reveal-print .compute-unit:first-child {
+  opacity: 1 !important;
+}
+@media print {
+  .motion-screen {
+    display: none !important;
+  }
+  .compute-print-sequence {
+    display: grid;
+  }
+  .architecture-slide:has([data-compute-transformation]) .architecture-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .compute-laptop {
+    opacity: var(--laptop-opacity) !important;
+  }
+  .compute-gpu {
+    opacity: var(--gpu-opacity) !important;
+  }
+  .compute-node {
+    opacity: var(--node-opacity) !important;
+  }
+  .compute-unit {
+    opacity: var(--cell-opacity) !important;
+  }
+  .compute-unit:first-child {
+    opacity: 1 !important;
+  }
+}

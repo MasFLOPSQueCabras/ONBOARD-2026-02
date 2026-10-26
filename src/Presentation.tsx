@@ -19,7 +19,7 @@ import "./theme.css";
 
 export function Presentation() {
   const viewport = useRevealViewport();
-  const [returnSlide, setReturnSlide] = useState<{ h: number; v: number }>();
+  const [returnSlide, setReturnSlide] = useState<{ h: number; v: number; f?: number }>();
   const [showPoster, setShowPoster] = useState(() => {
     if (typeof window !== "undefined") {
       return (
@@ -76,7 +76,7 @@ export function Presentation() {
         <JoinAndFeedback
           onOpenPoster={() => {
             const indices = window.RevealDeck?.getIndices();
-            if (indices) setReturnSlide({ h: indices.h, v: indices.v });
+            if (indices) setReturnSlide({ h: indices.h, v: indices.v, f: indices.f });
             setShowPoster(true);
           }}
         />

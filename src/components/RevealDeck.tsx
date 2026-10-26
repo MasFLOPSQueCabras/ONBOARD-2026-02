@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, type HTMLAttributes, type ReactNode } from "react";
 import Reveal, { type RevealApi, type RevealConfig } from "reveal.js";
+import { attachDeckMotion } from "../core/deckMotion";
 
 declare global {
   interface Window {
@@ -9,7 +10,7 @@ declare global {
 
 export interface DeckProps {
   config?: RevealConfig;
-  initialSlide?: { h: number; v: number };
+  initialSlide?: { h: number; v: number; f?: number };
   children: ReactNode;
 }
 
@@ -19,6 +20,7 @@ export function Deck({ config, initialSlide, children }: DeckProps) {
   const mountIdRef = useRef(0);
   const initialConfigRef = useRef(config);
   const initialSlideRef = useRef(initialSlide);
+  const motionCleanupRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -38,6 +40,7 @@ export function Deck({ config, initialSlide, children }: DeckProps) {
       const deck = new Reveal(el, initialConfigRef.current);
       deckRef.current = deck;
       window.RevealDeck = deck;
+      motionCleanupRef.current = attachDeckMotion(deck, el);
 
       const unhideOverview = () => {
         if (!deck.isOverview()) return;
@@ -66,7 +69,7 @@ export function Deck({ config, initialSlide, children }: DeckProps) {
       }
       deck.on("ready", () => {
         const position = initialSlideRef.current;
-        if (position) deck.slide(position.h, position.v);
+        if (position) deck.slide(position.h, position.v, position.f);
       });
       void deck.initialize();
     }
@@ -74,6 +77,8 @@ export function Deck({ config, initialSlide, children }: DeckProps) {
     return () => {
       void Promise.resolve().then(() => {
         if (mountIdRef.current === currentMountId && deckRef.current) {
+          motionCleanupRef.current?.();
+          motionCleanupRef.current = null;
           try {
             deckRef.current.destroy();
           } catch {

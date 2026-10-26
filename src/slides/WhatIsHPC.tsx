@@ -1,12 +1,19 @@
 import { Slide } from "../components/RevealDeck";
 import { SlideSection } from "../components/SlideSection";
 import { FeatureItem } from "../components/FeatureGrid";
+import { ComputeTransformation, ConnectedCluster } from "../components/ComputeArchitecture";
 
 export function WhatIsHPC() {
   return (
     <Slide>
       {/* 1. CLÚSTER: CÓMPUTO */}
       <SlideSection
+        data-auto-animate
+        data-auto-animate-id="compute-architecture"
+        data-auto-animate-duration="0.55"
+        data-auto-animate-unmatched="false"
+        className="architecture-slide"
+        bodyClassName="architecture-body"
         brand="MFQC // HPC"
         meta="ARQUITECTURA DE CLÚSTER"
         title={
@@ -16,16 +23,23 @@ export function WhatIsHPC() {
         }
         lead="Múltiples servidores interconectados que operan como un solo supercomputador para resolver problemas masivos."
       >
-        <div className="max-w-[1100px]">
+        <div className="architecture-layout">
           <FeatureItem tag="01 / CÓMPUTO" title="Nodos Densos">
             Servidores con múltiples CPUs multinúcleo de arquitectura servidor y aceleradores GPU
             trabajando de forma coordinada en paralelo.
           </FeatureItem>
+          <ComputeTransformation />
         </div>
       </SlideSection>
 
       {/* 2. CLÚSTER: RED */}
       <SlideSection
+        data-auto-animate
+        data-auto-animate-id="compute-architecture"
+        data-auto-animate-duration="0.55"
+        data-auto-animate-unmatched="false"
+        className="architecture-slide"
+        bodyClassName="architecture-body"
         brand="MFQC // RED"
         meta="INTERCONEXIÓN DE BAJA LATENCIA"
         title={
@@ -35,11 +49,12 @@ export function WhatIsHPC() {
         }
         lead="Sin una red ultrarrápida, los servidores individuales son incapaces de colaborar como un solo sistema."
       >
-        <div className="max-w-[1100px]">
+        <div className="architecture-layout">
           <FeatureItem tag="02 / RED" title="InfiniBand & RDMA" accent="cyan">
             Redes de ultra baja latencia (a nivel de microsegundos) y cientos de gigabits por
             segundo para mover tensores y mensajes sin despertar a la CPU.
           </FeatureItem>
+          <ConnectedCluster />
         </div>
       </SlideSection>
 

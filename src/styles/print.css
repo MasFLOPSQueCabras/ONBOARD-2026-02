@@ -69,7 +69,6 @@ html.reveal-print *::after {
   animation: none !important;
   transition: none !important;
   opacity: 1 !important;
-  transform: none !important;
 }
 
 html.reveal-print .text-mfqc-yellow,
@@ -98,7 +97,6 @@ html.reveal-print .print-hidden {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
-    transform: none !important;
   }
 
   .text-mfqc-yellow,
@@ -115,4 +113,108 @@ html.reveal-print .print-hidden {
 html.reveal-print .reveal .slides .pdf-page:last-child {
   break-after: auto !important;
   page-break-after: auto !important;
+}
+
+/* Reset only entrance transforms; preserve diagram geometry and Reveal layout. */
+html.reveal-print
+  :is(.motion-transform, .title-word-mas, .title-neon-flops, .title-word-cabras, .title-goat) {
+  transform: none !important;
+}
+@media print {
+  :is(.motion-transform, .title-word-mas, .title-neon-flops, .title-word-cabras, .title-goat) {
+    transform: none !important;
+  }
+}
+
+/* Ordinary printing uses the same canvas, with CSS pagination that leaves Reveal's DOM intact. */
+@page mfqc-deck {
+  size: 1664px 936px;
+  margin: 0;
+}
+@media print {
+  html[data-ordinary-print],
+  html[data-ordinary-print] body,
+  html[data-ordinary-print] #root,
+  html[data-ordinary-print] .reveal,
+  html[data-ordinary-print] .reveal .slides {
+    width: 1664px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: var(--color-mfqc-black) !important;
+  }
+  html[data-ordinary-print] .reveal {
+    page: mfqc-deck;
+  }
+  html[data-ordinary-print] .reveal .slides {
+    perspective: none !important;
+    position: static !important;
+    transform: none !important;
+  }
+  html[data-ordinary-print] .reveal .slides section.stack {
+    display: contents !important;
+    visibility: visible !important;
+  }
+  html[data-ordinary-print] .reveal .slides section:not(.stack) {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+    inset: auto !important;
+    box-sizing: border-box !important;
+    width: 1664px !important;
+    height: 936px !important;
+    margin: 0 !important;
+    padding: 18px 32px !important;
+    transform: none !important;
+    background: var(--color-mfqc-black) !important;
+    break-inside: avoid;
+    break-after: page;
+  }
+  html[data-ordinary-print] .reveal .slides > section:last-child:not(.stack),
+  html[data-ordinary-print] .reveal .slides > section:last-child > section:last-child {
+    break-after: auto;
+  }
+  html[data-ordinary-print]
+    .reveal
+    :is(
+      .controls,
+      .progress,
+      .slide-number,
+      .backgrounds,
+      .pause-overlay,
+      .aria-status,
+      .speaker-notes
+    ) {
+    display: none !important;
+  }
+  html[data-ordinary-print] .reveal .fragment {
+    visibility: visible !important;
+  }
+  html[data-ordinary-print] .reveal [data-auto-animate-target] {
+    transform: none !important;
+  }
+}
+
+@layer base {
+  @media print {
+    /* Tailwind's important [hidden] rule lives in base, so the override must too. */
+    html[data-ordinary-print] .reveal .slides section[hidden] {
+      display: block !important;
+    }
+    html[data-ordinary-print] .reveal .slides section.stack[hidden] {
+      display: contents !important;
+    }
+  }
+}
+@media print {
+  html[data-ordinary-print] .reveal .slides section {
+    perspective: none !important;
+    transform-style: flat !important;
+    z-index: auto !important;
+  }
+  html[data-ordinary-print] .reveal-viewport::before {
+    display: none !important;
+  }
 }

@@ -1,187 +1,5 @@
+/* Original title choreography; body text retains static neon styling. */
 @media screen and (prefers-reduced-motion: no-preference) {
-  /* ==========================================================================
-   Inky Neon Presentation Styling & Authentic Continuous Light Bulb Flicker
-   ========================================================================== */
-
-  /* Continuous, noticeable light bulb flicker for overhead fixture */
-  @keyframes bulb-overhead-flicker {
-    0%,
-    39.999%,
-    41.6%,
-    43.4%,
-    72.999%,
-    74.4%,
-    100% {
-      opacity: 1;
-      filter: drop-shadow(0 0 5px rgba(255, 230, 0, 0.3));
-    }
-    40%,
-    41.599% {
-      opacity: 0.15;
-      filter: none;
-    }
-    41.8%,
-    43.399% {
-      opacity: 0.35;
-      filter: drop-shadow(0 0 1px rgba(255, 230, 0, 0.1));
-    }
-    73%,
-    74.399% {
-      opacity: 0.45;
-      filter: drop-shadow(0 0 2px rgba(255, 230, 0, 0.15));
-    }
-  }
-
-  /* Continuous, noticeable light bulb filament flicker on active slide neon text */
-  @keyframes neon-bulb-flicker {
-    0%,
-    39.999%,
-    41.6%,
-    43.4%,
-    72.999%,
-    74.4%,
-    100% {
-      opacity: 1;
-      text-shadow:
-        0 0 4px currentColor,
-        0 0 10px color-mix(in srgb, currentColor 35%, transparent);
-    }
-    40%,
-    41.599% {
-      opacity: 0.22;
-      text-shadow: none;
-    }
-    41.8%,
-    43.399% {
-      opacity: 0.45;
-      text-shadow: 0 0 1px currentColor;
-    }
-    73%,
-    74.399% {
-      opacity: 0.65;
-      text-shadow: 0 0 2px currentColor;
-    }
-  }
-
-  /* Hero title badge flicker */
-  @keyframes neon-box-flicker {
-    0%,
-    39.999%,
-    41.6%,
-    43.4%,
-    72.999%,
-    74.4%,
-    100% {
-      opacity: 1;
-      filter: drop-shadow(0 0 4px rgba(255, 230, 0, 0.35));
-    }
-    40%,
-    41.599% {
-      opacity: 0.25;
-      filter: none;
-    }
-    41.8%,
-    43.399% {
-      opacity: 0.48;
-      filter: none;
-    }
-    73%,
-    74.399% {
-      opacity: 0.72;
-      filter: drop-shadow(0 0 2px rgba(255, 230, 0, 0.15));
-    }
-  }
-
-  /* Inky Neon Drop Animation for Header Brand Badge */
-  @keyframes inky-neon-drop {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, -38px, 0) scale(0.85, 1.28);
-      filter: drop-shadow(0 0 14px rgba(255, 230, 0, 0.95))
-        drop-shadow(0 0 6px rgba(0, 245, 212, 0.8));
-    }
-    48% {
-      opacity: 1;
-      transform: translate3d(0, 3px, 0) scale(1.12, 0.88);
-      filter: brightness(1.3) drop-shadow(0 0 16px rgba(0, 245, 212, 0.9))
-        drop-shadow(0 0 10px rgba(255, 230, 0, 0.9));
-    }
-    68% {
-      transform: translate3d(0, -3px, 0) scale(0.96, 1.05);
-      filter: brightness(1.08);
-    }
-    84% {
-      transform: translate3d(0, 1px, 0) scale(1.02, 0.98);
-      filter: brightness(1);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1, 1);
-      filter: none;
-    }
-  }
-
-  html:not(.reveal-print) .reveal:not(.overview) section.present .inky-badge {
-    will-change: transform, filter;
-    transform-origin: center bottom;
-    animation:
-      inky-neon-drop 0.54s cubic-bezier(0.18, 0.9, 0.32, 1) both,
-      neon-box-flicker 3.6s 0.6s infinite ease-in-out;
-  }
-
-  @keyframes inky-slide-fade-up {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 20px, 0);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  html:not(.reveal-print) .reveal:not(.overview) section.present .inky-title {
-    will-change: transform, opacity;
-    animation: inky-slide-fade-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  html:not(.reveal-print) .reveal:not(.overview) section.present .inky-lead {
-    will-change: transform, opacity;
-    animation: inky-slide-fade-up 0.5s 0.08s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  html:not(.reveal-print) .reveal:not(.overview) section.present .inky-content {
-    will-change: transform, opacity;
-    animation: inky-slide-fade-up 0.55s 0.16s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  /* Continuous Light Bulb Flicker on Active Slide Elements, Posters & Previews */
-  html:not(.reveal-print) .reveal:not(.overview) section.present .text-mfqc-yellow,
-  html:not(.reveal-print) .reveal:not(.overview) section.present .text-mfqc-cyan,
-  html:not(.reveal-print) .reveal:not(.overview) section.present .text-mfqc-pink,
-  #poster-root .text-mfqc-yellow,
-  #poster-root .text-mfqc-cyan,
-  .poster-preview .text-mfqc-yellow,
-  .poster-preview .text-mfqc-cyan {
-    animation: neon-bulb-flicker 3.6s infinite ease-in-out;
-  }
-
-  #poster-root .title-neon-flops,
-  .poster-preview .title-neon-flops {
-    animation: neon-box-flicker 3.6s infinite ease-in-out;
-  }
-
-  #poster-root .inky-badge,
-  .poster-preview .inky-badge {
-    animation:
-      inky-neon-drop 0.54s cubic-bezier(0.18, 0.9, 0.32, 1) both,
-      neon-box-flicker 3.6s 0.6s infinite ease-in-out;
-  }
-
-  /* ==========================================================================
-   Title Slide Entrance Choreography
-   ========================================================================== */
-
   @keyframes title-strike-mas {
     0% {
       opacity: 0;
@@ -251,34 +69,28 @@
   }
 
   /* Scoped trigger on active Title section */
-  html:not(.reveal-print) .reveal:not(.overview) section.present .title-word-mas {
+  .reveal[data-motion="enabled"] [data-motion-active] .title-word-mas {
     animation: title-strike-mas 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  html:not(.reveal-print)
-    .reveal:not(.overview)
-    section.present
-    .title-hero-heading
-    .title-neon-flops {
-    animation:
-      title-flops-drop 0.6s cubic-bezier(0.18, 0.9, 0.32, 1) 0.12s both,
-      neon-box-flicker 3.6s 0.72s infinite ease-in-out;
+  .reveal[data-motion="enabled"] [data-motion-active] .title-hero-heading .title-neon-flops {
+    animation: title-flops-drop 0.6s cubic-bezier(0.18, 0.9, 0.32, 1) 0.12s both;
     transform-origin: center bottom;
   }
 
-  html:not(.reveal-print) .reveal:not(.overview) section.present .title-word-cabras {
+  .reveal[data-motion="enabled"] [data-motion-active] .title-word-cabras {
     animation: title-ignite-cabras 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
   }
 
-  html:not(.reveal-print) .reveal:not(.overview) section.present .title-goat {
+  .reveal[data-motion="enabled"] [data-motion-active] .title-goat {
     animation: title-goat-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.46s both;
     transform-origin: center bottom;
   }
 
-  html:not(.reveal-print) .reveal-viewport::after,
-  #poster-root::after,
-  .poster-preview::after {
-    animation: bulb-overhead-flicker 3.6s infinite;
+  .reveal[data-motion-paused="true"] *,
+  .reveal[data-motion-paused="true"] *::before,
+  .reveal[data-motion-paused="true"] *::after {
+    animation-play-state: paused !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 
 export interface ViewportConfig {
   width: number;
@@ -42,7 +43,9 @@ export function useRevealViewport(): ViewportConfig {
   const [config, setConfig] = useState<ViewportConfig>(computeViewportConfig);
 
   useEffect(() => {
+    let printing = false;
     const handleResize = () => {
+      if (printing) return;
       setConfig((prev) => {
         const next = computeViewportConfig();
         if (
@@ -57,12 +60,26 @@ export function useRevealViewport(): ViewportConfig {
         return next;
       });
     };
+    const beforePrint = () => {
+      printing = true;
+      flushSync(() =>
+        setConfig({ width: 1600, height: 900, margin: 0.04, isMobile: false, isPrintPdf: true }),
+      );
+    };
+    const afterPrint = () => {
+      printing = false;
+      flushSync(() => setConfig(computeViewportConfig()));
+    };
+    window.addEventListener("beforeprint", beforePrint);
+    window.addEventListener("afterprint", afterPrint);
 
     window.addEventListener("resize", handleResize, { passive: true });
     window.addEventListener("orientationchange", handleResize, { passive: true });
     window.visualViewport?.addEventListener("resize", handleResize, { passive: true });
 
     return () => {
+      window.removeEventListener("beforeprint", beforePrint);
+      window.removeEventListener("afterprint", afterPrint);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("orientationchange", handleResize);
       window.visualViewport?.removeEventListener("resize", handleResize);

@@ -1,7 +1,7 @@
 import { SlideHeader } from "./SlideHeader";
-import type { ReactNode } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
-export interface SlideSectionProps {
+export interface SlideSectionProps extends Omit<HTMLAttributes<HTMLElement>, "title" | "children"> {
   brand: string;
   meta: string;
   title?: ReactNode;
@@ -17,9 +17,10 @@ export function SlideSection({
   lead,
   children,
   bodyClassName = "",
+  ...sectionProps
 }: SlideSectionProps) {
   return (
-    <section>
+    <section {...sectionProps}>
       <div className="box-border flex h-full w-full flex-col justify-between p-5 pb-24 @min-[768px]/deck:px-20 @min-[768px]/deck:pt-12 @min-[768px]/deck:pb-14">
         <SlideHeader brand={brand} meta={meta} />
 
